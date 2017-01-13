@@ -1,0 +1,28 @@
+//
+//  ProductModel.swift
+//  Mezza
+//
+//  Created by Paul Jurczyk on 1/13/17.
+//  Copyright © 2017 Alex Mitchell. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class Product {
+    var UID: String
+    var description: String
+    var sizes = [Size]()
+    var images = [UIImages]()
+    init(UID: String, description: String){
+        self.UID = UID
+        self.description = description
+    }
+    struct Size {
+        var height: Int
+        var width: Int
+        var price: Int
+        var quantity: Int
+    }
+}
+
