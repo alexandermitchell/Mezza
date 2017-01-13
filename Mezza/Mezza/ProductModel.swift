@@ -13,7 +13,7 @@ class Product {
     var UID: String
     var description: String
     var sizes = [Size]()
-    var images = [UIImages]()
+    var images = [UIImage]()
     init(UID: String, description: String){
         self.UID = UID
         self.description = description
