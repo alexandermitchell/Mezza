@@ -13,14 +13,25 @@ enum OrderStatus: String {
     case delivered = "delivered"
     case pending = "pending"
     case sent = "sent"
+    case cancelled = "cancelled"
 }
+
 class Order {
     
     var uid = String()
-    var buyer = "userUID"
-    var seller = "sellerUID"
+    var buyerUID = String()
+    var sellerUID = String()
     var size = String()
     var status = OrderStatus.pending
-    var product = "productUID"
+    var product = String()
+    
+    init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String) {
+        self.uid = uid
+        self.buyerUID = buyerUID
+        self.sellerUID = sellerUID
+        self.size = size
+        self.product = product
+        
+    }
     
 }
