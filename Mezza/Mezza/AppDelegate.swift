@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //Now we can use viewcontroller.swift file
-        window?.rootViewController = UINavigationController(rootViewController: LoginVC())
+        window?.rootViewController = LoginVC() 
+//            UINavigationController(rootViewController: LoginVC())
         return true
     }
 

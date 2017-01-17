@@ -13,12 +13,13 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        view.backgroundColor = UIColor(r: 247, g: 0, b: 37)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
         view.addSubview(vendorBuyerSegmentedControl)
+    
         
         setupInputsContainter()
         setupLoginRegisterButton()
@@ -37,10 +38,11 @@ class LoginVC: UIViewController {
         return view
     }()
     
+    
     //MARK: Register Button
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
@@ -52,7 +54,8 @@ class LoginVC: UIViewController {
         return button
     }()
     
-    // HandleLogin will function will run if login is selected. handleRegister function will run if register is selected.
+
+    //MARK: Seperates functionality between Login Vs. Register
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             handleLogin()
@@ -203,14 +206,6 @@ class LoginVC: UIViewController {
 //        vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
 //    }
     
-    // MARK: Function - Vendor & Buyer Toggle
-    func setupVendorBuyerSegmentedControl() {
-        // X, Y, Width, Height
-        vendorBuyerSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        vendorBuyerSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
-        vendorBuyerSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
-        vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
-    }
     
     
     
@@ -221,8 +216,8 @@ class LoginVC: UIViewController {
         loginRegisterSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -60).isActive = true
         loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
         loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        
     }
+    
     //MARK: Function - Icon on login page
     func setupProfileImageView() {
         // need X, Y, Width, Height constraint
@@ -297,10 +292,20 @@ class LoginVC: UIViewController {
         
     }
     
+    // MARK: Function - Vendor & Buyer Toggle
+    func setupVendorBuyerSegmentedControl() {
+        // X, Y, Width, Height
+        vendorBuyerSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        vendorBuyerSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 45).isActive = true
+        vendorBuyerSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
+        vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
+    }
+    
+    
     func setupLoginRegisterButton() {
         // need X, Y, Width, Height constraint
         loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 60).isActive = true
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
@@ -308,10 +313,9 @@ class LoginVC: UIViewController {
     }
     
     // This changed carrier, time and battery to white
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
 }
 
 //Extention makes it easier to write colors.
