@@ -13,6 +13,7 @@
 		D0AB4ACC1E295149002FCB8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4ACB1E295149002FCB8C /* Assets.xcassets */; };
 		D0AB4ACF1E295149002FCB8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */; };
 		D0AB4ADA1E295149002FCB8C /* MezzaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AD91E295149002FCB8C /* MezzaTests.swift */; };
+		D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AE41E2968CB002FCB8C /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D0AB4AD51E295149002FCB8C /* MezzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MezzaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB4AD91E295149002FCB8C /* MezzaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MezzaTests.swift; sourceTree = "<group>"; };
 		D0AB4ADB1E295149002FCB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0AB4AE41E2968CB002FCB8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				D0AB4AC41E295149002FCB8C /* AppDelegate.swift */,
 				D0AB4AC61E295149002FCB8C /* ViewController.swift */,
+				D0AB4AE41E2968CB002FCB8C /* User.swift */,
 				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				D0AB4ACB1E295149002FCB8C /* Assets.xcassets */,
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 			files = (
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
+				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
