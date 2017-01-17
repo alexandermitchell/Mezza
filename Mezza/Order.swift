@@ -18,12 +18,12 @@ enum OrderStatus: String {
 
 class Order {
     
-    var uid = String()
-    var buyerUID = String()
-    var sellerUID = String()
-    var size = String()
+    var uid: String
+    var buyerUID: String
+    var sellerUID: String
+    var size: String
     var status = OrderStatus.pending
-    var product = String()
+    var product: String
     
     init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String) {
         self.uid = uid
