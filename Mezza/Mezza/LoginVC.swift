@@ -137,8 +137,6 @@ class LoginVC: UIViewController {
     
     }
     
-    
-    
     // ADD COMPANY LOGO HERE!
     //MARK: UI - Icon on login page
     lazy var profileImageView: UIImageView = {
@@ -169,6 +167,13 @@ class LoginVC: UIViewController {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         loginRegisterButton.setTitle(title, for: UIControlState())
         
+        if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
+            vendorBuyerSegmentedControl.isHidden = true
+        } else {
+            vendorBuyerSegmentedControl.isHidden = false
+        }
+        
+        
         // Change height of input container view
         inputsContainerViewHeightAnchor?.constant = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 100 : 150
         
@@ -177,6 +182,7 @@ class LoginVC: UIViewController {
         nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 0 : 1/3)
         nameTextField.isHidden = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? true : false
         nameTextFieldHeightAnchor?.isActive = true
+        
         
         emailTextFieldHeightAnchor?.isActive = false
         emailTextFieldHeightAnchor = emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 1/2 : 1/3)
@@ -187,17 +193,26 @@ class LoginVC: UIViewController {
         passwordTextFieldHeightAnchor?.isActive = true
     }
     
-   
     
+    // MARK: Function - Vendor & Buyer Toggle
+//    func setupVendorBuyerSegmentedControl() {
+//        // X, Y, Width, Height 
+//        vendorBuyerSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        vendorBuyerSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
+//        vendorBuyerSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
+//        vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//    }
     
     // MARK: Function - Vendor & Buyer Toggle
     func setupVendorBuyerSegmentedControl() {
-        // X, Y, Width, Height 
+        // X, Y, Width, Height
         vendorBuyerSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         vendorBuyerSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
         vendorBuyerSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
         vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
     }
+    
+    
     
     //MARK: Function - Login & Register Toggle
     func setupLoginRegisterSegmentedControl() {
@@ -221,6 +236,7 @@ class LoginVC: UIViewController {
     var nameTextFieldHeightAnchor: NSLayoutConstraint?
     var emailTextFieldHeightAnchor: NSLayoutConstraint?
     var passwordTextFieldHeightAnchor: NSLayoutConstraint?
+    var loginRegisterSegmentedControlHeightAnchor: NSLayoutConstraint?
     
     //
     func setupInputsContainter() {
@@ -237,7 +253,6 @@ class LoginVC: UIViewController {
         inputsContainerView.addSubview(emailTextField)
         inputsContainerView.addSubview(emailSeperatorView)
         inputsContainerView.addSubview(passwordTextField)
-        
         
         // need X, Y, Width, Height constraint
         nameTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
