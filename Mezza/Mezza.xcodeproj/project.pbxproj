@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
+		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		84FE2D361E2967620032E186 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2D351E2967620032E186 /* Order.swift */; };
 		D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC41E295149002FCB8C /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		043399CE1E296724006AA6CD /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
+		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		84FE2D351E2967620032E186 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../Order.swift; sourceTree = "<group>"; };
 		D0AB4AC11E295148002FCB8C /* Mezza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mezza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 		049142211E2EA95500C2DC4B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
 			);
 			name = Storyboards;
@@ -77,6 +80,7 @@
 		049142241E2EA9DD00C2DC4B /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -107,7 +111,6 @@
 				D0AB4B061E2E6AD3002FCB8C /* Classes */,
 				D0AB4AC41E295149002FCB8C /* AppDelegate.swift */,
 				D0AB4AC61E295149002FCB8C /* ViewController.swift */,
-				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				D0AB4ACB1E295149002FCB8C /* Assets.xcassets */,
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
 				D0AB4AD01E295149002FCB8C /* Info.plist */,
@@ -244,6 +247,7 @@
 				84FE2D361E2967620032E186 /* Order.swift in Sources */,
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
+				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
