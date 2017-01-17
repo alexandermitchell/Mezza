@@ -32,6 +32,7 @@ class User {
         self.name = name
         self.purchases = purchases
         self.type = type
+        
     }
     
 }
