@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		84FE2D361E2967620032E186 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2D351E2967620032E186 /* Order.swift */; };
+		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
+		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
 		D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC41E295149002FCB8C /* AppDelegate.swift */; };
 		D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC61E295149002FCB8C /* ViewController.swift */; };
 		D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4AC81E295149002FCB8C /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		84FE2D351E2967620032E186 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		043399CE1E296724006AA6CD /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		D0AB4AC11E295148002FCB8C /* Mezza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mezza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB4AC41E295149002FCB8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB4AC61E295149002FCB8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				D0AB4ACB1E295149002FCB8C /* Assets.xcassets */,
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
 				D0AB4AD01E295149002FCB8C /* Info.plist */,
+				42F0490F1E29672800F45B96 /* Thread.swift */,
+				043399CE1E296724006AA6CD /* ProductModel.swift */,
 			);
 			path = Mezza;
 			sourceTree = "<group>";
@@ -206,6 +212,8 @@
 			files = (
 				84FE2D361E2967620032E186 /* Order.swift in Sources */,
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
+				42F049101E29672800F45B96 /* Thread.swift in Sources */,
+				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
