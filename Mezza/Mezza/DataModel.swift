@@ -15,7 +15,7 @@ class DataModel {
     var productsArray = [Product]()
     
     var homeFeedVC: HomeFeedViewController!
-    
+    var loggedInUser = String()
     
     func listenForChangesHF(callingViewController: HomeFeedViewController) {
         homeFeedVC = callingViewController
