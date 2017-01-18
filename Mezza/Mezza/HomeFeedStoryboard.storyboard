@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeFeedViewController-->
+        <!--Home-->
         <scene sceneID="MP3-qL-kr6">
             <objects>
-                <viewController title="HomeFeedViewController" id="nyh-Dc-ggG" customClass="HomeFeedViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="nyh-Dc-ggG" customClass="HomeFeedViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q8h-TD-OPh"/>
                         <viewControllerLayoutGuide type="bottom" id="eNa-ai-2Ql"/>
@@ -37,7 +37,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="q0J-2I-Baf">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeFeedCell" id="q0J-2I-Baf" customClass="HomeFeedCollectionViewCell" customModule="Mezza" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -72,14 +72,25 @@
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="artistLabel" destination="K0q-va-Kh0" id="ZWM-Rf-Ng1"/>
+                                            <outlet property="itemImageView" destination="pSz-el-vC2" id="Sgp-rI-4pd"/>
+                                            <outlet property="priceLabel" destination="til-bN-q9r" id="Y1a-dt-E6b"/>
+                                            <outlet property="titleLabel" destination="L1B-6F-Vb4" id="aFh-tJ-ZNE"/>
                                             <segue destination="34y-w5-H49" kind="show" identifier="HomeDetailsSegue" id="cn2-C4-lLN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="nyh-Dc-ggG" id="7mZ-Th-Rft"/>
+                                    <outlet property="delegate" destination="nyh-Dc-ggG" id="yVI-40-5Az"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="homeFeedCV" destination="KBJ-0b-o7g" id="u1P-eP-eGX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHj-Xi-nQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

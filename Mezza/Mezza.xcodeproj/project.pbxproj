@@ -21,6 +21,8 @@
 		D0AB4ADA1E295149002FCB8C /* MezzaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AD91E295149002FCB8C /* MezzaTests.swift */; };
 		D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AE41E2968CB002FCB8C /* User.swift */; };
 		D0AB4B091E2EA974002FCB8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */; };
+		D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */; };
+		D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4B0D1E2EC4CF002FCB8C /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D0AB4ADB1E295149002FCB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0AB4AE41E2968CB002FCB8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0AB4B0D1E2EC4CF002FCB8C /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		FDF44A809AC545ADEED69E0C /* Pods_Mezza.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mezza.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */,
+				D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 		D0AB4AC31E295148002FCB8C /* Mezza */ = {
 			isa = PBXGroup;
 			children = (
+				D0AB4B0C1E2EC4B8002FCB8C /* Data */,
 				049142241E2EA9DD00C2DC4B /* Logic */,
 				049142211E2EA95500C2DC4B /* Storyboards */,
 				D0AB4B061E2E6AD3002FCB8C /* Classes */,
@@ -146,6 +152,14 @@
 				043399CE1E296724006AA6CD /* ProductModel.swift */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D0AB4B0C1E2EC4B8002FCB8C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB4B0D1E2EC4CF002FCB8C /* DataModel.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		D751A2B7F6E5177DAA999AF3 /* Pods */ = {
@@ -329,7 +343,9 @@
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
+				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
+				D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

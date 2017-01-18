@@ -8,25 +8,53 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class Product {
-    var UID: String
+    var uid: String
     var description: String
     var sellerUID: String
     var sizes = [Size]()
-    var images = [UIImage]()
+    var images = [String]()
+    var title: String
     
-    init(UID: String, description: String, sellerUID: String){
-        self.UID = UID
+    init(uid: String, description: String, sellerUID: String, title: String){
+        self.uid = uid
         self.description = description
         self.sellerUID = sellerUID
+        self.title = title
+    }
+    
+    init(snapshot: FIRDataSnapshot) {
+        
+        let dict = snapshot.value as! [String : Any]
+        uid = snapshot.key
+        title = dict["title"] as! String
+        description = dict["description"] as! String
+        sellerUID = dict["sellerUID"] as! String
+        let imagesDict = dict["images"] as! [String : Any]
+        for (key, value) in imagesDict {
+            let image = key
+            images.append(image)
+        }
+        
+        let returnSizes = dict["sizes"] as! [String : Any]
+        for (key, value) in returnSizes {
+            let name = key
+            let values = value as! [String : Any]
+            let price = values["price"] as! Double
+            let quantity = values["quantity"] as! Int
+            
+            let newSize = Size(price: price, quantity: quantity, name: name)
+            sizes.append(newSize)
+        }
+        
     }
     
     struct Size {
-        var height: Int
-        var width: Int
-        var price: Int
+        var price: Double
         var quantity: Int
+        var name: String
     }
     
 }
