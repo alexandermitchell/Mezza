@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Now we can use viewcontroller.swift file
         window?.rootViewController = LoginVC() 
 //            UINavigationController(rootViewController: LoginVC())
+        
+        FIRApp.configure()
         return true
     }
 
