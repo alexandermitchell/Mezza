@@ -18,11 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
+        
+        
+//        window?.rootViewController = LoginVC() 
+
        // window = UIWindow(frame: UIScreen.main.bounds)
        // window?.makeKeyAndVisible()
         
         //Now we can use viewcontroller.swift file
         //window?.rootViewController = LoginVC()
+
 //            UINavigationController(rootViewController: LoginVC())
         
         FIRApp.configure()
