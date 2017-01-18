@@ -36,11 +36,14 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let imageString = images[0]
         
-        fetchImage(stringURL: imageString, completionHandler: { image in
+        DataModel.shared.fetchImage(stringURL: imageString, completionHandler: { image in
             
             cell.itemImageView.image = image
         })
-
+        let UID = productsArray[indexPath.row].sellerUID
+        DataModel.shared.fetchUser(UID: UID) { user in
+            cell.artistLabel.text = user.name
+        }
         
         cell.titleLabel.text = productsArray[indexPath.row].title
         
@@ -53,21 +56,9 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
         homeFeedCV.reloadData()
     }
     
-    func fetchImage(stringURL: String, completionHandler: @escaping (UIImage?) -> ()) {
-        DispatchQueue.global(qos: .background).async {
-            let url = URL(string: stringURL)!
-            URLSession.shared.dataTask(with: url) { (data, _, _) in
-                guard let responseData = data else {
-                    completionHandler(nil)
-                    return
-                }
-                let image = UIImage(data: responseData)
-                DispatchQueue.main.async {
-                    completionHandler(image)
-                }
-                }.resume()
-        }
-    }
+    
+    
+    
     
     
 
