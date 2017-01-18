@@ -5,8 +5,18 @@
 //  Created by Aman Singh on 1/17/17.
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
+/*
+ 1. need to set up alerts if password isn't correct.
+ 2. need to set up segua based on seller or buyer 
+ 3. 
+ 
+ */
 
+
+
+import Foundation
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -16,14 +26,14 @@ class LoginVC: UIViewController {
         view.backgroundColor = UIColor(r: 247, g: 0, b: 37)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
-        view.addSubview(profileImageView)
+        view.addSubview(skipRegisterButton)
         view.addSubview(loginRegisterSegmentedControl)
         view.addSubview(vendorBuyerSegmentedControl)
     
         
         setupInputsContainter()
         setupLoginRegisterButton()
-        setupProfileImageView()
+        setupSkipRegisterButton()
         setupLoginRegisterSegmentedControl()
         setupVendorBuyerSegmentedControl()
 
@@ -39,7 +49,7 @@ class LoginVC: UIViewController {
     }()
     
     
-    //MARK: Register Button
+    // MARK: Register Button
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
@@ -54,13 +64,30 @@ class LoginVC: UIViewController {
         return button
     }()
     
+    // MARK: Skip Button
+    let skipRegisterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
+        button.setTitle("Skip Register", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(handleSkipLoginRegister), for: .touchUpInside)
+        return button
+    }()
+    
+    func handleSkipLoginRegister() {
+        performSegue(withIdentifier: "toHome", sender: nil)
+    }
+    
 
     //MARK: Seperates functionality between Login Vs. Register
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             handleLogin()
         } else {
-            handleLoginRegister()
+            handleRegister()
         }
     }
     
@@ -68,22 +95,68 @@ class LoginVC: UIViewController {
     func handleLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
             else {
+                UIAlertAction(title: "Sorry, your password is not valid", style: .default, handler: nil)
                 print("Form is not valid")
                 return
         }
         
-//        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-//            
-//            if error != nil {
-//                print(error!)
-//            }
-//            
-//            self.messagesController?.fetchUserAndSetupNavBarTitle()
-//            self.dismiss(animated: true, completion: nil)
-//        })
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            
+            if error != nil {
+                UIAlertAction(title: "Sorry, this user is already signed in", style: .default, handler: nil)
+                print(error!)
+            }
+
+            print("123123")
+
+        })
     }
     
     
+    //MARK: Register Function
+    func handleRegister() {
+        
+        guard let email = emailTextField.text,let password = passwordTextField.text, let name = nameTextField.text
+            else{
+                print("Form is not valid")
+                return
+        }
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+            
+            var type = String()
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
+                type = "seller"
+            } else {
+                type = "buyer"
+            }
+            
+            let ref = FIRDatabase.database().reference(fromURL: "https://mezza-f928a.firebaseio.com/")
+            
+            let usersReference = ref.child("users").child(uid)
+            
+            let typeRef = usersReference.child("type")
+            typeRef.setValue(type)
+            
+            let emailRef = usersReference.child("email")
+            emailRef.setValue(email)
+            
+            let nameRef = usersReference.child("name")
+            nameRef.setValue(name)
+            
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+
     
     //MARK: Name Text Field
     let nameTextField: UITextField = {
@@ -93,6 +166,7 @@ class LoginVC: UIViewController {
         return tf
     }()
     
+    
     //MARK: Seperating line between name and email
     let nameSeperatorView: UIView = {
         let view = UIView()
@@ -101,11 +175,14 @@ class LoginVC: UIViewController {
         return view
     }()
     
+    
     //MARK: Email Text Field
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Email Address"
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.keyboardType = .emailAddress
+        tf.autocapitalizationType = .none
         return tf
     }()
     
@@ -137,24 +214,10 @@ class LoginVC: UIViewController {
     }()
 
     func handleVendorBuyerRegister() {
-    
+        
     }
     
-    // ADD COMPANY LOGO HERE!
-    //MARK: UI - Icon on login page
-    lazy var profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
-        imageView.isUserInteractionEnabled = true
-        
-        return imageView
-    }()
-    
-    
+
     //MARK: UI - Login & Register Toggle
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
@@ -197,18 +260,6 @@ class LoginVC: UIViewController {
     }
     
     
-    // MARK: Function - Vendor & Buyer Toggle
-//    func setupVendorBuyerSegmentedControl() {
-//        // X, Y, Width, Height 
-//        vendorBuyerSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        vendorBuyerSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
-//        vendorBuyerSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1).isActive = true
-//        vendorBuyerSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
-//    }
-    
-    
-    
-    
     //MARK: Function - Login & Register Toggle
     func setupLoginRegisterSegmentedControl() {
         // need X, Y, Width, Height constraint
@@ -218,14 +269,6 @@ class LoginVC: UIViewController {
         loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
     }
     
-    //MARK: Function - Icon on login page
-    func setupProfileImageView() {
-        // need X, Y, Width, Height constraint
-        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -12).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    }
     
     var inputsContainerViewHeightAnchor: NSLayoutConstraint?
     var nameTextFieldHeightAnchor: NSLayoutConstraint?
@@ -233,7 +276,7 @@ class LoginVC: UIViewController {
     var passwordTextFieldHeightAnchor: NSLayoutConstraint?
     var loginRegisterSegmentedControlHeightAnchor: NSLayoutConstraint?
     
-    //
+    // MARK: Constraints for all views.
     func setupInputsContainter() {
         // need X, Y, Width, Height constraint
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -309,13 +352,16 @@ class LoginVC: UIViewController {
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        
     }
     
-    // This changed carrier, time and battery to white
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
+    func setupSkipRegisterButton() {
+        // need X, Y, Width, Height constraint
+        skipRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        skipRegisterButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 30).isActive = true
+        skipRegisterButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        skipRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+
 }
 
 //Extention makes it easier to write colors.
