@@ -16,9 +16,7 @@ class DataModel {
     
     var homeFeedVC: HomeFeedViewController!
     var loggedInUser = String()
-
     
-
     
     
     
@@ -79,3 +77,28 @@ class DataModel {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
