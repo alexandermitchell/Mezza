@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class OnBoardViewController1: UIViewController {
     
@@ -37,9 +39,15 @@ class OnBoardViewController1: UIViewController {
         
                 else {
         
-        
+                    let userPath = DataModel.shared.loggedInUser
+                    let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
                     
+                    let nameRef = ref.child("name")
+                    nameRef.setValue(nameField.text)
                     
+                    let locationRef = ref.child("location")
+                    locationRef.setValue(locationField.text)
+                  
                     performSegue(withIdentifier: "toOnBoardVC2", sender: nil)
                     
                 }

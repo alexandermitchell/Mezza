@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+
     
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -20,6 +22,8 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
+    var imagePicked = false
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     
@@ -28,7 +32,49 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func goNext(_ sender: Any) {
         
-        performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
+        
+        guard let imageUploaded = profileImageView.image else {
+            alert(message: "please upload a photo")
+            return
+        }
+            
+        var data = Data()
+        data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
+        
+        let metaData = FIRStorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        
+        let storageRef = FIRStorage.storage().reference()
+        let imageName = NSUUID().uuidString
+        
+        let imageRef = storageRef.child(imageName)
+        
+//        let _ = imageRef.put(data, metadata: metaData) { (metadata, error) in
+//            
+//            if let _ = error {
+//                print("error")
+//            }
+//            
+//            let imageURL = metadata?.downloadURL
+//            
+//            let userPath = DataModel.shared.loggedInUser
+//    
+////            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+//            
+//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//            
+//            let nameRef = ref.child("avatar")
+//            nameRef.setValue(imageURL)
+//            
+//            
+//        }
+        
+
+
+//        performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
+    
+
         
     }
     
@@ -78,6 +124,8 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         
         if let selectedImage = selectedImageFromPicker {
             profileImageView.image = selectedImage
+            uploadPhotoLabel.isHidden = true
+            imagePicked = true
         }
         
         dismiss(animated: true, completion: nil)

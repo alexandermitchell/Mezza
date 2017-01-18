@@ -24,19 +24,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mge-Sy-Nte">
-                                <rect key="frame" x="38" y="126" width="300" height="37.5"/>
+                                <rect key="frame" x="38" y="126" width="300" height="36.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-Fu-qho">
-                                <rect key="frame" x="38" y="191.5" width="300" height="37"/>
+                                <rect key="frame" x="38" y="190.5" width="300" height="36"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zI-0A-UGd">
-                                <rect key="frame" x="135.5" y="309" width="103" height="49"/>
+                                <rect key="frame" x="137.5" y="309.5" width="99" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6zI-0A-UGd" secondAttribute="height" multiplier="106:51" id="WIw-5Y-jvp"/>
                                 </constraints>
@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Profile Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8h-7v-BEd">
-                                <rect key="frame" x="108.5" y="342.5" width="157.5" height="29"/>
+                                <rect key="frame" x="108" y="343" width="158" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="j8h-7v-BEd" secondAttribute="height" multiplier="299:55" id="pZx-lu-glR"/>
                                 </constraints>
@@ -125,7 +125,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add User Male_004080_50" translatesAutoresizingMaskIntoConstraints="NO" id="Cem-il-QPd">
-                                <rect key="frame" x="93.5" y="100" width="187.5" height="187.5"/>
+                                <rect key="frame" x="94" y="100" width="187" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cem-il-QPd" secondAttribute="height" multiplier="1:1" id="CRq-Bd-ecr"/>
                                 </constraints>
