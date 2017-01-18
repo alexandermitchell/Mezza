@@ -12,6 +12,10 @@
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
+		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
+		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
+		845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */; };
+		845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576F1E2ED9E300A06511 /* OnBoardViewController3.swift */; };
 		84FE2D361E2967620032E186 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2D351E2967620032E186 /* Order.swift */; };
 		D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC41E295149002FCB8C /* AppDelegate.swift */; };
 		D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC61E295149002FCB8C /* ViewController.swift */; };
@@ -41,6 +45,10 @@
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
+		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
+		845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController2.swift; sourceTree = "<group>"; };
+		845E576F1E2ED9E300A06511 /* OnBoardViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController3.swift; sourceTree = "<group>"; };
 		84FE2D351E2967620032E186 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../Order.swift; sourceTree = "<group>"; };
 		8E9ADB6D28851EA67D6459E2 /* Pods-Mezza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.debug.xcconfig"; sourceTree = "<group>"; };
 		D0AB4AC11E295148002FCB8C /* Mezza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mezza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +138,10 @@
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
 				D0AB4AD01E295149002FCB8C /* Info.plist */,
 				D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */,
+				845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */,
+				845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */,
+				845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */,
+				845E576F1E2ED9E300A06511 /* OnBoardViewController3.swift */,
 			);
 			path = Mezza;
 			sourceTree = "<group>";
@@ -232,7 +244,7 @@
 				TargetAttributes = {
 					D0AB4AC01E295148002FCB8C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SLXQD48E5E;
+						DevelopmentTeam = 38U6C5NF2M;
 						ProvisioningStyle = Automatic;
 					};
 					D0AB4AD41E295149002FCB8C = {
@@ -272,6 +284,7 @@
 				D0AB4ACC1E295149002FCB8C /* Assets.xcassets in Resources */,
 				049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
+				845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +355,10 @@
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
+				845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */,
+				845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
+				845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */,
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
 				D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */,
@@ -427,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -470,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -483,7 +499,7 @@
 			baseConfigurationReference = 8E9ADB6D28851EA67D6459E2 /* Pods-Mezza.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLXQD48E5E;
+				DEVELOPMENT_TEAM = 38U6C5NF2M;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
@@ -497,7 +513,7 @@
 			baseConfigurationReference = 35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLXQD48E5E;
+				DEVELOPMENT_TEAM = 38U6C5NF2M;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
