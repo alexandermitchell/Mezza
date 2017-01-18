@@ -26,12 +26,14 @@ class LoginVC: UIViewController {
         view.backgroundColor = UIColor(r: 247, g: 0, b: 37)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
+        view.addSubview(skipRegisterButton)
         view.addSubview(loginRegisterSegmentedControl)
         view.addSubview(vendorBuyerSegmentedControl)
     
         
         setupInputsContainter()
         setupLoginRegisterButton()
+        setupSkipRegisterButton()
         setupLoginRegisterSegmentedControl()
         setupVendorBuyerSegmentedControl()
 
@@ -47,7 +49,7 @@ class LoginVC: UIViewController {
     }()
     
     
-    //MARK: Register Button
+    // MARK: Register Button
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
@@ -61,6 +63,23 @@ class LoginVC: UIViewController {
         
         return button
     }()
+    
+    // MARK: Skip Button
+    let skipRegisterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
+        button.setTitle("Skip Register", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(handleSkipLoginRegister), for: .touchUpInside)
+        return button
+    }()
+    
+    func handleSkipLoginRegister() {
+        performSegue(withIdentifier: "toHome", sender: nil)
+    }
     
 
     //MARK: Seperates functionality between Login Vs. Register
@@ -195,7 +214,7 @@ class LoginVC: UIViewController {
     }()
 
     func handleVendorBuyerRegister() {
-    
+        
     }
     
 
@@ -333,6 +352,14 @@ class LoginVC: UIViewController {
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+    }
+    
+    func setupSkipRegisterButton() {
+        // need X, Y, Width, Height constraint
+        skipRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        skipRegisterButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 30).isActive = true
+        skipRegisterButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        skipRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
 }

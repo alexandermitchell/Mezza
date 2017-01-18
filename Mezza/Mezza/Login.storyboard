@@ -22,10 +22,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="UCa-v7-TKI" kind="show" identifier="toHome" id="XZo-2T-BBS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQM-sx-nW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-512" y="-133"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="w1V-zL-x15">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="UCa-v7-TKI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m20-OE-NwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="-70"/>
         </scene>
     </scenes>
 </document>
