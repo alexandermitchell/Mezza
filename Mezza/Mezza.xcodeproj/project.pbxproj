@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		007A70D2BDA5BFB53F0910D0 /* Pods_Mezza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF44A809AC545ADEED69E0C /* Pods_Mezza.framework */; };
 		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
+		420F608B1E2EAB6E00D67E58 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F608A1E2EAB6E00D67E58 /* Login.storyboard */; };
+		420F608D1E2EAB7E00D67E58 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F608C1E2EAB7E00D67E58 /* LoginVC.swift */; };
+		420F608F1E2EAE5200D67E58 /* LoginFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F608E1E2EAE5200D67E58 /* LoginFuncs.swift */; };
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		043399CE1E296724006AA6CD /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		420F608A1E2EAB6E00D67E58 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		420F608C1E2EAB7E00D67E58 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		420F608E1E2EAE5200D67E58 /* LoginFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFuncs.swift; sourceTree = "<group>"; };
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 				D0AB4ACB1E295149002FCB8C /* Assets.xcassets */,
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
 				D0AB4AD01E295149002FCB8C /* Info.plist */,
+				420F608A1E2EAB6E00D67E58 /* Login.storyboard */,
+				420F608C1E2EAB7E00D67E58 /* LoginVC.swift */,
+				420F608E1E2EAE5200D67E58 /* LoginFuncs.swift */,
 				D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */,
 				845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */,
 				845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */,
@@ -279,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420F608B1E2EAB6E00D67E58 /* Login.storyboard in Resources */,
 				D0AB4B091E2EA974002FCB8C /* GoogleService-Info.plist in Resources */,
 				D0AB4ACF1E295149002FCB8C /* LaunchScreen.storyboard in Resources */,
 				D0AB4ACC1E295149002FCB8C /* Assets.xcassets in Resources */,
@@ -352,6 +362,8 @@
 			files = (
 				84FE2D361E2967620032E186 /* Order.swift in Sources */,
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
+				420F608D1E2EAB7E00D67E58 /* LoginVC.swift in Sources */,
+				420F608F1E2EAE5200D67E58 /* LoginFuncs.swift in Sources */,
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
