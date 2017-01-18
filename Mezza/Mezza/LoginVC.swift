@@ -5,6 +5,14 @@
 //  Created by Aman Singh on 1/17/17.
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
+/*
+ 1. need to set up alerts if password isn't correct.
+ 2. need to set up segua based on seller or buyer 
+ 3. 
+ 
+ */
+
+
 
 import Foundation
 import UIKit
@@ -68,6 +76,7 @@ class LoginVC: UIViewController {
     func handleLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
             else {
+                UIAlertAction(title: "Sorry, your password is not valid", style: .default, handler: nil)
                 print("Form is not valid")
                 return
         }
@@ -75,12 +84,12 @@ class LoginVC: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
+                UIAlertAction(title: "Sorry, this user is already signed in", style: .default, handler: nil)
                 print(error!)
             }
 
             print("123123")
-//          self.dismiss(animated: true, completion: nil)
-            
+
         })
     }
     
