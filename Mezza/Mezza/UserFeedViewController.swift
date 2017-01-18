@@ -10,7 +10,8 @@ import UIKit
 
 class UserFeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var myCollectionView: UICollectionView!
+    
     
 
     override func viewDidLoad() {
@@ -24,11 +25,13 @@ class UserFeedViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "UserFeedCell", for: indexPath) as! UserFeedCollectionViewCell
+        
+        return cell
     }
 
 }
