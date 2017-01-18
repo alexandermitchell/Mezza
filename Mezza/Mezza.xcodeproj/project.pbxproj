@@ -13,6 +13,7 @@
 		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
+		420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
@@ -48,6 +49,7 @@
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
+		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */,
 				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
+				420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */,
 				041A9B6C1E2FF860001108C6 /* Login.storyboard in Resources */,
 				D0AB4B091E2EA974002FCB8C /* GoogleService-Info.plist in Resources */,
 				D0AB4ACF1E295149002FCB8C /* LaunchScreen.storyboard in Resources */,
