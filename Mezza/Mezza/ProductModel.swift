@@ -33,9 +33,9 @@ class Product {
         description = dict["description"] as! String
         sellerUID = dict["sellerUID"] as! String
         let imagesDict = dict["images"] as! [String : Any]
-        for (key, value) in imagesDict {
-            let image = key
-            images.append(image)
+        for (_, value) in imagesDict {
+            let image = value
+            images.append(image as! String)
         }
         
         let returnSizes = dict["sizes"] as! [String : Any]
