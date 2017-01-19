@@ -13,6 +13,16 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var homeFeedCV: UICollectionView!
     
     
+    // unwind segue -> back button on item detail page
+    @IBAction func unwindToFeed(segue: UIStoryboardSegue) {
+    
+    }
+    
+    
+    // MARK: Local Variables ----------------------------------------------------
+    
+    var selectedProduct: Product?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,14 +59,26 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
         
         return cell
         
-        
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productsArray = DataModel.shared.productsArray
+        selectedProduct = productsArray[indexPath.row]
+        performSegue(withIdentifier: "HomeDetailsSegue", sender: self)
+    }
+    
+
     func reload() {
         homeFeedCV.reloadData()
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "HomeDetailsSegue") {
+            let detailsViewController = segue.destination as! FeedItemDetailsViewController
+            detailsViewController.selectedItem = selectedProduct
+        }
+    }
     
     
     
