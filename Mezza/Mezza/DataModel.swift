@@ -51,40 +51,6 @@ class DataModel {
         products.observe(.value, with: didUpdateProducts)
     }
     
-    //New
-    func listenForUserInventory(callingViewController: InventoryViewController) {
-        
-        inventoryFeedVC = callingViewController
-        let ref = FIRDatabase.database().reference(withPath: "products")
-        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: loggedInUser)
-        query.observeSingleEvent(of: .value, with: didUpdateInventory)
-        
-    }
-    
-    //NEW - ED AMAN
-    func didUpdateInventory(snapshot: FIRDataSnapshot) {
-        inventoryArray.removeAll()
-        
-        let productDict = snapshot
-        
-        for product in productDict.children {
-            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
-            inventoryArray.append(newProduct)
-        }
-        
-        inventoryFeedVC.reload()
-    }
-    
-    
-    // TESTING ----- AMAN
-//    func listenForChangesUF(callingViewController: InventoryViewController) {
-//        inventoryFeedVC = callingViewController
-//        
-//        let products = FIRDatabase.database().reference(withPath: "products")
-//        
-//        products.observe(.value, with: didUpdateProducts2)
-//    }
-//    
     
     //PAUL
     func didUpdateProducts(snapshot: FIRDataSnapshot) {
@@ -102,20 +68,6 @@ class DataModel {
     }
     
     
-    // TESTING------AMAN
-//    func didUpdateProducts2(snapshot: FIRDataSnapshot) {
-//        productsArray.removeAll()
-//        
-//        let productDict = snapshot
-//        
-//        for product in productDict.children {
-//            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
-//            productsArray.append(newProduct)
-//        }
-//        
-//        inventoryFeedVC.reload()
-//    }
-    
     
     //PAUL
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
@@ -129,5 +81,29 @@ class DataModel {
         
     }
 
+    
+    //MARK: Observing Function for Inventory View Controller
+    func listenForUserInventory(callingViewController: InventoryViewController) {
+        
+        inventoryFeedVC = callingViewController
+        let ref = FIRDatabase.database().reference(withPath: "products")
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: loggedInUser)
+        query.observeSingleEvent(of: .value, with: didUpdateInventory)
+        
+    }
+    
+    //MARK: Updating Function for Inventory View Controller
+    func didUpdateInventory(snapshot: FIRDataSnapshot) {
+        inventoryArray.removeAll()
+        
+        let productDict = snapshot
+        
+        for product in productDict.children {
+            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+            inventoryArray.append(newProduct)
+        }
+        inventoryFeedVC.reload()
+    }
+    
 }
 

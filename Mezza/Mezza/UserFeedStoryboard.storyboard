@@ -60,6 +60,7 @@
                                         <connections>
                                             <outlet property="itemImageView" destination="1hx-rt-CTh" id="EXK-yL-zFi"/>
                                             <outlet property="titleLabel" destination="YG7-9i-3Io" id="uiE-z1-BxM"/>
+                                            <segue destination="6Zq-KT-Ip4" kind="show" id="u91-c0-FVC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

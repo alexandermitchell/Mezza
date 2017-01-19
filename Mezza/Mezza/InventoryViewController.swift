@@ -8,15 +8,15 @@
 
 import UIKit
 
-class UserFeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
         override func viewDidLoad() {
         super.viewDidLoad()
 
-            
-        DataModel.shared.listenForChangesUF(callingViewController: self)
+        DataModel.shared.listenForUserInventory(callingViewController: self)
+
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -24,14 +24,14 @@ class UserFeedViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DataModel.shared.productsArray.count
+        return DataModel.shared.inventoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "UserFeedCell", for: indexPath) as! UserFeedCollectionViewCell
+        let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "UserFeedCell", for: indexPath) as! InventoryCollectionViewCell
         
-        let productsArray = DataModel.shared.productsArray
-        let images = productsArray[indexPath.row].images
+        let inventoryArray = DataModel.shared.inventoryArray
+        let images = inventoryArray[indexPath.row].images
         
         let imageString = images[0]
         
@@ -39,19 +39,16 @@ class UserFeedViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             cell.itemImageView.image = image
         })
+
         
-//        let UID = productsArray[indexPath.row].sellerUID
-//        DataModel.shared.fetchUser(UID: UID) { user in
-//            cell.artistLabel.text = user.name
-//        }
-        
-        cell.titleLabel.text = productsArray[indexPath.row].title
-        
+        cell.titleLabel.text = inventoryArray[indexPath.row].title
         
         return cell
     }
     
+    
     func reload() {
+        print("------\n---------\n------RELOAD----------")
         myCollectionView.reloadData()
     }
 

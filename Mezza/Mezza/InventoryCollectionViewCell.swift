@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserFeedCollectionViewCell: UICollectionViewCell {
+class InventoryCollectionViewCell: UICollectionViewCell {
     
 
     @IBOutlet weak internal var itemImageView: UIImageView!
