@@ -24,6 +24,12 @@ class FeedItemDetailsViewController: UIViewController {
     
     @IBOutlet weak var imageView5: UIImageView!
     
+    // MARK: Remaingin Outlets ---------------------------------------------
+    
+    @IBOutlet weak var productTitleLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var itemPriceLabel: UILabel!
+    
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
@@ -37,7 +43,7 @@ class FeedItemDetailsViewController: UIViewController {
     // MARK: Local variables ------------------------------------------------
     
     var selectedItem: Product?
-    
+    var currentSeller: User?
     
     func putImagesInArray(closure: @escaping ([UIImage])->()) {
         var imagesArray = [UIImage]()
@@ -90,6 +96,12 @@ class FeedItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // fetch the current seller
+        let sellerUID = selectedItem!.sellerUID
+        DataModel.shared.fetchUser(UID: sellerUID) { seller in
+            self.artistNameLabel.text = seller.name
+        }
+        
         // setting up tap gesture recognizers
         let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage1))
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage2))
@@ -108,7 +120,9 @@ class FeedItemDetailsViewController: UIViewController {
         imageView5.addGestureRecognizer(tapGestureRecognizer5)
         putImagesInArray { imagesArray in
             self.setImageViews(array: imagesArray)
-
+        // set rest of page info
+            self.productTitleLabel.text = self.selectedItem?.title
+            
         }
     }
     
