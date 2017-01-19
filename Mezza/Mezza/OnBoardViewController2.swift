@@ -32,6 +32,9 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func goNext(_ sender: Any) {
         
+        if imagePicked == false {
+            alert(message: "please upload a photo")
+        }
         
         guard let imageUploaded = profileImageView.image else {
             alert(message: "please upload a photo")
@@ -59,52 +62,12 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
             let avatarRef = ref.child("avatar")
             avatarRef.setValue(imageURL)
             
-        
-            
         }
         
         
-        
-//        imageRef.put(data, metadata: nil) { (metadata, error) in
-//
-//            if let _ = error {
-//                print("error")
-//            }
-////
-//            
-//            if let returnedData = metadata {
-//                
-//                
-//                let imageURL = returnedData.downloadURL
-//            
-////              let imageURLString = String(describing: imageURL)
-//                
-//                print("\(imageURL).....X  \n ...........\n .........\n .....\(imageURL)...........\n")
-//                
-//                let ref = FIRDatabase.database().reference(withPath: "users/uid")
-//                let avatarRef = ref.child("avatar")
-//                avatarRef.setValue(imageURL)
-//            }
-//            
-//           
-////
-//////          let userPath = DataModel.shared.loggedInUser
-////    
-//////           let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
-////            
-////            let ref = FIRDatabase.database().reference(withPath: "users/uid")
-////            
-////            let nameRef = ref.child("avatar")
-////            
-////            nameRef.setValue(imageURL)
-
-//        }
-        
-
 
         performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
     
-
         
     }
     

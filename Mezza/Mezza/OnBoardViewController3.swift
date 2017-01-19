@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OnBoardViewController3: UIViewController {
     
@@ -30,7 +31,17 @@ class OnBoardViewController3: UIViewController {
         }
         
         else {
-            // go to inventory page....
+           
+//            let userPath = DataModel.shared.loggedInUser
+//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            
+            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            let bioRef = ref.child("bio")
+            bioRef.setValue(textField.text)
+            performSegue(withIdentifier: "toInventory", sender: nil)
+            
+            
+            
         }
         
     }
