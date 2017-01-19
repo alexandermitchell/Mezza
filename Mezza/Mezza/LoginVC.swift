@@ -7,8 +7,8 @@
 //
 /*
  1. need to set up alerts if password isn't correct.
- 2. need to set up segua based on seller or buyer 
- 3. add sign out button elsewhere. 
+ 2. need to set up segua based on seller or buyer
+ 3. add sign out button elsewhere.
  
  */
 
@@ -29,16 +29,16 @@ class LoginVC: UIViewController {
         view.addSubview(skipRegisterButton)
         view.addSubview(loginRegisterSegmentedControl)
         view.addSubview(vendorBuyerSegmentedControl)
-    
+        
         
         setupInputsContainter()
         setupLoginRegisterButton()
         setupSkipRegisterButton()
         setupLoginRegisterSegmentedControl()
         setupVendorBuyerSegmentedControl()
-
+        
     }
-
+    
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -81,7 +81,7 @@ class LoginVC: UIViewController {
         performSegue(withIdentifier: "toHome", sender: nil)
     }
     
-
+    
     //MARK: Seperates functionality between Login Vs. Register
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
@@ -95,20 +95,22 @@ class LoginVC: UIViewController {
     func handleLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
             else {
-                let _ = UIAlertAction(title: "Sorry, your password is not valid", style: .default, handler: nil)
                 print("Form is not valid")
+                
                 return
         }
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
-                let _ = UIAlertAction(title: "Sorry, this user is already signed in", style: .default, handler: nil)
-                print(error!)
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
             }
-
-            print("123123")
-
+            
         })
     }
     
@@ -126,7 +128,12 @@ class LoginVC: UIViewController {
             var type = String()
             
             if error != nil {
-                print(error!)
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
                 return
             }
             
@@ -164,7 +171,7 @@ class LoginVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         })
     }
-
+    
     
     //MARK: Name Text Field
     let nameTextField: UITextField = {
@@ -220,12 +227,12 @@ class LoginVC: UIViewController {
         vbSC.addTarget(self, action: #selector(handleVendorBuyerRegister), for: .valueChanged)
         return vbSC
     }()
-
+    
     func handleVendorBuyerRegister() {
         
     }
     
-
+    
     //MARK: UI - Login & Register Toggle
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
@@ -369,7 +376,7 @@ class LoginVC: UIViewController {
         skipRegisterButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         skipRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
+    
 }
 
 //Extention makes it easier to write colors.
