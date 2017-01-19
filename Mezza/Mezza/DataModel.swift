@@ -13,11 +13,12 @@ class DataModel {
     
     static var shared = DataModel()
     var productsArray = [Product]()
+    var inventoryArray = [Product]()
     
     var homeFeedVC: HomeFeedViewController!
+    var inventoryFeedVC: InventoryViewController!
+    
     var loggedInUser = String()
-    
-    
     
     
     // MARK: Functions
@@ -41,16 +42,17 @@ class DataModel {
     
     
     // MARK: FireBase Functions
-    
+    //PAUL
     func listenForChangesHF(callingViewController: HomeFeedViewController) {
         homeFeedVC = callingViewController
-        
         let products = FIRDatabase.database().reference(withPath: "products")
         
         
         products.observe(.value, with: didUpdateProducts)
     }
     
+    
+    //PAUL
     func didUpdateProducts(snapshot: FIRDataSnapshot) {
         
         productsArray.removeAll()
@@ -64,6 +66,9 @@ class DataModel {
         homeFeedVC.reload()
     }
     
+    
+    
+    //PAUL
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(UID).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -73,29 +78,29 @@ class DataModel {
         
     }
 
+    
+    //MARK: Observing Function for Inventory View Controller
+    func listenForUserInventory(callingViewController: InventoryViewController) {
+        
+        inventoryFeedVC = callingViewController
+        let ref = FIRDatabase.database().reference(withPath: "products")
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: loggedInUser)
+        query.observeSingleEvent(of: .value, with: didUpdateInventory)
+        
+    }
+    
+    //MARK: Updating Function for Inventory View Controller
+    func didUpdateInventory(snapshot: FIRDataSnapshot) {
+        inventoryArray.removeAll()
+        
+        let productDict = snapshot
+        
+        for product in productDict.children {
+            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+            inventoryArray.append(newProduct)
+        }
+        inventoryFeedVC.reload()
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

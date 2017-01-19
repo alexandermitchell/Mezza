@@ -14,6 +14,9 @@
 		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
+		420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */; };
+		420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60941E300CDD00D67E58 /* InventoryViewController.swift */; };
+		420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
@@ -52,6 +55,9 @@
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
+		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
+		420F60941E300CDD00D67E58 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				041A9B6A1E2FF860001108C6 /* Login.storyboard */,
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
+				420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */,
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
 			);
 			name = Storyboards;
@@ -112,14 +119,16 @@
 		049142241E2EA9DD00C2DC4B /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */,
 				D0AB4AC61E295149002FCB8C /* ViewController.swift */,
 				D0AB4AC41E295149002FCB8C /* AppDelegate.swift */,
 				845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */,
 				845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */,
 				041A9B6E1E2FF893001108C6 /* LoginVC.swift */,
 				845E576F1E2ED9E300A06511 /* OnBoardViewController3.swift */,
+				049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */,
 				D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */,
+				420F60941E300CDD00D67E58 /* InventoryViewController.swift */,
+				420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */,
 				04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */,
 				D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */,
 			);
@@ -294,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */,
 				D051A71B1E3111D800A139C9 /* ProductCheckout.storyboard in Resources */,
 				041A9B6C1E2FF860001108C6 /* Login.storyboard in Resources */,
 				D0AB4B091E2EA974002FCB8C /* GoogleService-Info.plist in Resources */,
@@ -370,6 +380,7 @@
 				84FE2D361E2967620032E186 /* Order.swift in Sources */,
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
 				041A9B6F1E2FF893001108C6 /* LoginVC.swift in Sources */,
+				420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */,
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
 				04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
@@ -377,6 +388,7 @@
 				D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */,
 				845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */,
 				845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */,
+				420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
 				845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */,
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
