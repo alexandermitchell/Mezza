@@ -13,7 +13,7 @@ import Firebase
 class User {
     
     enum userType: String {
-        case vendor = "vendor"
+        case seller = "seller"
         case buyer = "buyer"
         case unregistered = "unregistered"
     }
@@ -50,8 +50,10 @@ class User {
         let typeRaw = value?["type"] as? String
         type = userType(rawValue: typeRaw!)!
         avatar = value?["avatar"] as? String ?? ""
-        let x = value?["purchases"] as? FIRDataSnapshot
-        if (x?.hasChildren())! {
+//        let purchasesRef = FIRDatabase.database().reference(withPath: "users/\(uid)/purchases")
+        let purchaseSS = snapshot.childSnapshot(forPath: "purchases")
+        
+        if purchaseSS.hasChildren() {
             let purchases = value?["purchases"] as? [String : Any]
             for (key, _) in purchases! {
                 let newProductUID = key

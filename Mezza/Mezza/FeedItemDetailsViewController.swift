@@ -83,13 +83,18 @@ class FeedItemDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func proceedToCheckout(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "goToCheckout", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "goToCheckout") {
             
             let checkoutVC = segue.destination as! ProductCheckoutViewController
             checkoutVC.checkoutItem = selectedItem
-        
+            
         }
     }
     

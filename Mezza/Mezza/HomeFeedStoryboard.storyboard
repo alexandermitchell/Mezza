@@ -174,6 +174,9 @@
                                 <state key="normal" title="Buy">
                                     <color key="titleColor" red="0.44305788590604028" green="0.65176698825503354" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="proceedToCheckout:" destination="34y-w5-H49" eventType="touchUpInside" id="iCj-SE-1WK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-qp-FHm">
                                 <rect key="frame" x="7" y="24" width="48" height="30"/>

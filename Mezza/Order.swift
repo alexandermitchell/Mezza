@@ -24,14 +24,15 @@ class Order {
     var size: String
     var status = OrderStatus.pending
     var product: String
+    var price: Double
     
-    init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String) {
+    init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String, price: Double) {
         self.uid = uid
         self.buyerUID = buyerUID
         self.sellerUID = sellerUID
         self.size = size
         self.product = product
-        
+        self.price = price
     }
     
 }

@@ -273,7 +273,7 @@
 				TargetAttributes = {
 					D0AB4AC01E295148002FCB8C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DHALB9C4R4;
+						DevelopmentTeam = SLXQD48E5E;
 						ProvisioningStyle = Automatic;
 					};
 					D0AB4AD41E295149002FCB8C = {
@@ -537,7 +537,7 @@
 			baseConfigurationReference = 8E9ADB6D28851EA67D6459E2 /* Pods-Mezza.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DHALB9C4R4;
+				DEVELOPMENT_TEAM = SLXQD48E5E;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
@@ -551,7 +551,7 @@
 			baseConfigurationReference = 35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DHALB9C4R4;
+				DEVELOPMENT_TEAM = SLXQD48E5E;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
