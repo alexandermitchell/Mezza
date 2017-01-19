@@ -109,8 +109,8 @@
 				845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */,
 				D0AB4AC81E295149002FCB8C /* Main.storyboard */,
 				041A9B6A1E2FF860001108C6 /* Login.storyboard */,
-				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
 				420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */,
+				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
 			);
 			name = Storyboards;

@@ -183,6 +183,13 @@
                                     <action selector="backButtonClicked:" destination="34y-w5-H49" eventType="touchUpInside" id="s8Z-qN-tA3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click To Select Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-cq-r3i">
+                                <rect key="frame" x="109" y="462" width="233" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -194,6 +201,7 @@
                         <outlet property="imageView4" destination="B7U-gh-Ca8" id="Sts-kR-A4E"/>
                         <outlet property="imageView5" destination="xrG-J3-anz" id="01x-cv-ZIh"/>
                         <outlet property="itemPriceLabel" destination="cnj-4W-oWe" id="Aaa-bF-b4u"/>
+                        <outlet property="itemSizesLabel" destination="ffM-cq-r3i" id="mZJ-vx-W9C"/>
                         <outlet property="mainImageView" destination="aAk-S6-T5H" id="mPk-Af-pap"/>
                         <outlet property="productTitleLabel" destination="TPa-yt-IjW" id="1lv-r1-5vA"/>
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToMain" unwindAction="unwindToFeedWithSegue:" id="war-Wg-BR5"/>
@@ -203,7 +211,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-UY-jkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hBY-qF-mgc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-1764"/>
+            <point key="canvasLocation" x="2836" y="-1764.4677661169417"/>
         </scene>
         <!--ProductCheckout-->
         <scene sceneID="wq0-b6-Fay">
