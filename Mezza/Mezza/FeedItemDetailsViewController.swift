@@ -54,7 +54,18 @@ class FeedItemDetailsViewController: UIViewController {
         }
     }
     
-    
+    func setImageViews(array: [UIImage]) {
+        let imagesCount = array.count
+        
+        if imagesCount > 0 {
+            mainImageView.image = array[0]
+            imageView1.image = array[0]
+        }
+        if imagesCount > 1 { imageView2.image = array[1] }
+        if imagesCount > 2 { imageView3.image = array[2] }
+        if imagesCount > 3 { imageView4.image = array[3] }
+        if imagesCount > 4 { imageView5.image = array[4] }
+    }
     
     
     
@@ -63,9 +74,13 @@ class FeedItemDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         putImagesInArray { imagesArray in
-            let imagesCount = imagesArray.count
-            let lastImageInArray = imagesCount - 1
-            self.imageView1.image = imagesArray[0]
+            self.setImageViews(array: imagesArray)
+//            self.imageView1.image = imagesArray[0]
+//            self.mainImageView.image = imagesArray[0]
+//            self.imageView2.image = imagesArray[1]
+//            self.imageView3.image = imagesArray[2]
+//            self.imageView4.image = imagesArray[3]
+//            self.imageView5.image = imagesArray[4]
         }
         
         
