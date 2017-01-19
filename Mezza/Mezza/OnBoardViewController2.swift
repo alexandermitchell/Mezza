@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+
     
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -20,6 +22,8 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
+    var imagePicked = false
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     
@@ -28,7 +32,42 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func goNext(_ sender: Any) {
         
+        if imagePicked == false {
+            alert(message: "please upload a photo")
+        }
+        
+        guard let imageUploaded = profileImageView.image else {
+            alert(message: "please upload a photo")
+            return
+        }
+        
+        var data = Data()
+        data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
+        
+//        let metaData = FIRStorageMetadata()
+//        metaData.contentType = "image/jpg"
+        
+        let storageRef = FIRStorage.storage().reference()
+        let imageUID = NSUUID().uuidString
+        let imageRef = storageRef.child(imageUID)
+//
+        
+        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
+            let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
+            
+//            let userPath = DataModel.shared.loggedInUser
+//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            
+            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            let avatarRef = ref.child("avatar")
+            avatarRef.setValue(imageURL)
+            
+        }
+        
+        
+
         performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
+    
         
     }
     
@@ -39,9 +78,9 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         
 
         view.backgroundColor = UIColor.red
+        
 
-
-            
+        
         profileImageView.isUserInteractionEnabled = true
     
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
@@ -78,6 +117,8 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         
         if let selectedImage = selectedImageFromPicker {
             profileImageView.image = selectedImage
+            uploadPhotoLabel.isHidden = true
+            imagePicked = true
         }
         
         dismiss(animated: true, completion: nil)
