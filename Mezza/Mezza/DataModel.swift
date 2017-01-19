@@ -17,6 +17,9 @@ class DataModel {
     var homeFeedVC: HomeFeedViewController!
     var loggedInUser = String()
     
+    // TESTING ------ 
+    var userFeedVC: UserFeedViewController!
+    
     
     
     
@@ -51,6 +54,16 @@ class DataModel {
         products.observe(.value, with: didUpdateProducts)
     }
     
+    // TESTING -----
+    func listenForChangesUF(callingViewController: UserFeedViewController) {
+        userFeedVC = callingViewController
+        
+        let products = FIRDatabase.database().reference(withPath: "products")
+        
+        products.observe(.value, with: didUpdateProducts2)
+    }
+    
+    
     func didUpdateProducts(snapshot: FIRDataSnapshot) {
         
         productsArray.removeAll()
@@ -64,6 +77,23 @@ class DataModel {
         }
         homeFeedVC.reload()
     }
+    
+    
+    // TESTING------
+    func didUpdateProducts2(snapshot: FIRDataSnapshot) {
+        productsArray.removeAll()
+        
+        let productDict = snapshot
+        
+        for product in productDict.children {
+            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+            productsArray.append(newProduct)
+        }
+        
+        userFeedVC.reload()
+    }
+    
+    
     
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
         var user: User?
