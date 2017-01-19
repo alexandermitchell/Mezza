@@ -24,13 +24,14 @@ class ProductCheckoutViewController: UIViewController {
     // MARK: Local Variables --------------------------------------------------
     
     var checkoutItem: Product?
+    
     var seller: User?
     
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func makeOrder(_ sender: UIButton) {
         
-//        DataModel.shared.createOrder(buyerUID: DataModel.shared.loggedInUser, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: checkoutItem?.sizes[0], status: "pending", timestamp: "date")
+        DataModel.shared.createOrder(buyerUID: (DataModel.shared.loggedInUser?.uid)!, price: (checkoutItem?.sizes[0].price)!, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: "40x16", status: "pending", timestamp: "hello")
         
         
     }
@@ -41,7 +42,10 @@ class ProductCheckoutViewController: UIViewController {
         
         DataModel.shared.fetchUser(UID: checkoutItem!.sellerUID) { (user) in
             self.seller = user
-            
+        }
+        
+        DataModel.shared.fetchImage(stringURL: checkoutItem!.images[0]) { (image) in
+            self.imageOutlet.image = image
         }
         
     }

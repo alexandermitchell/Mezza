@@ -41,10 +41,11 @@ class DataModel {
     
     // MARK: Firebase Create Functions
     
-    func createOrder(buyerUID: String, productUID: String, seller: String, size: String, status: String, timestamp: Date) {
+    func createOrder(buyerUID: String, price: Double, productUID: String, seller: String, size: String, status: String, timestamp: String) {
         
         let orderDict = [
             "buyer": buyerUID,
+            "price": price,
             "productUID" : productUID,
             "seller" : seller,
             "size" : size,
