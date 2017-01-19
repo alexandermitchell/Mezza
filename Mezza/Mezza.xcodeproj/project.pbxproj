@@ -17,6 +17,7 @@
 		420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */; };
 		420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60941E300CDD00D67E58 /* InventoryViewController.swift */; };
 		420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */; };
+		4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C4551E31595C001EF191 /* UploadInventory.storyboard */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
@@ -59,6 +60,7 @@
 		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		420F60941E300CDD00D67E58 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4287C4551E31595C001EF191 /* UploadInventory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadInventory.storyboard; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
 				420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */,
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
+				4287C4551E31595C001EF191 /* UploadInventory.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				D0AB4ACC1E295149002FCB8C /* Assets.xcassets in Resources */,
 				049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
+				4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */,
 				845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,7 +50,7 @@ class LoginVC: UIViewController {
     
     
     // MARK: Register Button
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
         button.setTitle("Register", for: .normal)
@@ -65,7 +65,7 @@ class LoginVC: UIViewController {
     }()
     
     // MARK: Skip Button
-    let skipRegisterButton: UIButton = {
+    lazy var skipRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
         button.setTitle("Skip Register", for: .normal)
@@ -95,7 +95,7 @@ class LoginVC: UIViewController {
     func handleLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
             else {
-                UIAlertAction(title: "Sorry, your password is not valid", style: .default, handler: nil)
+                let _ = UIAlertAction(title: "Sorry, your password is not valid", style: .default, handler: nil)
                 print("Form is not valid")
                 return
         }
@@ -103,7 +103,7 @@ class LoginVC: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
-                UIAlertAction(title: "Sorry, this user is already signed in", style: .default, handler: nil)
+                let _ = UIAlertAction(title: "Sorry, this user is already signed in", style: .default, handler: nil)
                 print(error!)
             }
 
@@ -211,7 +211,7 @@ class LoginVC: UIViewController {
     }()
     
     //MARK: UI - Vendor & Buyer Toggle
-    let vendorBuyerSegmentedControl: UISegmentedControl = {
+    lazy var vendorBuyerSegmentedControl: UISegmentedControl = {
         let vbSC = UISegmentedControl(items: ["Seller", "Buyer"])
         vbSC.translatesAutoresizingMaskIntoConstraints = false
         vbSC.tintColor = UIColor.white
@@ -226,7 +226,7 @@ class LoginVC: UIViewController {
     
 
     //MARK: UI - Login & Register Toggle
-    let loginRegisterSegmentedControl: UISegmentedControl = {
+    lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.white
