@@ -39,9 +39,29 @@ class DataModel {
         }
     }
     
+    // MARK: Firebase Create Functions
+    
+    func createOrder(buyerUID: String, productUID: String, seller: String, size: String, status: String, timestamp: Date) {
+        
+        let orderDict = [
+            "buyer": buyerUID,
+            "productUID" : productUID,
+            "seller" : seller,
+            "size" : size,
+            "status" : status,
+            "timestamp" : timestamp
+        ] as [String : Any]
+        
+        
+        let ordersRef = FIRDatabase.database().reference(withPath: "orders")
+        let orderRef = ordersRef.childByAutoId()
+        orderRef.setValue(orderDict)
+        
+    }
     
     
-    // MARK: FireBase Functions
+    
+    // MARK: FireBase Listening Functions
     //PAUL
     func listenForChangesHF(callingViewController: HomeFeedViewController) {
         homeFeedVC = callingViewController
@@ -101,6 +121,9 @@ class DataModel {
         }
         inventoryFeedVC.reload()
     }
+    
+    
+    
     
 }
 
