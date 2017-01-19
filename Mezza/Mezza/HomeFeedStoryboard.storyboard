@@ -68,7 +68,6 @@
                                             <outlet property="artistLabel" destination="K0q-va-Kh0" id="ZWM-Rf-Ng1"/>
                                             <outlet property="itemImageView" destination="pSz-el-vC2" id="Sgp-rI-4pd"/>
                                             <outlet property="titleLabel" destination="L1B-6F-Vb4" id="aFh-tJ-ZNE"/>
-                                            <segue destination="34y-w5-H49" kind="show" identifier="HomeDetailsSegue" id="cn2-C4-lLN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -82,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="homeFeedCV" destination="KBJ-0b-o7g" id="u1P-eP-eGX"/>
+                        <segue destination="34y-w5-H49" kind="show" identifier="HomeDetailsSegue" id="qpp-sD-iLK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHj-Xi-nQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,6 +187,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="imageView1" destination="JJk-L1-7Um" id="RPO-eG-or1"/>
+                        <outlet property="imageView2" destination="Y5M-DN-ftM" id="ck2-rC-i7b"/>
+                        <outlet property="imageView3" destination="SnZ-22-Zf9" id="oXL-9Z-SnM"/>
+                        <outlet property="imageView4" destination="B7U-gh-Ca8" id="Sts-kR-A4E"/>
+                        <outlet property="imageView5" destination="xrG-J3-anz" id="01x-cv-ZIh"/>
+                        <outlet property="mainImageView" destination="aAk-S6-T5H" id="mPk-Af-pap"/>
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToMain" unwindAction="unwindToFeedWithSegue:" id="war-Wg-BR5"/>
                     </connections>
                 </viewController>
