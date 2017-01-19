@@ -27,7 +27,7 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         DataModel.shared.listenForChangesHF(callingViewController: self)
-
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

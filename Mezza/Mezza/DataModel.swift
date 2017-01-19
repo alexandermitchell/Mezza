@@ -18,7 +18,7 @@ class DataModel {
     var homeFeedVC: HomeFeedViewController!
     var inventoryFeedVC: InventoryViewController!
     
-    var loggedInUser = String()
+    var loggedInUser: User?
     
     
     // MARK: Functions
@@ -84,7 +84,7 @@ class DataModel {
         
         inventoryFeedVC = callingViewController
         let ref = FIRDatabase.database().reference(withPath: "products")
-        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: loggedInUser)
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: "uid") // Change back to loggedInUser
         query.observeSingleEvent(of: .value, with: didUpdateInventory)
         
     }

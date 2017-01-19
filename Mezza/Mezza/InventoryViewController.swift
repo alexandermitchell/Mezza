@@ -11,13 +11,25 @@ import UIKit
 class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
+    var inventoryProduct: Product?
     
         override func viewDidLoad() {
         super.viewDidLoad()
-
         DataModel.shared.listenForUserInventory(callingViewController: self)
 
     }
+    
+    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let itemVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! FeedItemDetailsViewController
+        
+        let inventoryArray = DataModel.shared.inventoryArray
+        inventoryProduct = inventoryArray[indexPath.row]
+        
+        self.present(itemVC, animated: true, completion: nil)
+    }
+  
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -48,7 +60,6 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     
     func reload() {
-        print("------\n---------\n------RELOAD----------")
         myCollectionView.reloadData()
     }
 
