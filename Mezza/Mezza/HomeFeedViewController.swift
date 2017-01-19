@@ -13,6 +13,11 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var homeFeedCV: UICollectionView!
     
     
+    // unwind segue -> back button on item detail page
+    @IBAction func unwindToFeed(segue: UIStoryboardSegue) {
+    
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
