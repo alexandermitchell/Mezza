@@ -62,7 +62,6 @@ class DataModel {
         for product in dict.children {
             let newProduct = Product(snapshot: product as! FIRDataSnapshot)
             productsArray.append(newProduct)
-            
         }
         homeFeedVC.reload()
     }
@@ -71,12 +70,10 @@ class DataModel {
     
     //PAUL
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
-        var user: User?
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(UID).observeSingleEvent(of: .value, with: { (snapshot) in
             let newUser = User(snapshot: snapshot)
-            user = newUser
-            completionHandler(user!)
+            completionHandler(newUser)
         })
         
     }
