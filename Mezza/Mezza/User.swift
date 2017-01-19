@@ -50,11 +50,17 @@ class User {
         let typeRaw = value?["type"] as? String
         type = userType(rawValue: typeRaw!)!
         avatar = value?["avatar"] as? String ?? ""
-        let purchases = value?["purchases"] as? [String : Any]
-        for (key, _) in purchases! {
-            let newProductUID = key
-            self.purchases.append(newProductUID)
+        let x = value?["purchases"] as? FIRDataSnapshot
+        if (x?.hasChildren())! {
+            let purchases = value?["purchases"] as? [String : Any]
+            for (key, _) in purchases! {
+                let newProductUID = key
+                self.purchases.append(newProductUID)
+            }
         }
+    
+        
+
     }
     
 }

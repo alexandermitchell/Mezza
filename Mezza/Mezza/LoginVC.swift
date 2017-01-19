@@ -8,7 +8,7 @@
 /*
  1. need to set up alerts if password isn't correct.
  2. need to set up segua based on seller or buyer 
- 3. 
+ 3. add sign out button elsewhere. 
  
  */
 
@@ -134,6 +134,7 @@ class LoginVC: UIViewController {
                 return
             }
             
+            
             if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
                 type = "seller"
             } else {
@@ -152,6 +153,13 @@ class LoginVC: UIViewController {
             
             let nameRef = usersReference.child("name")
             nameRef.setValue(name)
+            
+            let purchasesRef = usersReference.child("purchases")
+            purchasesRef.setValue(0)
+            
+            DataModel.shared.fetchUser(UID: uid, completionHandler: { (user) in
+                DataModel.shared.loggedInUser = user
+            })
             
             self.dismiss(animated: true, completion: nil)
         })
