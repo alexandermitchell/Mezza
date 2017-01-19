@@ -37,42 +37,72 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
             alert(message: "please upload a photo")
             return
         }
-            
+        
         var data = Data()
         data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
         
-        let metaData = FIRStorageMetadata()
-        metaData.contentType = "image/jpg"
-        
+//        let metaData = FIRStorageMetadata()
+//        metaData.contentType = "image/jpg"
         
         let storageRef = FIRStorage.storage().reference()
-        let imageName = NSUUID().uuidString
+        let imageUID = NSUUID().uuidString
+        let imageRef = storageRef.child(imageUID)
+//
         
-        let imageRef = storageRef.child(imageName)
+        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
+            let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
+            
+//            let userPath = DataModel.shared.loggedInUser
+//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            
+            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            let avatarRef = ref.child("avatar")
+            avatarRef.setValue(imageURL)
+            
         
-//        let _ = imageRef.put(data, metadata: metaData) { (metadata, error) in
-//            
+            
+        }
+        
+        
+        
+//        imageRef.put(data, metadata: nil) { (metadata, error) in
+//
 //            if let _ = error {
 //                print("error")
 //            }
+////
 //            
-//            let imageURL = metadata?.downloadURL
+//            if let returnedData = metadata {
+//                
+//                
+//                let imageURL = returnedData.downloadURL
 //            
-//            let userPath = DataModel.shared.loggedInUser
-//    
-////            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+////              let imageURLString = String(describing: imageURL)
+//                
+//                print("\(imageURL).....X  \n ...........\n .........\n .....\(imageURL)...........\n")
+//                
+//                let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//                let avatarRef = ref.child("avatar")
+//                avatarRef.setValue(imageURL)
+//            }
 //            
-//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
-//            
-//            let nameRef = ref.child("avatar")
-//            nameRef.setValue(imageURL)
-//            
-//            
+//           
+////
+//////          let userPath = DataModel.shared.loggedInUser
+////    
+//////           let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+////            
+////            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+////            
+////            let nameRef = ref.child("avatar")
+////            
+////            nameRef.setValue(imageURL)
+
 //        }
         
 
 
-//        performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
+        performSegue(withIdentifier: "toOnBoardVC3", sender: nil)
     
 
         
@@ -85,9 +115,9 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         
 
         view.backgroundColor = UIColor.red
+        
 
-
-            
+        
         profileImageView.isUserInteractionEnabled = true
     
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
