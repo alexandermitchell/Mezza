@@ -71,12 +71,41 @@ class FeedItemDetailsViewController: UIViewController {
         if imagesCount > 4 { imageView5.image = array[4] }
     }
     
-    
+    func changeMainImage1() {
+        mainImageView.image = imageView1.image
+    }
+    func changeMainImage2() {
+       mainImageView.image = imageView2.image
+    }
+    func changeMainImage3() {
+        mainImageView.image = imageView3.image
+    }
+    func changeMainImage4() {
+        mainImageView.image = imageView4.image
+    }
+    func changeMainImage5() {
+        mainImageView.image = imageView5.image
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // setting up tap gesture recognizers
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage1))
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage2))
+        let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage3))
+        let tapGestureRecognizer4 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage4))
+        let tapGestureRecognizer5 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage5))
+        imageView1.isUserInteractionEnabled = true
+        imageView2.isUserInteractionEnabled = true
+        imageView3.isUserInteractionEnabled = true
+        imageView4.isUserInteractionEnabled = true
+        imageView5.isUserInteractionEnabled = true
+        imageView1.addGestureRecognizer(tapGestureRecognizer1)
+        imageView2.addGestureRecognizer(tapGestureRecognizer2)
+        imageView3.addGestureRecognizer(tapGestureRecognizer3)
+        imageView4.addGestureRecognizer(tapGestureRecognizer4)
+        imageView5.addGestureRecognizer(tapGestureRecognizer5)
         putImagesInArray { imagesArray in
             self.setImageViews(array: imagesArray)
 
