@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -194,12 +194,21 @@
                         <outlet property="imageView5" destination="xrG-J3-anz" id="01x-cv-ZIh"/>
                         <outlet property="mainImageView" destination="aAk-S6-T5H" id="mPk-Af-pap"/>
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToMain" unwindAction="unwindToFeedWithSegue:" id="war-Wg-BR5"/>
+                        <segue destination="aQj-DI-VBh" kind="showDetail" identifier="goToCheckout" action="showViewController:sender:" id="5Ep-UI-hwV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-UY-jkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hBY-qF-mgc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2836" y="-1764"/>
+        </scene>
+        <!--ProductCheckout-->
+        <scene sceneID="wq0-b6-Fay">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProductCheckout" storyboardName="ProductCheckout" id="aQj-DI-VBh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3em-Q1-SeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3558" y="-1764"/>
         </scene>
     </scenes>
 </document>

@@ -79,33 +79,16 @@ class FeedItemDetailsViewController: UIViewController {
         
         putImagesInArray { imagesArray in
             self.setImageViews(array: imagesArray)
-//            self.imageView1.image = imagesArray[0]
-//            self.mainImageView.image = imagesArray[0]
-//            self.imageView2.image = imagesArray[1]
-//            self.imageView3.image = imagesArray[2]
-//            self.imageView4.image = imagesArray[3]
-//            self.imageView5.image = imagesArray[4]
-        }
-        
-        
-    }
-    
 
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        }
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "goToCheckout") {
+            let checkoutVC = segue.destination as! ProductCheckoutViewController
+            checkoutVC.checkoutItem = selectedItem
+        }
+    }
     
 }
