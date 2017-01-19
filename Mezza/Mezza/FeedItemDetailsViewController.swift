@@ -30,6 +30,10 @@ class FeedItemDetailsViewController: UIViewController {
         performSegue(withIdentifier: "unwindToMain", sender: self)
     }
     
+    // MARK: IBACtions -> Image Taps
+    
+    
+    
     // MARK: Local variables ------------------------------------------------
     
     var selectedItem: Product?
