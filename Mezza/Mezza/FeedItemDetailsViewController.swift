@@ -33,17 +33,24 @@ class FeedItemDetailsViewController: UIViewController {
     // MARK: Local variables ------------------------------------------------
     
     var selectedItem: Product?
-    var imagesArray = [UIImage]()
     
-    func putImagesInArray() {
+    
+    func putImagesInArray(closure: @escaping ([UIImage])->()) {
+        var imagesArray = [UIImage]()
         let imageURLsArray = selectedItem!.images
         var newImage = UIImage()
+        let dispatchGroup = DispatchGroup()
         for imageURL in imageURLsArray {
-            
+            dispatchGroup.enter()
             DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
                 newImage = image!
+               imagesArray.append(newImage)
+                dispatchGroup.leave()
             })
-            self.imagesArray.append(newImage)
+            
+        }
+        dispatchGroup.notify(queue: .main) {
+            closure(imagesArray)
         }
     }
     
@@ -55,10 +62,13 @@ class FeedItemDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        putImagesInArray()
-        let imagesCount = imagesArray.count
-        let lastImageInArray = imagesCount - 1
-        imageView1.image = imagesArray[0]
+        putImagesInArray { imagesArray in
+            let imagesCount = imagesArray.count
+            let lastImageInArray = imagesCount - 1
+            self.imageView1.image = imagesArray[0]
+        }
+        
+        
     }
     
 
