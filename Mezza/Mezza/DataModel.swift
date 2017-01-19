@@ -13,14 +13,12 @@ class DataModel {
     
     static var shared = DataModel()
     var productsArray = [Product]()
+    var inventoryArray = [Product]()
     
     var homeFeedVC: HomeFeedViewController!
+    var inventoryFeedVC: InventoryViewController!
+    
     var loggedInUser = String()
-    
-    // TESTING ------ 
-    var userFeedVC: UserFeedViewController!
-    
-    
     
     
     // MARK: Functions
@@ -44,26 +42,51 @@ class DataModel {
     
     
     // MARK: FireBase Functions
-    
+    //PAUL
     func listenForChangesHF(callingViewController: HomeFeedViewController) {
         homeFeedVC = callingViewController
-        
         let products = FIRDatabase.database().reference(withPath: "products")
         
         
         products.observe(.value, with: didUpdateProducts)
     }
     
-    // TESTING -----
-    func listenForChangesUF(callingViewController: UserFeedViewController) {
-        userFeedVC = callingViewController
+    //New
+    func listenForUserInventory(callingViewController: InventoryViewController) {
         
-        let products = FIRDatabase.database().reference(withPath: "products")
+        inventoryFeedVC = callingViewController
+        let ref = FIRDatabase.database().reference(withPath: "products")
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: loggedInUser)
+        query.observeSingleEvent(of: .value, with: didUpdateInventory)
         
-        products.observe(.value, with: didUpdateProducts2)
+    }
+    
+    //NEW - ED AMAN
+    func didUpdateInventory(snapshot: FIRDataSnapshot) {
+        inventoryArray.removeAll()
+        
+        let productDict = snapshot
+        
+        for product in productDict.children {
+            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+            inventoryArray.append(newProduct)
+        }
+        
+        inventoryFeedVC.reload()
     }
     
     
+    // TESTING ----- AMAN
+//    func listenForChangesUF(callingViewController: InventoryViewController) {
+//        inventoryFeedVC = callingViewController
+//        
+//        let products = FIRDatabase.database().reference(withPath: "products")
+//        
+//        products.observe(.value, with: didUpdateProducts2)
+//    }
+//    
+    
+    //PAUL
     func didUpdateProducts(snapshot: FIRDataSnapshot) {
         
         productsArray.removeAll()
@@ -79,22 +102,22 @@ class DataModel {
     }
     
     
-    // TESTING------
-    func didUpdateProducts2(snapshot: FIRDataSnapshot) {
-        productsArray.removeAll()
-        
-        let productDict = snapshot
-        
-        for product in productDict.children {
-            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
-            productsArray.append(newProduct)
-        }
-        
-        userFeedVC.reload()
-    }
+    // TESTING------AMAN
+//    func didUpdateProducts2(snapshot: FIRDataSnapshot) {
+//        productsArray.removeAll()
+//        
+//        let productDict = snapshot
+//        
+//        for product in productDict.children {
+//            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+//            productsArray.append(newProduct)
+//        }
+//        
+//        inventoryFeedVC.reload()
+//    }
     
     
-    
+    //PAUL
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
         var user: User?
         let ref = FIRDatabase.database().reference()
@@ -107,28 +130,4 @@ class DataModel {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

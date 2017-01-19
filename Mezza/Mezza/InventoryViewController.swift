@@ -15,6 +15,7 @@ class UserFeedViewController: UIViewController, UICollectionViewDelegate, UIColl
         override func viewDidLoad() {
         super.viewDidLoad()
 
+            
         DataModel.shared.listenForChangesUF(callingViewController: self)
     }
     
