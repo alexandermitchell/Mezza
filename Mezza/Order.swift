@@ -32,6 +32,7 @@ class Order {
         self.sellerUID = sellerUID
         self.size = size
         self.product = product
+        self.price = price
     }
     
 }

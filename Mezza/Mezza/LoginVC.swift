@@ -160,9 +160,8 @@ class LoginVC: UIViewController {
             DataModel.shared.fetchUser(UID: uid, completionHandler: { (user) in
                 DataModel.shared.loggedInUser = user
             })
-            
-            self.dismiss(animated: true, completion: nil)
         })
+        performSegue(withIdentifier: "toHome", sender: nil)
     }
 
     
@@ -369,6 +368,8 @@ class LoginVC: UIViewController {
         skipRegisterButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         skipRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
+
 
 }
 

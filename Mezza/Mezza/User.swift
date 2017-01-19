@@ -13,7 +13,7 @@ import Firebase
 class User {
     
     enum userType: String {
-        case vendor = "seller"
+        case seller = "seller"
         case buyer = "buyer"
         case unregistered = "unregistered"
     }
