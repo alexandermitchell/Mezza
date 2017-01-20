@@ -14,6 +14,7 @@
 		043399CF1E296724006AA6CD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043399CE1E296724006AA6CD /* ProductModel.swift */; };
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
+		04EB47151E326CF500C3B0F6 /* SizePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */; };
 		420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */; };
 		420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60941E300CDD00D67E58 /* InventoryViewController.swift */; };
 		420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */; };
@@ -59,6 +60,7 @@
 		043399CE1E296724006AA6CD /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePopUpViewController.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
 		420F608A1E2EAB6E00D67E58 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */,
 				84A33E0C1E319C31007ACFF9 /* ProductUploadViewController.swift */,
 				84A33E0E1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift */,
+				04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				84FE2D361E2967620032E186 /* Order.swift in Sources */,
 				D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */,
+				04EB47151E326CF500C3B0F6 /* SizePopUpViewController.swift in Sources */,
 				84A33E0F1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift in Sources */,
 				041A9B6F1E2FF893001108C6 /* LoginVC.swift in Sources */,
 				420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */,

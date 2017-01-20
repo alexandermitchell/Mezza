@@ -556,7 +556,6 @@
         <!--Orders-->
         <scene sceneID="hr8-gv-D62">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QfE-XF-Qf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="18T-zt-7jX" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a6j-om-GmS"/>
@@ -670,6 +669,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Orders" id="9il-tT-4NN"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QfE-XF-Qf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2534" y="1914"/>
         </scene>
@@ -696,7 +696,6 @@
         <!--Messages-->
         <scene sceneID="CHl-K6-3Ff">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wU1-I6-qVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9zn-rE-n3D" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sx5-Mc-ehB"/>
@@ -739,13 +738,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Messages" id="P9N-yw-esB"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wU1-I6-qVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3182" y="1911"/>
         </scene>
         <!--Profile-->
         <scene sceneID="X85-e1-h44">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QfP-cG-v8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="iU8-AJ-psB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="55D-GR-JtD"/>
@@ -788,13 +787,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="fY9-4O-qva"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QfP-cG-v8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3908" y="1913"/>
         </scene>
         <!--Home-->
         <scene sceneID="ZMv-dq-eVd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ssS-2a-PLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8yX-ez-PkQ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rKN-wu-UEZ"/>
@@ -939,6 +938,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="OV0-Lc-VZF"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssS-2a-PLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1826" y="1913"/>
         </scene>
