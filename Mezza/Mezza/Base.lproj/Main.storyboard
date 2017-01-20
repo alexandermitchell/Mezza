@@ -282,6 +282,16 @@
             </objects>
             <point key="canvasLocation" x="-1396" y="2252"/>
         </scene>
+        <!--BuyerOrderFeed-->
+        <scene sceneID="uAj-LT-djn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BuyerOrderFeed" id="efN-pd-hY6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Zsw-ca-KjK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LX9-gB-LS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-366" y="1712"/>
+        </scene>
         <!--Orders-->
         <scene sceneID="05Q-wn-Nnp">
             <objects>
@@ -423,6 +433,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="kcO-bD-OGr" kind="relationship" relationship="viewControllers" id="pBa-NN-uPU"/>
+                        <segue destination="efN-pd-hY6" kind="relationship" relationship="viewControllers" id="Yww-rO-qCJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6D-G0-cAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
