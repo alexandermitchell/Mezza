@@ -27,6 +27,7 @@
 		84A33E0D1E319C31007ACFF9 /* ProductUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A33E0C1E319C31007ACFF9 /* ProductUploadViewController.swift */; };
 		84A33E0F1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A33E0E1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift */; };
 		84FE2D361E2967620032E186 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE2D351E2967620032E186 /* Order.swift */; };
+		D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0258B0E1E325FDD008E8C5C /* Info.plist */; };
 		D051A71B1E3111D800A139C9 /* ProductCheckout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */; };
 		D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */; };
 		D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC41E295149002FCB8C /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		84A33E0E1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeCellTableViewCell.swift; sourceTree = "<group>"; };
 		84FE2D351E2967620032E186 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../Order.swift; sourceTree = "<group>"; };
 		8E9ADB6D28851EA67D6459E2 /* Pods-Mezza.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.debug.xcconfig"; sourceTree = "<group>"; };
+		D0258B0E1E325FDD008E8C5C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductCheckout.storyboard; sourceTree = "<group>"; };
 		D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCheckoutViewController.swift; sourceTree = "<group>"; };
 		D0AB4AC11E295148002FCB8C /* Mezza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mezza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +84,6 @@
 		D0AB4AC91E295149002FCB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0AB4ACB1E295149002FCB8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0AB4ACE1E295149002FCB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D0AB4AD01E295149002FCB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0AB4AD51E295149002FCB8C /* MezzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MezzaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB4AD91E295149002FCB8C /* MezzaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MezzaTests.swift; sourceTree = "<group>"; };
 		D0AB4ADB1E295149002FCB8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,9 +178,9 @@
 				D0AB4B061E2E6AD3002FCB8C /* Classes */,
 				D0AB4ACB1E295149002FCB8C /* Assets.xcassets */,
 				D0AB4ACD1E295149002FCB8C /* LaunchScreen.storyboard */,
-				D0AB4AD01E295149002FCB8C /* Info.plist */,
 				420F608A1E2EAB6E00D67E58 /* Login.storyboard */,
 				D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */,
+				D0258B0E1E325FDD008E8C5C /* Info.plist */,
 			);
 			path = Mezza;
 			sourceTree = "<group>";
@@ -325,6 +326,7 @@
 				D0AB4ACC1E295149002FCB8C /* Assets.xcassets in Resources */,
 				049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */,
 				4287C4591E324DCA001EF191 /* BuyerOrderFeed.storyboard in Resources */,
+				D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
 				4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */,
 				845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */,

@@ -25,11 +25,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-<<<<<<< HEAD
-	<string>UploadInventory</string>
-=======
 	<string>Login</string>
->>>>>>> aacbaa17c7a8a8b31289fa87fd5a3d408db90816
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
