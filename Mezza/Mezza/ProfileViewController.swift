@@ -9,18 +9,27 @@
 import UIKit
 import Firebase
 
-class SellerProfileViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
-    @IBAction func SettingsButton(_ sender: Any) {
-        
+    @IBAction func editButton(_ sender: Any) {
         
     }
     
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBAction func signOutButton(_ sender: Any) {
+        do {
+            try FIRAuth.auth()?.signOut()
+            performSegue(withIdentifier: "toLogin", sender: nil)
+        } catch let logoutError {
+            print(logoutError)
+        }
+    }
     
-    @IBOutlet weak var sellerName: UILabel!
-    @IBOutlet weak var sellerLocation: UILabel!
-    @IBOutlet weak var sellerDescription: UITextView!
+    
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profileLocation: UILabel!
+    @IBOutlet weak var profileDescription: UITextView!
     
     
     
@@ -40,9 +49,9 @@ class SellerProfileViewController: UIViewController {
         let loggedInUser = DataModel.shared.loggedInUser
 
         
-        loggedInUser?.name = sellerName.text!
-        loggedInUser?.location = sellerLocation.text!
-        loggedInUser?.bio = sellerDescription.text
+        loggedInUser?.name = profileName.text!
+        loggedInUser?.location = profileLocation.text!
+        loggedInUser?.bio = profileDescription.text
         
         var seller: User?
         
