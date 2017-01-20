@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -174,6 +174,9 @@
                                 <state key="normal" title="Buy">
                                     <color key="titleColor" red="0.44305788590604028" green="0.65176698825503354" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="proceedToCheckout:" destination="34y-w5-H49" eventType="touchUpInside" id="iCj-SE-1WK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-qp-FHm">
                                 <rect key="frame" x="7" y="24" width="48" height="30"/>
@@ -183,16 +186,27 @@
                                     <action selector="backButtonClicked:" destination="34y-w5-H49" eventType="touchUpInside" id="s8Z-qN-tA3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click To Select Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-cq-r3i">
+                                <rect key="frame" x="109" y="462" width="233" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="artistNameLabel" destination="HtR-QF-ETy" id="mPw-64-lsF"/>
                         <outlet property="imageView1" destination="JJk-L1-7Um" id="RPO-eG-or1"/>
                         <outlet property="imageView2" destination="Y5M-DN-ftM" id="ck2-rC-i7b"/>
                         <outlet property="imageView3" destination="SnZ-22-Zf9" id="oXL-9Z-SnM"/>
                         <outlet property="imageView4" destination="B7U-gh-Ca8" id="Sts-kR-A4E"/>
                         <outlet property="imageView5" destination="xrG-J3-anz" id="01x-cv-ZIh"/>
+                        <outlet property="itemPriceLabel" destination="cnj-4W-oWe" id="Aaa-bF-b4u"/>
+                        <outlet property="itemSizesLabel" destination="ffM-cq-r3i" id="mZJ-vx-W9C"/>
                         <outlet property="mainImageView" destination="aAk-S6-T5H" id="mPk-Af-pap"/>
+                        <outlet property="productTitleLabel" destination="TPa-yt-IjW" id="1lv-r1-5vA"/>
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToMain" unwindAction="unwindToFeedWithSegue:" id="war-Wg-BR5"/>
                         <segue destination="aQj-DI-VBh" kind="showDetail" identifier="goToCheckout" action="showViewController:sender:" id="5Ep-UI-hwV"/>
                     </connections>
@@ -200,7 +214,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-UY-jkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hBY-qF-mgc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-1764"/>
+            <point key="canvasLocation" x="2836" y="-1764.4677661169417"/>
         </scene>
         <!--ProductCheckout-->
         <scene sceneID="wq0-b6-Fay">
