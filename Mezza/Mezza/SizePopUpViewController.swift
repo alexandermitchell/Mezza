@@ -28,6 +28,9 @@ class SizePopUpViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         itemDetailVC.selectedSize = selectedSize
         if let selectedSize = selectedSize {
             delegate?.sizeSelected(size: selectedSize)
+        } else {
+            selectedSize = sizesArray[0]
+            delegate?.sizeSelected(size: selectedSize!)
         }
         sizeUIPicker?.isHidden = true
         self.view.removeFromSuperview()
