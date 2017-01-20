@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class ProfileEditViewController: UIViewController {
+class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -22,7 +22,11 @@ class ProfileEditViewController: UIViewController {
         
          let userPath = DataModel.shared.loggedInUser
         
-         let re
+        let ref = FIRDatabase.database().reference(withPath: "users/uid")
+        let values = ["name": nameField.text, "location": nameLocation.text, "bio": textField] as [String: Any]
+        ref.updateChildValues(values)
+        
+        
         
     }
     
@@ -31,8 +35,18 @@ class ProfileEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
+
     }
+
+    func handleSelectProfileImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
 
 
 
