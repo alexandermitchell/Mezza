@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Buyer Order Feed View Controller-->
         <scene sceneID="htt-qu-Y0B">
             <objects>
-                <viewController id="yev-PT-9Qo" sceneMemberID="viewController">
+                <viewController id="yev-PT-9Qo" customClass="BuyerOrderFeedViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yK2-pm-f5L"/>
                         <viewControllerLayoutGuide type="bottom" id="T0t-0p-tCi"/>
@@ -63,6 +63,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yev-PT-9Qo" id="Oz5-to-zUv"/>
+                                    <outlet property="delegate" destination="yev-PT-9Qo" id="fue-Ja-OGJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
