@@ -35,6 +35,10 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     @IBOutlet weak var itemPriceLabel: UILabel!
     
     @IBOutlet weak var itemSizesLabel: UILabel!
+    
+    @IBOutlet weak var itemDescriptionTextView: UITextView!
+   
+    
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
@@ -48,9 +52,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         selectedSize = size
         let sizesArray = selectedItem?.sizes
         for sizeProperty in sizesArray! {
-            var newSize = sizeProperty
+            let newSize = sizeProperty
             if newSize.name == size {
-                itemPriceLabel.text = "$\(newSize.price)"
+                let thisPrice = newSize.price
+                selectedPrice = thisPrice
+                itemPriceLabel.text = "$\(thisPrice)"
             }
         }
     }
@@ -61,6 +67,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     var currentSeller: User?
     var sizesArray = [String]()
     var selectedSize: String?
+    var selectedPrice: String?
     
    
     
@@ -142,6 +149,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // designing the size dropdown
+        let newColor = UIColor.lightGray.cgColor
+        itemSizesLabel.layer.borderColor = newColor
+        itemSizesLabel.layer.borderWidth = 2
+        
         createSizesArray()
         // fetch the current seller
         let sellerUID = selectedItem!.sellerUID
@@ -175,7 +187,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             self.setImageViews(array: imagesArray)
         // set rest of page info
             self.productTitleLabel.text = self.selectedItem?.title
-            
+            self.itemDescriptionTextView.text = self.selectedItem?.description
         }
     }
     
