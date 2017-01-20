@@ -6,9 +6,8 @@
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
 /*
- 1. need to set up alerts if password isn't correct.
- 2. need to set up segua based on seller or buyer
- 3. add sign out button elsewhere.
+
+ 1. add sign out button elsewhere.
  
  */
 

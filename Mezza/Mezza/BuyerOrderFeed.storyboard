@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="117" id="2Wz-ma-Zeh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="117" id="2Wz-ma-Zeh" customClass="BuyerOrderFeedCell" customModule="Mezza" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Wz-ma-Zeh" id="p3z-IW-quI">
@@ -61,6 +61,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImage" destination="h5F-Ac-ihN" id="8oY-dC-iNe"/>
+                                            <outlet property="itemName" destination="fVD-xm-0oc" id="Rzg-rI-hbM"/>
+                                            <outlet property="orderStatus" destination="e6k-18-Psx" id="J2f-vZ-fLX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -71,6 +76,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="pendingPastSegmentController" destination="2be-fB-GRN" id="KD2-k4-shz"/>
+                        <outlet property="tableView" destination="vc1-VQ-g7J" id="iFO-yM-5g7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIj-qk-M91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
