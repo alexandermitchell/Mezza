@@ -264,6 +264,7 @@ class LoginVC: UIViewController {
         
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             vendorBuyerSegmentedControl.isHidden = true
+            skipRegisterButton.isHidden = true
         } else {
             vendorBuyerSegmentedControl.isHidden = false
         }
