@@ -91,7 +91,7 @@
         <!--Feed Item Details View Controller-->
         <scene sceneID="hzj-nX-Pkc">
             <objects>
-                <viewController id="34y-w5-H49" customClass="FeedItemDetailsViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="itemDetailsID" id="34y-w5-H49" customClass="FeedItemDetailsViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Moj-tr-tRK"/>
                         <viewControllerLayoutGuide type="bottom" id="MOW-cq-8EZ"/>

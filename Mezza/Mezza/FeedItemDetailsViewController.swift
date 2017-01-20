@@ -8,7 +8,11 @@
 
 import UIKit
 
-class FeedItemDetailsViewController: UIViewController {
+protocol PopUpDelegate: class {
+    func sizeSelected(size: String)
+}
+
+class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     // MARK: Image Outlets --------------------------------------------------
     
@@ -37,16 +41,26 @@ class FeedItemDetailsViewController: UIViewController {
         performSegue(withIdentifier: "unwindToMain", sender: self)
     }
     
-    // MARK: IBACtions -> Image Taps
+    // PopUp Protocol Func -------------------------------------------------
     
-    
+    func sizeSelected(size: String) {
+        itemSizesLabel.text = size
+        selectedSize = size
+        let sizesArray = selectedItem?.sizes
+        for sizeProperty in sizesArray! {
+            var newSize = sizeProperty
+            if newSize.name == size {
+                itemPriceLabel.text = "$\(newSize.price)"
+            }
+        }
+    }
     
     // MARK: Local variables ------------------------------------------------
     
     var selectedItem: Product?
     var currentSeller: User?
-    
     var sizesArray = [String]()
+    var selectedSize: String?
     
    
     
@@ -54,6 +68,7 @@ class FeedItemDetailsViewController: UIViewController {
         // set up popup
         
         let popOverVC = UIStoryboard(name: "HomeFeedStoryboard", bundle: nil).instantiateViewController(withIdentifier:"SizePopUpID") as! SizePopUpViewController
+        popOverVC.delegate = self
         popOverVC.sizesArray = sizesArray
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
@@ -126,6 +141,7 @@ class FeedItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createSizesArray()
         // fetch the current seller
         let sellerUID = selectedItem!.sellerUID

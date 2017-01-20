@@ -14,7 +14,9 @@ class SizePopUpViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     var sizeUIPicker: UIPickerView?
     var sizesArray = [String]()
-    var selectedSize = String()
+    var selectedSize: String?
+    
+    weak var delegate: PopUpDelegate?
     
     // MARK: IBOutlets --------
     
@@ -22,6 +24,11 @@ class SizePopUpViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
+        let itemDetailVC = UIStoryboard(name: "HomeFeedStoryboard", bundle: nil).instantiateViewController(withIdentifier:"itemDetailsID") as! FeedItemDetailsViewController
+        itemDetailVC.selectedSize = selectedSize
+        if let selectedSize = selectedSize {
+            delegate?.sizeSelected(size: selectedSize)
+        }
         sizeUIPicker?.isHidden = true
         self.view.removeFromSuperview()
         
@@ -54,7 +61,7 @@ class SizePopUpViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 self.view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8)
         // set up picker view
         sizeUIPicker = UIPickerView()
-        sizeUIPicker?.frame = CGRect(x: 0, y: -50, width: self.popUpView.layer.bounds.width, height: self.popUpView.layer.bounds.height)
+        sizeUIPicker?.frame = CGRect(x: 0, y: -50, width: self.popUpView.layer.bounds.width, height: self.popUpView.layer.bounds.height - 30)
         sizeUIPicker?.delegate = self
         sizeUIPicker?.dataSource = self
         self.popUpView.addSubview(sizeUIPicker!)
