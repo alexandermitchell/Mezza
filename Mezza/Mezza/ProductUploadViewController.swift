@@ -5,32 +5,26 @@
 //  Created by Edward Han on 1/19/17.
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
-
 import UIKit
-
-class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     var editingMode = false
+    var imageTapped = false
     var selectedProduct: Product?
     
     
     var openImageViewIndex: Int = 0
-//    {
-//        if let product = selectedProduct {
-//            return product.images.count
-//        }
-//        else {
-//            return 0
-//        }
-//    }
+    //    {
+    //        if let product = selectedProduct {
+    //            return product.images.count
+    //        }
+    //        else {
+    //            return 0
+    //        }
+    //    }
     
     
     var selectedImageIndex: Int = 0
-    
-    
-    
-    
     
     
     @IBOutlet weak var titleField: UITextField!
@@ -47,7 +41,6 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var imageView4: UIImageView!
     
     var imageViewArray: [UIImageView]?
-
     
     
     @IBOutlet weak var descriptonField: UITextView!
@@ -72,8 +65,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
         return cell
         
-        }
-
+    }
     
     
     
@@ -86,7 +78,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             return 1
         }
         
-       
+        
     }
     
     
@@ -113,49 +105,109 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         if let selectedImage = selectedImageFromPicker {
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            imageViewArray?[openImageViewIndex].isUserInteractionEnabled = true
+            imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
+            
             imageViewArray?[openImageViewIndex].image = selectedImage
-            openImageViewIndex += 1
-
+            if openImageViewIndex < 3 {
+                openImageViewIndex += 1
+            }
+            
         }
+        
+        
+        
+        
         
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-   
-       imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
+        
+        imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
+        
+      
+        
+        
+        for imageView in imageViewArray! {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tap)
+            
+            print("gesture in loop")
+            
+        }
         
         if let product = selectedProduct {
             openImageViewIndex = product.images.count
         }
- 
         
         
-    }
+        
+        //        tappedMessage.isUserInteractionEnabled = true
+        
+        
+        //        tappedMessage.addGestureRecognizer(tap)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    
+    func updateImages(index: Int) {
+        let lastImageViewIndex = openImageViewIndex - 1
+        
+        for i in selectedImageIndex...lastImageViewIndex {
+            imageViewArray?[i].image = imageViewArray?[i+1].image
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        openImageViewIndex = lastImageViewIndex
+        
     }
-    */
+    
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        
+        let view = sender.view as! UIImageView
+        
+        if imageTapped {
+            let secondImageView = view
+            
+            if secondImageView.tag == selectedImageIndex {
+                secondImageView.image = nil
+                secondImageView.layer.borderColor = nil
+                updateImages(index: selectedImageIndex)
+            
+            }
+            
+            else {
+                let firstImage = imageViewArray?[selectedImageIndex].image
+                let secondImage = secondImageView.image
+                secondImageView.image = firstImage
+                imageViewArray?[selectedImageIndex].image = secondImage
+                view.layer.borderColor = UIColor.green.cgColor
+                
+                UIView.animate(withDuration: 1.0){
+                    view.layer.borderColor = nil
+                    self.imageViewArray?[self.selectedImageIndex].layer.borderColor = nil
+                }
+            
+            }
+            
+        }
+        
+        else {
+            selectedImageIndex = view.tag
+            print(selectedImageIndex)
+            
+            view.layer.borderColor = UIColor.red.cgColor
+            view.layer.borderWidth = 5
+            
+        }
 
+        imageTapped = !imageTapped
+        
+        
+    }
 }
