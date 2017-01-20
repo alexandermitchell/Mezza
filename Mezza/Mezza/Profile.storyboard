@@ -59,6 +59,7 @@
                                 <state key="normal" title="Edit"/>
                                 <connections>
                                     <action selector="editButton:" destination="ynv-gd-aLq" eventType="touchUpInside" id="LMC-VV-DLj"/>
+                                    <segue destination="qi2-aB-xB1" kind="show" identifier="toEdit" id="s1y-yn-ufm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXk-HJ-B1h">
@@ -84,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="139.880059970015"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile Edit View Controller-->
         <scene sceneID="PPM-vn-P5M">
             <objects>
-                <viewController id="qi2-aB-xB1" sceneMemberID="viewController">
+                <viewController id="qi2-aB-xB1" customClass="ProfileEditViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2QR-4j-uiD"/>
                         <viewControllerLayoutGuide type="bottom" id="bKn-eu-ygf"/>
@@ -125,10 +126,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeProfile:" destination="qi2-aB-xB1" eventType="touchUpInside" id="fN0-0q-ZhN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="phg-b6-l37" id="fYg-Pn-Q9L"/>
+                        <outlet property="nameLocation" destination="lXI-1X-f6k" id="Mdc-Sc-afw"/>
+                        <outlet property="profileImageView" destination="1Sj-dS-WNv" id="3h7-6Z-1c3"/>
+                        <outlet property="textField" destination="Wen-g7-44Y" id="0by-UL-gse"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBh-g7-g7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

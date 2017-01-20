@@ -23,6 +23,7 @@
 		4287C45D1E32813E001EF191 /* BuyerOrderFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */; };
 		4287C45F1E328C48001EF191 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C45E1E328C48001EF191 /* Profile.storyboard */; };
 		4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4601E328D9C001EF191 /* ProfileViewController.swift */; };
+		4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
@@ -74,6 +75,7 @@
 		4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyerOrderFeedCell.swift; sourceTree = "<group>"; };
 		4287C45E1E328C48001EF191 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4287C4601E328D9C001EF191 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				4287C45A1E3275EB001EF191 /* BuyerOrderFeedViewController.swift */,
 				4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */,
 				4287C4601E328D9C001EF191 /* ProfileViewController.swift */,
+				4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */,
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
+				4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */,
 				D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */,
 				4287C45D1E32813E001EF191 /* BuyerOrderFeedCell.swift in Sources */,
 			);
