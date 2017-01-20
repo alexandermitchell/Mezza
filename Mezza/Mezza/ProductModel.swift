@@ -42,7 +42,7 @@ class Product {
         for (key, value) in returnSizes {
             let name = key
             let values = value as! [String : Any]
-            let price = values["price"] as! Double
+            let price = values["price"] as! String
             let quantity = values["quantity"] as! Int
             
             let newSize = Size(price: price, quantity: quantity, name: name)
@@ -52,7 +52,7 @@ class Product {
     }
     
     struct Size {
-        var price: Double
+        var price: String
         var quantity: Int
         var name: String
     }

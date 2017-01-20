@@ -91,7 +91,7 @@
         <!--Feed Item Details View Controller-->
         <scene sceneID="hzj-nX-Pkc">
             <objects>
-                <viewController id="34y-w5-H49" customClass="FeedItemDetailsViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="itemDetailsID" id="34y-w5-H49" customClass="FeedItemDetailsViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Moj-tr-tRK"/>
                         <viewControllerLayoutGuide type="bottom" id="MOW-cq-8EZ"/>
@@ -215,6 +215,54 @@
                 <exit id="hBY-qF-mgc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2836" y="-1764.4677661169417"/>
+        </scene>
+        <!--Size Pop Up View Controller-->
+        <scene sceneID="IoX-pq-NJz">
+            <objects>
+                <viewController storyboardIdentifier="SizePopUpID" id="7Nq-yk-n5H" customClass="SizePopUpViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dnB-tz-KSD"/>
+                        <viewControllerLayoutGuide type="bottom" id="N1w-y9-Gyc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i8b-I9-5v9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8MG-4a-zb3">
+                                <rect key="frame" x="67" y="185" width="240" height="296"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-0s-H28">
+                                        <rect key="frame" x="94" y="231" width="52" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.10472756410256412" green="0.10472756410256412" blue="0.10472756410256412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissPopUp:" destination="7Nq-yk-n5H" eventType="touchUpInside" id="9h2-eX-wVD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="296" id="bCP-xA-Er3"/>
+                                    <constraint firstAttribute="width" constant="240" id="nkA-mB-4wY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8MG-4a-zb3" firstAttribute="centerY" secondItem="i8b-I9-5v9" secondAttribute="centerY" id="IOd-ZB-kFa"/>
+                            <constraint firstItem="8MG-4a-zb3" firstAttribute="centerX" secondItem="i8b-I9-5v9" secondAttribute="centerX" id="ftN-6E-MeU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popUpView" destination="8MG-4a-zb3" id="E5V-nl-ZqJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAe-An-BnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2834.4000000000001" y="-1068.215892053973"/>
         </scene>
         <!--ProductCheckout-->
         <scene sceneID="wq0-b6-Fay">

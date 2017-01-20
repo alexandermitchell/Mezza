@@ -8,7 +8,11 @@
 
 import UIKit
 
-class FeedItemDetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+protocol PopUpDelegate: class {
+    func sizeSelected(size: String)
+}
+
+class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     // MARK: Image Outlets --------------------------------------------------
     
@@ -37,46 +41,40 @@ class FeedItemDetailsViewController: UIViewController, UIPickerViewDelegate, UIP
         performSegue(withIdentifier: "unwindToMain", sender: self)
     }
     
-    // MARK: IBACtions -> Image Taps
+    // PopUp Protocol Func -------------------------------------------------
     
-    
+    func sizeSelected(size: String) {
+        itemSizesLabel.text = size
+        selectedSize = size
+        let sizesArray = selectedItem?.sizes
+        for sizeProperty in sizesArray! {
+            var newSize = sizeProperty
+            if newSize.name == size {
+                itemPriceLabel.text = "$\(newSize.price)"
+            }
+        }
+    }
     
     // MARK: Local variables ------------------------------------------------
     
     var selectedItem: Product?
     var currentSeller: User?
-    var sizeUIPicker: UIPickerView?
     var sizesArray = [String]()
+    var selectedSize: String?
     
-    // MARK: UIPicker Funcs ---------------------------------------------------------------
+   
     
-    // data method to return the numbe of columns in the picker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    // data method to return the number of rows shown in the picker
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sizesArray.count
-    }
-    // delegate method to return the value shown in the picker
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sizesArray[row]
-    }
-    
-    // delegate method called when the row was selected.
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        itemSizesLabel.text = sizesArray[row]
-    }
-    
-    
-    func showSizePicker() {
-        // set up picker view
+    func showSizePickerPopUp() {
+        // set up popup
         
-        sizeUIPicker = UIPickerView()
-        sizeUIPicker?.frame = CGRect(x: 0, y: self.view.layer.bounds.width, width: self.view.layer.bounds.height, height: 280.0)
-        sizeUIPicker?.delegate = self
-        sizeUIPicker?.dataSource = self
-        self.view.addSubview(sizeUIPicker!)
+        let popOverVC = UIStoryboard(name: "HomeFeedStoryboard", bundle: nil).instantiateViewController(withIdentifier:"SizePopUpID") as! SizePopUpViewController
+        popOverVC.delegate = self
+        popOverVC.sizesArray = sizesArray
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+      
     }
     
     // put all the product sizes into an array
@@ -143,6 +141,7 @@ class FeedItemDetailsViewController: UIViewController, UIPickerViewDelegate, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createSizesArray()
         // fetch the current seller
         let sellerUID = selectedItem!.sellerUID
@@ -154,7 +153,7 @@ class FeedItemDetailsViewController: UIViewController, UIPickerViewDelegate, UIP
         // setting up tap gesture recognizer for size label
         
         itemSizesLabel.isUserInteractionEnabled = true
-        itemSizesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSizePicker)))
+        itemSizesLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSizePickerPopUp)))
         
         // setting up tap gesture recognizers for images
         let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(changeMainImage1))
