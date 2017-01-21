@@ -120,11 +120,18 @@
                                     <action selector="backButtonTapped:" destination="fZi-nF-QKV" eventType="touchUpInside" id="Jqt-AI-bTP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udf-l2-wk1">
+                                <rect key="frame" x="118" y="318" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.25076274361629558" blue="0.14459238388354811" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="orderStatusLabel" destination="z6w-d0-JKh" id="Wux-Ha-tTy"/>
+                        <outlet property="updateOrderStatusButton" destination="udf-l2-wk1" id="DOY-2F-Jnd"/>
                         <segue destination="pV6-9l-Euy" kind="unwind" identifier="unwindToOrderFeed" unwindAction="unwindToOrderFeedWithSegue:" id="uwY-LR-Cfa"/>
                     </connections>
                 </viewController>

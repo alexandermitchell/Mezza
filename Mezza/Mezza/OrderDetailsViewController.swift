@@ -18,16 +18,26 @@ class OrderDetailsViewController: UIViewController {
     
     @IBOutlet weak var orderStatusLabel: UILabel!
     
+    @IBOutlet weak var updateOrderStatusButton: UIButton!
     // MARK: IBActions -----------------------
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
     }
     
-    
+    func changeButtonText() {
+        let userType = DataModel.shared.loggedInUser?.type
+        if userType?.rawValue == "buyer" {
+            updateOrderStatusButton.setTitle("Cancel Order", for: .normal)
+        } else {
+            updateOrderStatusButton.setTitle("Mark As Shipped", for: .normal)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeButtonText()
         orderStatusLabel.text = currentOrder?.status.rawValue
     }
 

@@ -99,13 +99,14 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         var newImage = UIImage()
         let dispatchGroup = DispatchGroup()
         for imageURL in imageURLsArray {
+            if imageURL != "" {
             dispatchGroup.enter()
             DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
                 newImage = image!
                 imagesArray.append(newImage)
                 dispatchGroup.leave()
             })
-            
+            }
         }
         dispatchGroup.notify(queue: .main) {
             closure(imagesArray)
@@ -182,11 +183,13 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         imageView4.addGestureRecognizer(tapGestureRecognizer4)
         imageView5.addGestureRecognizer(tapGestureRecognizer5)
         putImagesInArray { imagesArray in
+            
             self.setImageViews(array: imagesArray)
             // set rest of page info
             self.productTitleLabel.text = self.selectedItem?.title
             self.itemDescriptionTextView.text = self.selectedItem?.description
         }
+        
     }
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
