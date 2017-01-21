@@ -11,6 +11,9 @@ import UIKit
 class EnterSizeViewController: UIViewController {
     
     
+    var passedSize: Product.Size?
+    var selectedIndex: Int?
+    
     weak var delegate: EnterSizePopUpDelegate?
     
     @IBOutlet weak var width: UITextField!
@@ -61,7 +64,7 @@ class EnterSizeViewController: UIViewController {
             
             let quantityText = quantity.text
             
-            if quantityText?.lowercased().rangeOfCharacter(from: letters) != nil || (quantityText?.contains("."))! {
+            if quantityText?.rangeOfCharacter(from: letters) != nil || (quantityText?.contains("."))! {
                 alert(message: "invalid quantity")
                 return
             }
@@ -87,13 +90,32 @@ class EnterSizeViewController: UIViewController {
                 let widthText = width.text!
                 let heightText = height.text!
                 
+                var unit = String()
+                if inCmSwitch.selectedSegmentIndex == 0 {
+                    unit = "in"
+                }
+                if inCmSwitch.selectedSegmentIndex == 1 {
+                    unit = "cm"
+                }
                 
-                let sizeString = "\(widthText) x \(heightText)"
+                
+
+                let sizeString = "\(widthText) x \(heightText) \(unit)"
+                
                 let enterSize = Product.Size(price: priceString, quantity: quantityInt!, name: sizeString)
                 
                 print(enterSize.name)
                 
-                delegate?.addSize(addedSize: enterSize)
+                
+                if selectedIndex == nil {
+                     delegate?.addSize(addedSize: enterSize)
+                }
+                
+                if selectedIndex != nil {
+                    delegate?.replaceSize(editedSize: enterSize, index: selectedIndex!)
+                }
+                
+               
                 
                 self.view.removeFromSuperview()
                 
@@ -112,7 +134,32 @@ class EnterSizeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+  
+        
+        if let selectedSize = passedSize {
+            
+            price.text = String(selectedSize.price)
+            quantity.text = String(selectedSize.quantity)
+            
+            let sizeString = selectedSize.name
+            
+            let sizeArray = sizeString.characters.split{$0 == " "}.map(String.init)
+            
+            
+            width.text = sizeArray[0]
+            height.text = sizeArray[2]
+            
+            if sizeArray[2] == "cm" {
+                inCmSwitch.selectedSegmentIndex = 1
+            }
+            if sizeArray[2] == "in" {
+                inCmSwitch.selectedSegmentIndex = 0
+            }
+            
+        }
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

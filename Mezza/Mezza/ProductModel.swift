@@ -32,11 +32,24 @@ class Product {
         title = dict["title"] as! String
         description = dict["description"] as! String
         sellerUID = dict["sellerUID"] as! String
-        let imagesDict = dict["images"] as! [String : Any]
-        for (_, value) in imagesDict {
-            let image = value
-            images.append(image as! String)
+        
+        
+        if let imagesDict = dict["images"] as? [Any] {
+            images = imagesDict as! [String]
         }
+        if let imagesDict2 = dict["images"] as? [String : Any] {
+            
+            for (_, value) in imagesDict2 {
+                let image = value
+                images.append(image as! String)
+            }
+        }
+        
+//        let imagesDict = dict["images"] as! [String : Any]
+//        for (_, value) in imagesDict {
+//            let image = value
+//            images.append(image as! String)
+//        }
         
         let returnSizes = dict["sizes"] as! [String : Any]
         for (key, value) in returnSizes {
