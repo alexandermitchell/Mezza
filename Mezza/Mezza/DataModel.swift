@@ -23,6 +23,11 @@ class DataModel {
     
     // MARK: Functions
     
+    
+
+    
+    
+    
     func fetchImage(stringURL: String, completionHandler: @escaping (UIImage?) -> ()) {
         DispatchQueue.global(qos: .background).async {
             let url = URL(string: stringURL)!
