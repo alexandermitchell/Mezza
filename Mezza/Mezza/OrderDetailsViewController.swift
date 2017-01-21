@@ -10,19 +10,35 @@ import UIKit
 
 class OrderDetailsViewController: UIViewController {
     
-    @IBOutlet weak var orderStatusSegmeneted: UISegmentedControl!
+    // MARK: Local Variables ---------------------------------------------------
     
+    var currentOrder: Order?
     
-    func setCurrentOrderStatus() {
-        
-        orderStatusSegmeneted.setTitle("Pending", forSegmentAt: 0)
-        orderStatusSegmeneted.setTitle("Sent", forSegmentAt: 1)
+    // MARK: IBOutlets ----------------------
+    
+    @IBOutlet weak var orderStatusLabel: UILabel!
+    
+    @IBOutlet weak var updateOrderStatusButton: UIButton!
+    // MARK: IBActions -----------------------
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
     }
-
+    
+    func changeButtonText() {
+        let userType = DataModel.shared.loggedInUser?.type
+        if userType?.rawValue == "buyer" {
+            updateOrderStatusButton.setTitle("Cancel Order", for: .normal)
+        } else {
+            updateOrderStatusButton.setTitle("Mark As Shipped", for: .normal)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       setCurrentOrderStatus()
+        changeButtonText()
+        orderStatusLabel.text = currentOrder?.status.rawValue
     }
 
     override func didReceiveMemoryWarning() {

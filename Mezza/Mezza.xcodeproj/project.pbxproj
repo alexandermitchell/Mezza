@@ -76,6 +76,7 @@
 		04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersMainViewController.swift; sourceTree = "<group>"; };
 		04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		04FDE41C1E33E0F000153C7A /* Mezza.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mezza.entitlements; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
 		420F608A1E2EAB6E00D67E58 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		D0AB4AC31E295148002FCB8C /* Mezza */ = {
 			isa = PBXGroup;
 			children = (
+				04FDE41C1E33E0F000153C7A /* Mezza.entitlements */,
 				D0AB4B0C1E2EC4B8002FCB8C /* Data */,
 				049142241E2EA9DD00C2DC4B /* Logic */,
 				049142211E2EA95500C2DC4B /* Storyboards */,
@@ -322,8 +324,13 @@
 				TargetAttributes = {
 					D0AB4AC01E295148002FCB8C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SLXQD48E5E;
+						DevelopmentTeam = DHALB9C4R4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					D0AB4AD41E295149002FCB8C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -603,7 +610,7 @@
 			baseConfigurationReference = 8E9ADB6D28851EA67D6459E2 /* Pods-Mezza.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLXQD48E5E;
+				DEVELOPMENT_TEAM = DHALB9C4R4;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
@@ -617,7 +624,7 @@
 			baseConfigurationReference = 35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLXQD48E5E;
+				DEVELOPMENT_TEAM = DHALB9C4R4;
 				INFOPLIST_FILE = Mezza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = group1.Mezza;
