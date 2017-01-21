@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,6 +20,15 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var ordersTableView: UITableView!
     
     func fetchBuyerOrders() {
+        let ordersRef = FIRDatabase.database().reference().child("orders")
+        ordersRef.queryOrdered(byChild: "buyer").queryEqual(toValue: loggedInUID).observe(.value, with: { snapshot in
+            for child in snapshot.children {
+                
+                let order = Order()
+                
+                
+            }
+        })
         
         
         
