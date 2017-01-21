@@ -10,19 +10,20 @@ import UIKit
 
 class OrderDetailsViewController: UIViewController {
     
-    @IBOutlet weak var orderStatusSegmeneted: UISegmentedControl!
+    // MARK: Local Variables ---------------------------------------------------
+    
+    var currentOrder: Order?
+    
+    // MARK: IBOutlets ----------------------
+    
+    @IBOutlet weak var orderStatusLabel: UILabel!
     
     
-    func setCurrentOrderStatus() {
-        
-        orderStatusSegmeneted.setTitle("Pending", forSegmentAt: 0)
-        orderStatusSegmeneted.setTitle("Sent", forSegmentAt: 1)
-    }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       setCurrentOrderStatus()
+        orderStatusLabel.text = currentOrder?.status.rawValue
     }
 
     override func didReceiveMemoryWarning() {

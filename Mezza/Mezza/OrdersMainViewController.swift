@@ -16,6 +16,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     var pastOrdersArray = [Order]()
     let loggedInUserType = DataModel.shared.loggedInUser?.type.rawValue
     let loggedInUID = DataModel.shared.loggedInUser?.uid
+    var selectedOrder: Order?
     // MARK: IBOutlets -----------------
     
     @IBOutlet weak var ordersTableView: UITableView!
@@ -63,7 +64,6 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
-
     
     
     
@@ -92,9 +92,30 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if ordersSegmentedControl.selectedSegmentIndex == 0 {
+        selectedOrder = pendingOrdersArray[indexPath.row]
+        } else {
+            selectedOrder = pastOrdersArray[indexPath.row]
+        }
+        performSegue(withIdentifier: "showOrderDetail", sender: self)
+    }
+    
     func segmentedControlReloadTableView() {
        ordersTableView.reloadData()
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "showOrderDetail") {
+            let detailsViewController = segue.destination as! OrderDetailsViewController
+            detailsViewController.currentOrder = selectedOrder
+        }
+    }
+    
+    
+    
     
     
     override func viewDidLoad() {

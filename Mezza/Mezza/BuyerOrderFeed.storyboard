@@ -79,6 +79,7 @@
                     <connections>
                         <outlet property="ordersSegmentedControl" destination="2be-fB-GRN" id="QwH-HM-BLV"/>
                         <outlet property="ordersTableView" destination="vc1-VQ-g7J" id="HtC-L3-Wqm"/>
+                        <segue destination="fZi-nF-QKV" kind="show" identifier="showOrderDetail" id="p3H-DJ-62T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIj-qk-M91" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,19 +105,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zIg-bN-KYw">
-                                <rect key="frame" x="127" y="219" width="121" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6w-d0-JKh">
+                                <rect key="frame" x="136" y="223" width="191" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="orderStatusSegmeneted" destination="zIg-bN-KYw" id="HNJ-gf-tdl"/>
+                        <outlet property="orderStatusLabel" destination="z6w-d0-JKh" id="Wux-Ha-tTy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ah-Hq-Oc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
