@@ -23,13 +23,7 @@ class DataModel {
     
     var loggedInUser: User?
     
-    
-    // MARK: Functions
-    
-    
 
-    
-    
     
     func fetchImage(stringURL: String, completionHandler: @escaping (UIImage?) -> ()) {
         DispatchQueue.global(qos: .background).async {
@@ -68,6 +62,70 @@ class DataModel {
         
     }
     
+    
+    func createProduct(title: String, description: String, images: [String], sellerUID: String, sizes: [Product.Size]) {
+        
+
+        
+        var imageDict = [String: String]()
+        for (key, value)  in images.enumerated() {
+            imageDict[String(key)] = value
+        }
+        
+        
+        var sizeDictManual = [String: Any]()
+        
+        
+        for size in sizes {
+            let key = size.name
+            let miniDict = [
+                "price" : size.price,
+                "quantity": size.quantity
+                ] as [String: Any]
+            sizeDictManual[key] = miniDict
+        }
+        
+        
+        let dict = [
+            "description" : description,
+            "sellerUID" : sellerUID,
+            "title" : title,
+            "images": imageDict,
+            "sizes": 0
+            ] as [String : Any]
+    
+        
+        let productsRef = FIRDatabase.database().reference(withPath: "products")
+        
+        let productRef = productsRef.childByAutoId()
+        productRef.setValue(dict)
+        
+        print(productRef.key)
+        
+     
+        let sizesRef = productRef.child("sizes")
+        
+        for size in sizes {
+            let sizeRef = sizesRef.child(size.name)
+            let sizeDict = [
+                "price" : size.price,
+                "quantity": size.quantity
+            ] as [String : Any]
+            
+            sizeRef.setValue(sizeDict)
+        }
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+    }
     
     
     // MARK: FireBase Listening Functions

@@ -7,17 +7,39 @@
 //
 import UIKit
 
+import Firebase
 
 protocol EnterSizePopUpDelegate: class {
     func showPopUp()
     func addSize(addedSize: Product.Size)
+    func replaceSize(editedSize: Product.Size, index: Int)
     
 }
 
 
 class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, EnterSizePopUpDelegate, UITextViewDelegate {
     
-    var editingMode = false
+    
+    
+    func alert(message: String, title: String = "") {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    var editingMode: Bool {
+        if let _ = selectedProduct {
+            return true
+        }
+        
+        else {
+            return false
+        }
+    }
+    
+    
     var imageTapped = false
     var selectedProduct: Product?
     
@@ -144,6 +166,26 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         popVC.didMove(toParentViewController: self)
     }
     
+    func showPopUpEdit(sizePriceQuant: Product.Size, index: Int) {
+        
+        let popVC = UIStoryboard(name: "UploadInventory", bundle: nil).instantiateViewController(withIdentifier: "enterSizePopUp") as! EnterSizeViewController
+        popVC.delegate = self
+
+        
+        popVC.passedSize = sizePriceQuant
+        popVC.selectedIndex = index
+        print(index)
+        
+        
+        self.addChildViewController(popVC)
+        popVC.view.frame = self.view.frame
+        self.view.addSubview(popVC.view)
+        popVC.didMove(toParentViewController: self)
+        
+        
+        
+    }
+    
     
     
     func addSize(addedSize: Product.Size) {
@@ -152,6 +194,14 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         print(sizeArray[0].name)
     }
     
+    
+    
+    func replaceSize(editedSize: Product.Size, index: Int) {
+        sizeArray[index] = editedSize
+        sizePriceQuantTableView.reloadData()
+        
+        
+    }
     
     @IBAction func enterSize(_ sender: Any) {
         
@@ -193,7 +243,13 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let selectedSize = sizeArray[indexPath.row]
         
+        print(indexPath.row)
+        print(selectedSize.name)
+            
+        showPopUpEdit(sizePriceQuant: selectedSize, index: indexPath.row)
+        print(indexPath.row)
         
         
         
@@ -246,7 +302,6 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
-
     
     
     
@@ -331,17 +386,11 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
 
 
             
-            
-            //            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-                        //         imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
-            //            imageViewArray?[openImageViewIndex].isUserInteractionEnabled = true
-
-            
         }
         
         for i in 0...(openImageViewIndex - 1) {
             
-            
+            imageViewArray?[i].isUserInteractionEnabled = true
         }
         
         
@@ -352,7 +401,75 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
+    @IBAction func save(_ sender: Any) {
+        
+        
+        let title = titleField.text
+        let artist = artistField.text
+        let description = descriptonField.text
+        
+        var imagesArray = [UIImage?]()
+        for imageView in imageViewArray! {
+            if let image = imageView.image {
+            imagesArray.append(image)
+            }
+        }
+        
+        var imagesURL = ["","","","",""]
+        let imagesArrayLastIndex = imagesArray.count - 1
+        
+        
+        if title == "" || artist == "" || description == "" {
+            alert(message: "please fill out all the fields")
+        }
+        
+        if imagesArray.count == 0 {
+            alert(message: "please add")
+        }
+        
+        
+        
+        
+        
+        let dispatchGroup = DispatchGroup()
+        
+        for i in 0...imagesArrayLastIndex {
+            var data = Data()
+            data = UIImageJPEGRepresentation(imagesArray[i]!, 0.1)!
+            let storageRef = FIRStorage.storage().reference()
+            let imageUID = NSUUID().uuidString
+            let imageRef = storageRef.child(imageUID)
+            dispatchGroup.enter()
+        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
+                let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
+                imagesURL[i] = imageURL!
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main){
+            
+            print("done")
+//            DataModel.shared.createProduct(title: title!, description: description!, images: imagesURL, sellerUID: (DataModel.shared.loggedInUser?.uid)!, sizes: self.sizeArray)
+        
+            
+            
+            DataModel.shared.createProduct(title: title!, description: description!, images: imagesURL, sellerUID: "selleruid", sizes: self.sizeArray)
+            
+        }
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+
     
     func handleTap(_ sender: UITapGestureRecognizer) {
         
