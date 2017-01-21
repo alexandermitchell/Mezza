@@ -68,10 +68,8 @@ class DataModel {
         homeFeedVC = callingViewController
         let products = FIRDatabase.database().reference(withPath: "products")
         
-        
         products.observe(.value, with: didUpdateProducts)
     }
-    
     
     //PAUL
     func didUpdateProducts(snapshot: FIRDataSnapshot) {
@@ -86,8 +84,6 @@ class DataModel {
         }
         homeFeedVC.reload()
     }
-    
-    
     
     //PAUL
     func fetchUser(UID: String, completionHandler: @escaping (User) -> ()){
@@ -122,9 +118,6 @@ class DataModel {
         }
         inventoryFeedVC.reload()
     }
-    
-    
-    
     
 }
 

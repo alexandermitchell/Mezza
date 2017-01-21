@@ -19,19 +19,19 @@ class ProductCheckoutViewController: UIViewController {
     @IBOutlet weak var titleOutlet: UILabel!
  
     
-    
-    
     // MARK: Local Variables --------------------------------------------------
     
     var checkoutItem: Product?
-    
     var seller: User?
+    var checkoutItemSize: String?
+    var checkoutItemPrice: String?
+    
     
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func makeOrder(_ sender: UIButton) {
         
-        DataModel.shared.createOrder(buyerUID: (DataModel.shared.loggedInUser?.uid)!, price: (checkoutItem?.sizes[0].price)!, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: "40x16", status: "pending", timestamp: "hello")
+        DataModel.shared.createOrder(buyerUID: (DataModel.shared.loggedInUser?.uid)!, price: checkoutItemPrice!, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: checkoutItemSize!, status: "pending", timestamp: "hello")
         
         
     }

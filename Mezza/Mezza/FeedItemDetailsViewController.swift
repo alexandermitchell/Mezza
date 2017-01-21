@@ -5,13 +5,10 @@
 //  Created by Paul Jurczyk on 1/18/17.
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
-
 import UIKit
-
 protocol PopUpDelegate: class {
     func sizeSelected(size: String)
 }
-
 class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     // MARK: Image Outlets --------------------------------------------------
@@ -35,6 +32,10 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     @IBOutlet weak var itemPriceLabel: UILabel!
     
     @IBOutlet weak var itemSizesLabel: UILabel!
+    
+    @IBOutlet weak var itemDescriptionTextView: UITextView!
+    
+    
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
@@ -48,9 +49,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         selectedSize = size
         let sizesArray = selectedItem?.sizes
         for sizeProperty in sizesArray! {
-            var newSize = sizeProperty
+            let newSize = sizeProperty
             if newSize.name == size {
-                itemPriceLabel.text = "$\(newSize.price)"
+                let thisPrice = newSize.price
+                selectedPrice = thisPrice
+                itemPriceLabel.text = "$\(thisPrice)"
             }
         }
     }
@@ -61,8 +64,9 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     var currentSeller: User?
     var sizesArray = [String]()
     var selectedSize: String?
+    var selectedPrice: String?
     
-   
+    
     
     func showSizePickerPopUp() {
         // set up popup
@@ -74,7 +78,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-      
+        
     }
     
     // put all the product sizes into an array
@@ -98,7 +102,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             dispatchGroup.enter()
             DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
                 newImage = image!
-               imagesArray.append(newImage)
+                imagesArray.append(newImage)
                 dispatchGroup.leave()
             })
             
@@ -125,7 +129,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         mainImageView.image = imageView1.image
     }
     func changeMainImage2() {
-       mainImageView.image = imageView2.image
+        mainImageView.image = imageView2.image
     }
     func changeMainImage3() {
         mainImageView.image = imageView3.image
@@ -137,10 +141,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         mainImageView.image = imageView5.image
     }
     
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // itemSizesLabel.layer.borderColor = 5
         
         createSizesArray()
         // fetch the current seller
@@ -173,9 +178,9 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         imageView5.addGestureRecognizer(tapGestureRecognizer5)
         putImagesInArray { imagesArray in
             self.setImageViews(array: imagesArray)
-        // set rest of page info
+            // set rest of page info
             self.productTitleLabel.text = self.selectedItem?.title
-            
+            self.itemDescriptionTextView.text = self.selectedItem?.description
         }
     }
     
@@ -190,6 +195,8 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             
             let checkoutVC = segue.destination as! ProductCheckoutViewController
             checkoutVC.checkoutItem = selectedItem
+            checkoutVC.checkoutItemSize = selectedSize
+            checkoutVC.checkoutItemPrice = selectedPrice
             
         }
     }
