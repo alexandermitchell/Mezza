@@ -6,7 +6,16 @@
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
 import UIKit
-class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+
+
+protocol EnterSizePopUpDelegate: class {
+    func showPopUp()
+    func addSize(addedSize: Product.Size)
+    
+}
+
+
+class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, EnterSizePopUpDelegate, UITextViewDelegate {
     
     var editingMode = false
     var imageTapped = false
@@ -26,6 +35,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     var selectedImageIndex: Int = 0
     
+    @IBOutlet weak var addSizeButton: UIButton!
     
     @IBOutlet weak var titleField: UITextField!
     
@@ -42,45 +52,152 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     var imageViewArray: [UIImageView]?
     
+    var sizeArray: [Product.Size] = []
+    
     
     @IBOutlet weak var descriptonField: UITextView!
+  
+    
     
     @IBOutlet weak var sizePriceQuantTableView: UITableView!
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        guard let _ = selectedProduct else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
+//            return cell
+//            
+//        }
+//        
+//        if sizeArray != nil {
+//            
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
+//            cell.priceLabel.text = String(describing: sizeArray?[indexPath.row].price)
+//            cell.quantityLabel.text = String(describing: sizeArray?[indexPath.row].quantity)
+//            cell.sizeLabel.text = sizeArray?[indexPath.row].name
+//            
+//            return cell
+//            
+//            
+//        }
         
-        guard let _ = selectedProduct else {
+        if sizeArray.count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
             return cell
-            
         }
         
-        let sizeArray = selectedProduct?.sizes
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
-        cell.priceLabel.text = String(describing: sizeArray?[indexPath.row].price)
-        cell.quantityLabel.text = String(describing: sizeArray?[indexPath.row].quantity)
-        cell.sizeLabel.text = sizeArray?[indexPath.row].name
+        else {
+            if selectedProduct != nil {
+                sizeArray = (selectedProduct?.sizes)!
+            }
+            
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
+            cell.priceLabel.text = String(describing: sizeArray[indexPath.row].price)
+            cell.quantityLabel.text = String(describing: sizeArray[indexPath.row].quantity)
+            cell.sizeLabel.text = sizeArray[indexPath.row].name
+            
+            return cell
+    
+        }
+
+
         
-        return cell
+        
+        
+
+        
         
     }
+    
+    func loadTextViewPlaceHolder(){
+        descriptonField.text = "Enter Description"
+        descriptonField.textColor = UIColor.lightGray
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            loadTextViewPlaceHolder()
+        }
+    }
+    
+    
+    func showPopUp(){
+        
+        let popVC = UIStoryboard(name: "UploadInventory", bundle: nil).instantiateViewController(withIdentifier: "enterSizePopUp") as! EnterSizeViewController
+        popVC.delegate = self
+        self.addChildViewController(popVC)
+        popVC.view.frame = self.view.frame
+        self.view.addSubview(popVC.view)
+        popVC.didMove(toParentViewController: self)
+    }
+    
+    
+    
+    func addSize(addedSize: Product.Size) {
+        sizeArray.append(addedSize)
+        sizePriceQuantTableView.reloadData()
+        print(sizeArray[0].name)
+    }
+    
+    
+    @IBAction func enterSize(_ sender: Any) {
+        
+        showPopUp()
+        
+        
+    
+    }
+
+    
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let product = selectedProduct {
-            return product.sizes.count
-        }
-        else {
-            return 1
-        }
+//        if let product = selectedProduct {
+//            return product.sizes.count
+//        }
+//        else {
+//            return 1
+//        }
         
+//        if sizeArray.count > 0 {
+//            return sizeArray.count
+//        }
+//        
+//        else {
+//            return 1
+//        }
+        
+        
+        
+        return sizeArray.count
         
     }
     
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
+        
+        
+    }
     
     
     
@@ -106,44 +223,79 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
         if let selectedImage = selectedImageFromPicker {
             
-            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            imageViewArray?[openImageViewIndex].isUserInteractionEnabled = true
-            imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
-            
+//            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+//            imageViewArray?[openImageViewIndex].isUserInteractionEnabled = true
+//            imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
+//            
             imageViewArray?[openImageViewIndex].image = selectedImage
-            if openImageViewIndex < 3 {
+            if openImageViewIndex < 4 {
                 openImageViewIndex += 1
             }
+            updateImageTouch()
+            
+            
             
         }
-        
-        
-        
-        
+    
         
         dismiss(animated: true, completion: nil)
     }
    
+    
+
+    
+    
+    
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
+
+        loadTextViewPlaceHolder()
         
-      
+        
+        addSizeButton.layer.borderWidth = 5
+        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width / 2
+        addSizeButton.layer.borderColor = UIColor.blue.cgColor
+        addSizeButton.clipsToBounds = true
+        
+        
+        
+        
+        imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
         
         
         for imageView in imageViewArray! {
             let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(tap)
-            
-            print("gesture in loop")
-            
+
         }
         
+
         if let product = selectedProduct {
             openImageViewIndex = product.images.count
+            for i in 1...openImageViewIndex {
+//                imageViewArray[i-1] = product.images
+                let photoURL = product.images[i]
+                DataModel.shared.fetchImage(stringURL: photoURL) { image in
+                    self.imageViewArray?[i].image = image
+                }
+              
+                            //            imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
+                
+                
+            }
+            
+            updateImageTouch()
         }
+        
+        
+     
+        
+        
         
         
         
@@ -164,7 +316,42 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
 
         openImageViewIndex = lastImageViewIndex
         
+        updateImageTouch()
+        
+        
     }
+    
+    
+    func updateImageTouch(){
+        for i in openImageViewIndex...4 {
+            
+            imageViewArray?[i].isUserInteractionEnabled = false
+
+            
+
+
+            
+            
+            //            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+                        //         imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
+            //            imageViewArray?[openImageViewIndex].isUserInteractionEnabled = true
+
+            
+        }
+        
+        for i in 0...(openImageViewIndex - 1) {
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
     
     
     func handleTap(_ sender: UITapGestureRecognizer) {

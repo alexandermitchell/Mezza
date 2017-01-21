@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 
 enum OrderStatus: String {
@@ -34,5 +35,17 @@ class Order {
         self.product = product
         self.price = price
     }
+    
+    init(snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? [String : Any]
+        self.buyerUID = value?["buyer"] as? String ?? ""
+        self.price = value?["price"] as? Double ?? 0.0
+        self.sellerUID = value?["seller"] as? String ?? ""
+        self.size = value?["size"] as? String ?? ""
+        self.uid = snapshot.key
+        self.product = value?["product"] as? String ?? ""
+        
+    }
+    
     
 }

@@ -29,6 +29,7 @@
 		4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4601E328D9C001EF191 /* ProfileViewController.swift */; };
 		4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
+		842255341E3299BC00D6D7C9 /* EnterSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
 		845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */; };
@@ -85,6 +86,7 @@
 		4287C4601E328D9C001EF191 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterSizeViewController.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
 		845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController2.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */,
 				04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */,
 				04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */,
+				842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
 				04EB47171E32A20A00C3B0F6 /* OrderDetailsViewController.swift in Sources */,
+				842255341E3299BC00D6D7C9 /* EnterSizeViewController.swift in Sources */,
 				D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */,
 				845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */,
 				845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */,
