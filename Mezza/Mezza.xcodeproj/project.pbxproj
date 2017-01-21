@@ -20,6 +20,11 @@
 		420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */; };
 		4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C4551E31595C001EF191 /* UploadInventory.storyboard */; };
 		4287C4591E324DCA001EF191 /* BuyerOrderFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C4581E324DCA001EF191 /* BuyerOrderFeed.storyboard */; };
+		4287C45B1E3275EB001EF191 /* BuyerOrderFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C45A1E3275EB001EF191 /* BuyerOrderFeedViewController.swift */; };
+		4287C45D1E32813E001EF191 /* BuyerOrderFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */; };
+		4287C45F1E328C48001EF191 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C45E1E328C48001EF191 /* Profile.storyboard */; };
+		4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4601E328D9C001EF191 /* ProfileViewController.swift */; };
+		4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
 		845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */; };
@@ -68,6 +73,11 @@
 		420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4287C4551E31595C001EF191 /* UploadInventory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadInventory.storyboard; sourceTree = "<group>"; };
 		4287C4581E324DCA001EF191 /* BuyerOrderFeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BuyerOrderFeed.storyboard; sourceTree = "<group>"; };
+		4287C45A1E3275EB001EF191 /* BuyerOrderFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyerOrderFeedViewController.swift; sourceTree = "<group>"; };
+		4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyerOrderFeedCell.swift; sourceTree = "<group>"; };
+		4287C45E1E328C48001EF191 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4287C4601E328D9C001EF191 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
 		845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController1.swift; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
 				4287C4551E31595C001EF191 /* UploadInventory.storyboard */,
 				4287C4581E324DCA001EF191 /* BuyerOrderFeed.storyboard */,
+				4287C45E1E328C48001EF191 /* Profile.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -137,8 +148,8 @@
 				D0AB4AC41E295149002FCB8C /* AppDelegate.swift */,
 				845E576B1E2EC8A400A06511 /* OnBoardViewController1.swift */,
 				845E576D1E2ECAF700A06511 /* OnBoardViewController2.swift */,
-				041A9B6E1E2FF893001108C6 /* LoginVC.swift */,
 				845E576F1E2ED9E300A06511 /* OnBoardViewController3.swift */,
+				041A9B6E1E2FF893001108C6 /* LoginVC.swift */,
 				049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */,
 				D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */,
 				420F60941E300CDD00D67E58 /* InventoryViewController.swift */,
@@ -148,6 +159,10 @@
 				84A33E0C1E319C31007ACFF9 /* ProductUploadViewController.swift */,
 				84A33E0E1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift */,
 				04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */,
+				4287C45A1E3275EB001EF191 /* BuyerOrderFeedViewController.swift */,
+				4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */,
+				4287C4601E328D9C001EF191 /* ProfileViewController.swift */,
+				4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -331,6 +346,7 @@
 				4287C4591E324DCA001EF191 /* BuyerOrderFeed.storyboard in Resources */,
 				D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
+				4287C45F1E328C48001EF191 /* Profile.storyboard in Resources */,
 				4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */,
 				845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */,
 			);
@@ -406,7 +422,9 @@
 				420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */,
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
 				84A33E0D1E319C31007ACFF9 /* ProductUploadViewController.swift in Sources */,
+				4287C45B1E3275EB001EF191 /* BuyerOrderFeedViewController.swift in Sources */,
 				04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */,
+				4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
 				D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */,
@@ -417,7 +435,9 @@
 				845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */,
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
+				4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */,
 				D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */,
+				4287C45D1E32813E001EF191 /* BuyerOrderFeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

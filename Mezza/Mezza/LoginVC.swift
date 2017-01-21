@@ -6,9 +6,8 @@
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
 /*
- 1. need to set up alerts if password isn't correct.
- 2. need to set up segua based on seller or buyer
- 3. add sign out button elsewhere.
+
+ 1. add sign out button elsewhere.
  
  */
 
@@ -111,7 +110,7 @@ class LoginVC: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             
-            // NEED HELP HERE!
+            
             let userUID = user?.uid
             DataModel.shared.fetchUser(UID: userUID!, completionHandler: { (user) in
                 if user.type == .seller {
@@ -138,9 +137,11 @@ class LoginVC: UIViewController {
                 print("Form is not valid")
                 return
         }
+        
+        
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
             
-            var type = String()
+            var type = User.userType.unregistered
             
             if error != nil {
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -152,23 +153,34 @@ class LoginVC: UIViewController {
                 return
             }
             
-            guard let uid = user?.uid else {
+            guard let validUser = user else {
                 return
             }
             
             
-            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
-                type = "seller"
-            } else {
-                type = "buyer"
-            }
             
             let ref = FIRDatabase.database().reference(fromURL: "https://mezza-f928a.firebaseio.com/")
             
-            let usersReference = ref.child("users").child(uid)
+            let usersReference = ref.child("users").child(validUser.uid)
+            
+            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
+                type = .seller
+                let sellerVC = UIStoryboard.init(name: "OnBoardingVendor", bundle: nil).instantiateInitialViewController() as! OnBoardViewController1
+                
+                    self.present(sellerVC, animated: true, completion: nil)
+            }
+            
+            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 1 {
+                type = .buyer
+                let buyerVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! HomeFeedViewController
+                
+                self.present(buyerVC, animated: true, completion: nil)
+                
+            }
+            
             
             let typeRef = usersReference.child("type")
-            typeRef.setValue(type)
+            typeRef.setValue(type.rawValue)
             
             let emailRef = usersReference.child("email")
             emailRef.setValue(email)
@@ -179,13 +191,26 @@ class LoginVC: UIViewController {
             let purchasesRef = usersReference.child("purchases")
             purchasesRef.setValue(0)
             
-            DataModel.shared.fetchUser(UID: uid, completionHandler: { (user) in
-                DataModel.shared.loggedInUser = user
-            })
+//            DataModel.shared.fetchUser(UID: (validUser.uid), completionHandler: { (user) in
+//            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
+//                if user.type == .seller {
+//                    DataModel.shared.loggedInUser = user
+//                    let sellerVC = UIStoryboard.init(name: "OnBoardingVendor", bundle: nil).instantiateInitialViewController() as! OnBoardViewController1
+//                    
+//                    self.present(sellerVC, animated: true, completion: nil)
+//                }
+//            } else {
+//                if user.type == .buyer {
+//                    DataModel.shared.loggedInUser = user
+//                    let buyerVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! HomeFeedViewController
+//                    
+//                    self.present(buyerVC, animated: true, completion: nil)
+//                }
+//            }
+            
         })
-        performSegue(withIdentifier: "toHome", sender: nil)
     }
-    
+
     
     //MARK: Name Text Field
     let nameTextField: UITextField = {
@@ -264,6 +289,7 @@ class LoginVC: UIViewController {
         
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             vendorBuyerSegmentedControl.isHidden = true
+            skipRegisterButton.isHidden = true
         } else {
             vendorBuyerSegmentedControl.isHidden = false
         }

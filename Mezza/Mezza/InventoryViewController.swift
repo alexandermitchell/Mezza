@@ -22,7 +22,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let itemVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! FeedItemDetailsViewController
+        let itemVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! InventoryViewController
         
         let inventoryArray = DataModel.shared.inventoryArray
         inventoryProduct = inventoryArray[indexPath.row]
