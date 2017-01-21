@@ -115,7 +115,6 @@ class LoginVC: UIViewController {
             DataModel.shared.fetchUser(UID: userUID!, completionHandler: { (user) in
                 DataModel.shared.loggedInUser = user
                 if user.type == .seller {
-                DataModel.shared.loggedInUser = user
                     let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                     
                 self.present(sellerVC, animated: true, completion: nil)
