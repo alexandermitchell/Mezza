@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yev-PT-9Qo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Buyer Order Feed View Controller-->
+        <!--Orders Main View Controller-->
         <scene sceneID="htt-qu-Y0B">
             <objects>
-                <viewController id="yev-PT-9Qo" customClass="BuyerOrderFeedViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yev-PT-9Qo" customClass="OrdersMainViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yK2-pm-f5L"/>
                         <viewControllerLayoutGuide type="bottom" id="T0t-0p-tCi"/>
@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="117" id="2Wz-ma-Zeh" customClass="BuyerOrderFeedCell" customModule="Mezza" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OrderCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="117" id="2Wz-ma-Zeh" customClass="OrdersTableViewCell" customModule="Mezza" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Wz-ma-Zeh" id="p3z-IW-quI">
@@ -62,28 +62,65 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemImage" destination="h5F-Ac-ihN" id="8oY-dC-iNe"/>
-                                            <outlet property="itemName" destination="fVD-xm-0oc" id="Rzg-rI-hbM"/>
-                                            <outlet property="orderStatus" destination="e6k-18-Psx" id="J2f-vZ-fLX"/>
+                                            <outlet property="itemNameLabel" destination="fVD-xm-0oc" id="8PE-s3-Nf2"/>
+                                            <outlet property="orderImageView" destination="h5F-Ac-ihN" id="0NN-Mz-ple"/>
+                                            <outlet property="orderStatusLabel" destination="e6k-18-Psx" id="q5z-VX-X9D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="yev-PT-9Qo" id="Oz5-to-zUv"/>
-                                    <outlet property="delegate" destination="yev-PT-9Qo" id="fue-Ja-OGJ"/>
+                                    <outlet property="dataSource" destination="yev-PT-9Qo" id="1Ke-RA-HBb"/>
+                                    <outlet property="delegate" destination="yev-PT-9Qo" id="ZMI-Hr-WVl"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="pendingPastSegmentController" destination="2be-fB-GRN" id="KD2-k4-shz"/>
-                        <outlet property="tableView" destination="vc1-VQ-g7J" id="iFO-yM-5g7"/>
+                        <outlet property="ordersTableView" destination="vc1-VQ-g7J" id="HtC-L3-Wqm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIj-qk-M91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-96.799999999999997" y="-37.331334332833585"/>
+            <point key="canvasLocation" x="-428" y="-98"/>
+        </scene>
+        <!--Order Details View Controller-->
+        <scene sceneID="eJi-eD-tDr">
+            <objects>
+                <viewController id="fZi-nF-QKV" customClass="OrderDetailsViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VSJ-Yj-vUe"/>
+                        <viewControllerLayoutGuide type="bottom" id="FWv-RU-kSG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9xU-X9-lSl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8s-K2-qml">
+                                <rect key="frame" x="37" y="223" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zIg-bN-KYw">
+                                <rect key="frame" x="127" y="219" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="orderStatusSegmeneted" destination="zIg-bN-KYw" id="HNJ-gf-tdl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ah-Hq-Oc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="648.79999999999995" y="-37.331334332833585"/>
         </scene>
     </scenes>
 </document>

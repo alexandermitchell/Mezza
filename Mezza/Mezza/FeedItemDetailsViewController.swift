@@ -34,7 +34,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     @IBOutlet weak var itemSizesLabel: UILabel!
     
     @IBOutlet weak var itemDescriptionTextView: UITextView!
-    
+   
     
     // MARK: IBActions -----------------------------------------------------
     
@@ -146,6 +146,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // itemSizesLabel.layer.borderColor = 5
+        
+        // designing the size dropdown
+        let newColor = UIColor.lightGray.cgColor
+        itemSizesLabel.layer.borderColor = newColor
+        itemSizesLabel.layer.borderWidth = 2
         
         createSizesArray()
         // fetch the current seller

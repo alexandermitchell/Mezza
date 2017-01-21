@@ -15,6 +15,9 @@
 		049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */; };
 		049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */; };
 		04EB47151E326CF500C3B0F6 /* SizePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */; };
+		04EB47171E32A20A00C3B0F6 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */; };
+		04EB47191E32F65300C3B0F6 /* OrdersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */; };
+		04EB471B1E32F7F100C3B0F6 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */; };
 		420F60931E300A9D00D67E58 /* UserFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */; };
 		420F60951E300CDD00D67E58 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60941E300CDD00D67E58 /* InventoryViewController.swift */; };
 		420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */; };
@@ -66,6 +69,9 @@
 		049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeFeedStoryboard.storyboard; sourceTree = "<group>"; };
 		049142251E2EAA5E00C2DC4B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePopUpViewController.swift; sourceTree = "<group>"; };
+		04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersMainViewController.swift; sourceTree = "<group>"; };
+		04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		35766F80A72BFFC44DAE0BB6 /* Pods-Mezza.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mezza.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mezza/Pods-Mezza.release.xcconfig"; sourceTree = "<group>"; };
 		420F608A1E2EAB6E00D67E58 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserFeedStoryboard.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 				4287C45C1E32813E001EF191 /* BuyerOrderFeedCell.swift */,
 				4287C4601E328D9C001EF191 /* ProfileViewController.swift */,
 				4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */,
+				04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */,
+				04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */,
+				04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -425,12 +434,15 @@
 				4287C45B1E3275EB001EF191 /* BuyerOrderFeedViewController.swift in Sources */,
 				04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */,
 				4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */,
+				04EB471B1E32F7F100C3B0F6 /* OrdersTableViewCell.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
 				043399CF1E296724006AA6CD /* ProductModel.swift in Sources */,
+				04EB47171E32A20A00C3B0F6 /* OrderDetailsViewController.swift in Sources */,
 				D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */,
 				845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */,
 				845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */,
 				420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */,
+				04EB47191E32F65300C3B0F6 /* OrdersMainViewController.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
 				845E57701E2ED9E300A06511 /* OnBoardViewController3.swift in Sources */,
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
