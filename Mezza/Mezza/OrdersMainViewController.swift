@@ -24,7 +24,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         ordersRef.queryOrdered(byChild: "buyer").queryEqual(toValue: loggedInUID).observe(.value, with: { snapshot in
             for child in snapshot.children {
                 
-                let order = Order()
+               // let order = Order()
                 
                 
             }
