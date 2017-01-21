@@ -94,8 +94,9 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        // clear out order array
+        // clear out order arrays
         pendingOrdersArray = [Order]()
+        pastOrdersArray = [Order]()
         if loggedInUserType == "buyer" {
             fetchBuyerOrders(completionHandler: {
                 self.ordersTableView.reloadData()
