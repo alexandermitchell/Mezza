@@ -174,8 +174,17 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
 //            return 1
 //        }
         
-        return sizeArray.count
+//        if sizeArray.count > 0 {
+//            return sizeArray.count
+//        }
+//        
+//        else {
+//            return 1
+//        }
         
+        
+        
+        return sizeArray.count
         
     }
     
@@ -248,7 +257,11 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         loadTextViewPlaceHolder()
         
         
-        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width
+        addSizeButton.layer.borderWidth = 5
+        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width / 2
+        addSizeButton.layer.borderColor = UIColor.blue.cgColor
+        addSizeButton.clipsToBounds = true
+        
         
         
         
