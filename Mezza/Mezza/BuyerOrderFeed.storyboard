@@ -112,14 +112,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B4-6c-Ltx">
+                                <rect key="frame" x="15" y="20" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="fZi-nF-QKV" eventType="touchUpInside" id="Jqt-AI-bTP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="orderStatusLabel" destination="z6w-d0-JKh" id="Wux-Ha-tTy"/>
+                        <segue destination="pV6-9l-Euy" kind="unwind" identifier="unwindToOrderFeed" unwindAction="unwindToOrderFeedWithSegue:" id="uwY-LR-Cfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ah-Hq-Oc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pV6-9l-Euy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="648.79999999999995" y="-37.331334332833585"/>
         </scene>

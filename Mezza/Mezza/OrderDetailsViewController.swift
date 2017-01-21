@@ -18,6 +18,11 @@ class OrderDetailsViewController: UIViewController {
     
     @IBOutlet weak var orderStatusLabel: UILabel!
     
+    // MARK: IBActions -----------------------
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
+    }
     
     
     
