@@ -12,10 +12,24 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: Local Variables ------------
     var ordersArray = [Order]()
-    
+    let loggedInUserType = DataModel.shared.loggedInUser?.type.rawValue
+    let loggedInUID = DataModel.shared.loggedInUser?.uid
     // MARK: IBOutlets -----------------
     
     @IBOutlet weak var ordersTableView: UITableView!
+    
+    func fetchBuyerOrders() {
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     // MARK: Tableview Funcs ---------------
