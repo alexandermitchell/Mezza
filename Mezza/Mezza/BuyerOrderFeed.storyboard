@@ -61,6 +61,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemNameLabel" destination="fVD-xm-0oc" id="8PE-s3-Nf2"/>
+                                            <outlet property="orderImageView" destination="h5F-Ac-ihN" id="0NN-Mz-ple"/>
+                                            <outlet property="orderStatusLabel" destination="e6k-18-Psx" id="q5z-VX-X9D"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

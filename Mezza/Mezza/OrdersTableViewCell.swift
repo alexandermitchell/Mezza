@@ -9,6 +9,16 @@
 import UIKit
 
 class OrdersTableViewCell: UITableViewCell {
+    
+    
+    // MARK: IBOutlets --------------------
+    
+    @IBOutlet weak var orderImageView: UIImageView!
+    
+   
+    @IBOutlet weak var itemNameLabel: UILabel!
+    
+    @IBOutlet weak var orderStatusLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
