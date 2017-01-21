@@ -28,14 +28,20 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     func fetchBuyerOrders(completionHandler: @escaping ()->()) {
         let ordersRef = FIRDatabase.database().reference().child("orders")
         ordersRef.queryOrdered(byChild: "buyer").queryEqual(toValue: loggedInUID).observe(.value, with: { snapshot in
+            var tempPendingArray = [Order]()
+            var tempPastArray = [Order]()
             for child in snapshot.children {
                 let order = Order(snapshot: child as! FIRDataSnapshot)
+                
                 if order.status.rawValue == "pending" {
-                self.pendingOrdersArray.append(order)
+                    
+                tempPendingArray.append(order)
                 } else {
-                    self.pastOrdersArray.append(order)
+                    tempPastArray.append(order)
                 }
             }
+            self.pendingOrdersArray = tempPendingArray
+            self.pastOrdersArray = tempPastArray
             completionHandler()
         })
         
@@ -94,9 +100,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        // clear out order arrays
-        pendingOrdersArray = [Order]()
-        pastOrdersArray = [Order]()
+        
         if loggedInUserType == "buyer" {
             fetchBuyerOrders(completionHandler: {
                 self.ordersTableView.reloadData()
