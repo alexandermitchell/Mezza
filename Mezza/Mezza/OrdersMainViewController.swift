@@ -23,15 +23,10 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         let ordersRef = FIRDatabase.database().reference().child("orders")
         ordersRef.queryOrdered(byChild: "buyer").queryEqual(toValue: loggedInUID).observe(.value, with: { snapshot in
             for child in snapshot.children {
-                
-               // let order = Order()
-                
-                
+                let order = Order(snapshot: child as! FIRDataSnapshot)
+                self.ordersArray.append(order)
             }
         })
-        
-        
-        
     }
     
     
@@ -56,27 +51,29 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if loggedInUserType == "buyer" {
+            
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

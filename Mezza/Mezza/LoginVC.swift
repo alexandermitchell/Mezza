@@ -113,6 +113,7 @@ class LoginVC: UIViewController {
             
             let userUID = user?.uid
             DataModel.shared.fetchUser(UID: userUID!, completionHandler: { (user) in
+                DataModel.shared.loggedInUser = user
                 if user.type == .seller {
                 let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! InventoryViewController
                     
