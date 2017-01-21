@@ -41,6 +41,8 @@
 		D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0258B0E1E325FDD008E8C5C /* Info.plist */; };
 		D051A71B1E3111D800A139C9 /* ProductCheckout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */; };
 		D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */; };
+		D05A65471E33F86100540FBF /* CheckoutSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05A65461E33F86100540FBF /* CheckoutSuccessViewController.swift */; };
+		D05A65491E34006100540FBF /* CheckoutSuccessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05A65481E34006100540FBF /* CheckoutSuccessCollectionViewCell.swift */; };
 		D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC41E295149002FCB8C /* AppDelegate.swift */; };
 		D0AB4AC71E295149002FCB8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4AC61E295149002FCB8C /* ViewController.swift */; };
 		D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4AC81E295149002FCB8C /* Main.storyboard */; };
@@ -100,6 +102,8 @@
 		D0258B0E1E325FDD008E8C5C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductCheckout.storyboard; sourceTree = "<group>"; };
 		D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCheckoutViewController.swift; sourceTree = "<group>"; };
+		D05A65461E33F86100540FBF /* CheckoutSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSuccessViewController.swift; sourceTree = "<group>"; };
+		D05A65481E34006100540FBF /* CheckoutSuccessCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSuccessCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0AB4AC11E295148002FCB8C /* Mezza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mezza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AB4AC41E295149002FCB8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AB4AC61E295149002FCB8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				420F60961E3011E700D67E58 /* InventoryCollectionViewCell.swift */,
 				04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */,
 				D051A71C1E31159A00A139C9 /* ProductCheckoutViewController.swift */,
+				D05A65461E33F86100540FBF /* CheckoutSuccessViewController.swift */,
+				D05A65481E34006100540FBF /* CheckoutSuccessCollectionViewCell.swift */,
 				84A33E0C1E319C31007ACFF9 /* ProductUploadViewController.swift */,
 				84A33E0E1E31A4CD007ACFF9 /* SizeCellTableViewCell.swift */,
 				04EB47141E326CF500C3B0F6 /* SizePopUpViewController.swift */,
@@ -449,6 +455,7 @@
 				D051A71D1E31159A00A139C9 /* ProductCheckoutViewController.swift in Sources */,
 				845E576C1E2EC8A400A06511 /* OnBoardViewController1.swift in Sources */,
 				845E576E1E2ECAF700A06511 /* OnBoardViewController2.swift in Sources */,
+				D05A65471E33F86100540FBF /* CheckoutSuccessViewController.swift in Sources */,
 				420F60971E3011E700D67E58 /* InventoryCollectionViewCell.swift in Sources */,
 				04EB47191E32F65300C3B0F6 /* OrdersMainViewController.swift in Sources */,
 				D0AB4AC51E295149002FCB8C /* AppDelegate.swift in Sources */,
@@ -456,6 +463,7 @@
 				D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */,
 				D0AB4AE51E2968CB002FCB8C /* User.swift in Sources */,
 				4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */,
+				D05A65491E34006100540FBF /* CheckoutSuccessCollectionViewCell.swift in Sources */,
 				D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */,
 				4287C45D1E32813E001EF191 /* BuyerOrderFeedCell.swift in Sources */,
 			);

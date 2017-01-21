@@ -93,19 +93,24 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     // MARK: VC Funcs ---------------------------------------------------------------------
     
+    @IBAction func unwindToDetail(segue: UIStoryboardSegue) {
+        
+    }
+    
     func putImagesInArray(closure: @escaping ([UIImage])->()) {
         var imagesArray = [UIImage]()
         let imageURLsArray = selectedItem!.images
         var newImage = UIImage()
         let dispatchGroup = DispatchGroup()
         for imageURL in imageURLsArray {
-            dispatchGroup.enter()
-            DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
-                newImage = image!
-                imagesArray.append(newImage)
-                dispatchGroup.leave()
-            })
-            
+            if !(imageURL == "") {
+                dispatchGroup.enter()
+                DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
+                    newImage = image!
+                    imagesArray.append(newImage)
+                    dispatchGroup.leave()
+                })
+            }
         }
         dispatchGroup.notify(queue: .main) {
             closure(imagesArray)

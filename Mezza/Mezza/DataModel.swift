@@ -14,9 +14,12 @@ class DataModel {
     static var shared = DataModel()
     var productsArray = [Product]()
     var inventoryArray = [Product]()
+    var similarProducts = [Product]()
+    var cartItem: Product?
     
     var homeFeedVC: HomeFeedViewController!
     var inventoryFeedVC: InventoryViewController!
+    var checkoutSuccessVC: CheckoutSuccessViewController!
     
     var loggedInUser: User?
     
@@ -104,10 +107,20 @@ class DataModel {
     //MARK: Observing Function for Inventory View Controller
     func listenForUserInventory(callingViewController: InventoryViewController) {
         
+        let userUID = DataModel.shared.loggedInUser?.uid
         inventoryFeedVC = callingViewController
         let ref = FIRDatabase.database().reference(withPath: "products")
-        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: "uid") // Change back to loggedInUser
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: userUID)
         query.observeSingleEvent(of: .value, with: didUpdateInventory)
+        
+    }
+    
+    func listenForSimilarProducts(sellerUID: String, callingViewController: CheckoutSuccessViewController) {
+        checkoutSuccessVC = callingViewController
+        
+        let ref = FIRDatabase.database().reference(withPath: "products")
+        let query = ref.queryOrdered(byChild: "sellerUID").queryEqual(toValue: sellerUID)
+        query.observeSingleEvent(of: .value, with: didUpdateSimilarProducts)
         
     }
     
@@ -124,5 +137,19 @@ class DataModel {
         inventoryFeedVC.reload()
     }
     
+    func didUpdateSimilarProducts(snapshot: FIRDataSnapshot) {
+        inventoryArray.removeAll()
+        
+        let productDict = snapshot
+        
+        for product in productDict.children {
+            let newProduct = Product(snapshot: product as! FIRDataSnapshot)
+            
+            if !(newProduct.uid == cartItem?.uid) {
+            similarProducts.append(newProduct)
+            }
+        }
+        checkoutSuccessVC.reload()
+    }
+    
 }
-
