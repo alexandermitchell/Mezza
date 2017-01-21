@@ -25,13 +25,14 @@ class ProductCheckoutViewController: UIViewController {
     var seller: User?
     var checkoutItemSize: String?
     var checkoutItemPrice: String?
+    var currentDate = Date()
     
     
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func makeOrder(_ sender: UIButton) {
         
-        DataModel.shared.createOrder(buyerUID: (DataModel.shared.loggedInUser?.uid)!, price: checkoutItemPrice!, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: checkoutItemSize!, status: "pending", timestamp: "hello")
+        DataModel.shared.createOrder(buyerUID: (DataModel.shared.loggedInUser?.uid)!, price: checkoutItemPrice!, productUID: (checkoutItem?.uid)!, seller: (seller?.uid)!, size: checkoutItemSize!, status: "pending", timestamp: String(currentDate.timeIntervalSince1970))
         
         
     }
