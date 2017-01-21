@@ -15,7 +15,7 @@ protocol EnterSizePopUpDelegate: class {
 }
 
 
-class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, EnterSizePopUpDelegate {
+class ProductUploadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, EnterSizePopUpDelegate, UITextViewDelegate {
     
     var editingMode = false
     var imageTapped = false
@@ -35,6 +35,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     var selectedImageIndex: Int = 0
     
+    @IBOutlet weak var addSizeButton: UIButton!
     
     @IBOutlet weak var titleField: UITextField!
     
@@ -55,6 +56,8 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     
     @IBOutlet weak var descriptonField: UITextView!
+  
+    
     
     @IBOutlet weak var sizePriceQuantTableView: UITableView!
     
@@ -109,6 +112,27 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    func loadTextViewPlaceHolder(){
+        descriptonField.text = "Enter Description"
+        descriptonField.textColor = UIColor.lightGray
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            loadTextViewPlaceHolder()
+        }
+    }
+    
     
     func showPopUp(){
         
@@ -139,6 +163,8 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
 
     
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
 //        if let product = selectedProduct {
@@ -153,6 +179,16 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
+        
+        
+    }
     
     
     
@@ -207,6 +243,14 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        loadTextViewPlaceHolder()
+        
+        
+        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width
+        
+        
         
         imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
         

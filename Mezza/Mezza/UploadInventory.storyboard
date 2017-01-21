@@ -61,12 +61,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="save"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter description" translatesAutoresizingMaskIntoConstraints="NO" id="rPe-TY-qt5">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPe-TY-qt5">
                                 <rect key="frame" x="20" y="311" width="332" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0wu-eN-Xus" id="odB-a6-4zG"/>
+                                </connections>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-kU-GLG">
                                 <rect key="frame" x="16" y="82" width="226" height="30"/>
@@ -122,9 +125,10 @@
                                     <outlet property="delegate" destination="0wu-eN-Xus" id="j4m-6f-AwE"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-z6-Y0G">
-                                <rect key="frame" x="74" y="546" width="226" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-z6-Y0G">
+                                <rect key="frame" x="237" y="546" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="add sizes, price, quantity"/>
                                 <connections>
                                     <action selector="enterSize:" destination="0wu-eN-Xus" eventType="touchUpInside" id="FvB-qO-BHh"/>
@@ -134,6 +138,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addSizeButton" destination="fTh-z6-Y0G" id="CCw-Rc-u9d"/>
                         <outlet property="artistField" destination="3Zv-kU-GLG" id="m3l-eG-LlB"/>
                         <outlet property="descriptonField" destination="rPe-TY-qt5" id="TYU-QN-cx3"/>
                         <outlet property="imageView1" destination="dJO-C9-Ccr" id="hnp-8a-5so"/>
@@ -147,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyw-2j-uam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="295"/>
+            <point key="canvasLocation" x="72.799999999999997" y="294.60269865067471"/>
         </scene>
         <!--Enter Size View Controller-->
         <scene sceneID="AK6-OH-zEx">
