@@ -1,4 +1,4 @@
-gi//
+//
 //  OrdersMainViewController.swift
 //  Mezza
 //
@@ -23,7 +23,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var ordersSegmentedControl: UISegmentedControl!
     
     
-    // MARK: Funcs ------------------------
+    // MARK: FB Funcs ------------------------
     
     func fetchBuyerOrders(completionHandler: @escaping ()->()) {
         let ordersRef = FIRDatabase.database().reference().child("orders")
@@ -41,9 +41,23 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    func fetchSellerOrders(completionHandler: @escaping ()->()) {
+        let ordersRef = FIRDatabase.database().reference().child("orders")
+        ordersRef.queryOrdered(byChild: "seller").queryEqual(toValue: loggedInUID).observe(.value, with: { snapshot in
+            for child in snapshot.children {
+                let order = Order(snapshot: child as! FIRDataSnapshot)
+                if order.status.rawValue == "pending" {
+                    self.pendingOrdersArray.append(order)
+                } else {
+                    self.pastOrdersArray.append(order)
+                }
+            }
+            completionHandler()
+        })
 
+    }
     
-    
+
     
     
     
@@ -84,6 +98,12 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         pendingOrdersArray = [Order]()
         if loggedInUserType == "buyer" {
             fetchBuyerOrders(completionHandler: {
+                self.ordersTableView.reloadData()
+            })
+        }
+        // didn't use an else because we have unregistered users as well
+        if loggedInUserType == "seller" {
+            fetchSellerOrders(completionHandler: {
                 self.ordersTableView.reloadData()
             })
         }
