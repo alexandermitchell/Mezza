@@ -20,8 +20,19 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func completeProfile(_ sender: Any) {
         
-         let userPath = DataModel.shared.loggedInUser
+        if nameField.text == "" {
+            alert(message: "Please enter a name", title: "Invalid Name")
+        }
         
+        if nameLocation.text == "" {
+            alert(message: "Please enter a location", title: "Invalid Location")
+        }
+        
+        
+        let userPath = DataModel.shared.loggedInUser
+        
+        
+        //Updates in Firebase 
         let ref = FIRDatabase.database().reference(withPath: "users/uid")
         let values = ["name": nameField.text, "location": nameLocation.text, "bio": textField] as [String: Any]
         ref.updateChildValues(values)
@@ -92,5 +103,14 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
 
+    //Alert Function
+    func alert(message: String, title: String = "") {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 
+    
 }

@@ -11,6 +11,7 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    // Edit Button has a Segua
     @IBAction func editButton(_ sender: Any) {
         
     }
@@ -40,11 +41,6 @@ class ProfileViewController: UIViewController {
         updateSellerProfile()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func updateSellerProfile() {
         let loggedInUser = DataModel.shared.loggedInUser
 
@@ -54,10 +50,10 @@ class ProfileViewController: UIViewController {
         loggedInUser?.bio = profileDescription.text
         
         var seller: User?
-        
-        DataModel.shared.fetchImage(stringURL: (seller?.avatar)!) { (image) in
-            self.profileImage.image = image
-        }
+//        
+//        DataModel.shared.fetchImage(stringURL: (seller?.avatar)!) { (image) in
+//            self.profileImage.image = image
+//        }
     }
     
 
