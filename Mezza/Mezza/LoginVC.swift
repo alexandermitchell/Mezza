@@ -166,14 +166,14 @@ class LoginVC: UIViewController {
             
             if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
                 type = .seller
-                let sellerVC = UIStoryboard.init(name: "OnBoardingVendor", bundle: nil).instantiateInitialViewController() as! OnBoardViewController1
+                let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                 
                     self.present(sellerVC, animated: true, completion: nil)
             }
             
             if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 1 {
                 type = .buyer
-                let buyerVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! HomeFeedViewController
+                let buyerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                 
                 self.present(buyerVC, animated: true, completion: nil)
                 
