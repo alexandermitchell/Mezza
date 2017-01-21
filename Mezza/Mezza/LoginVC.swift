@@ -6,7 +6,7 @@
 //  Copyright © 2017 Alex Mitchell. All rights reserved.
 //
 /*
-
+ 
  1. add sign out button elsewhere.
  
  */
@@ -18,6 +18,8 @@ import UIKit
 import Firebase
 
 class LoginVC: UIViewController {
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,31 +101,40 @@ class LoginVC: UIViewController {
                 return
         }
         
+        if emailTextField.text == "" {
+            alert(message: "Please enter an email address", title: "Invalid Email")
+        }
+        
+        if passwordTextField.text == "" {
+            alert(message: "Please enter a password", title: "Invalid Password")
+        }
+        
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             
-            if error != nil {
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                self.present(alertController, animated: true, completion: nil)
+//            if error != nil {
+//                self.alert(message: "User does not exist", title: "Invalid User")
+//            }
+            
+            guard let validUser = user else {
+                self.alert(message: "User does not exist", title: "Invalid User")
+                return
             }
             
             
-            let userUID = user?.uid
-            DataModel.shared.fetchUser(UID: userUID!, completionHandler: { (user) in
+            let userUID = validUser.uid
+            DataModel.shared.fetchUser(UID: userUID, completionHandler: { (user) in
                 DataModel.shared.loggedInUser = user
                 if user.type == .seller {
                     let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                     
-                self.present(sellerVC, animated: true, completion: nil)
+                    self.present(sellerVC, animated: true, completion: nil)
                 }
                 if user.type == .buyer {
-                let buyerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController() as! MainTabBarController
+                    let buyerVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                     
                     self.present(buyerVC, animated: true, completion: nil)
                 }
+                
             })
             
         })
@@ -134,9 +145,22 @@ class LoginVC: UIViewController {
     func handleRegister() {
         
         guard let email = emailTextField.text,let password = passwordTextField.text, let name = nameTextField.text
+            
             else{
                 print("Form is not valid")
                 return
+        }
+        
+        if nameTextField.text == "" {
+            alert(message: "Please enter a name", title: "Invalid Name")
+        }
+        
+        if emailTextField.text == "" {
+            alert(message: "Please enter an email address", title: "Invalid Email")
+        }
+        
+        if passwordTextField.text == "" {
+            alert(message: "Please enter a password", title: "Invalid Password")
         }
         
         
@@ -168,7 +192,7 @@ class LoginVC: UIViewController {
                 type = .seller
                 let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! MainTabBarController
                 
-                    self.present(sellerVC, animated: true, completion: nil)
+                self.present(sellerVC, animated: true, completion: nil)
             }
             
             if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 1 {
@@ -192,26 +216,9 @@ class LoginVC: UIViewController {
             let purchasesRef = usersReference.child("purchases")
             purchasesRef.setValue(0)
             
-//            DataModel.shared.fetchUser(UID: (validUser.uid), completionHandler: { (user) in
-//            if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
-//                if user.type == .seller {
-//                    DataModel.shared.loggedInUser = user
-//                    let sellerVC = UIStoryboard.init(name: "OnBoardingVendor", bundle: nil).instantiateInitialViewController() as! OnBoardViewController1
-//                    
-//                    self.present(sellerVC, animated: true, completion: nil)
-//                }
-//            } else {
-//                if user.type == .buyer {
-//                    DataModel.shared.loggedInUser = user
-//                    let buyerVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! HomeFeedViewController
-//                    
-//                    self.present(buyerVC, animated: true, completion: nil)
-//                }
-//            }
-            
         })
     }
-
+    
     
     //MARK: Name Text Field
     let nameTextField: UITextField = {
@@ -416,6 +423,14 @@ class LoginVC: UIViewController {
         skipRegisterButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 30).isActive = true
         skipRegisterButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         skipRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    //Global Alert Function
+    func alert(message: String, title: String = "") {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
