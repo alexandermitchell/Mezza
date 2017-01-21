@@ -8,28 +8,57 @@
 
 import UIKit
 
-class CheckoutSuccessViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class CheckoutSuccessViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // MARK: IBOutlets ---------------------
+    
+    @IBOutlet weak var successWrapper: UIView!
+    
+    
+    @IBOutlet weak var successLabel: UILabel!
+    
+    
+    @IBOutlet weak var similarCV: UICollectionView!
+    
+    var seller: String?
+    
+    // MARK: Collection View Functions
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return DataModel.shared.similarProducts.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let similarProducts = DataModel.shared.similarProducts
+        let cell = similarCV.dequeueReusableCell(withReuseIdentifier: "similarCell", for: indexPath) as! CheckoutSuccessCollectionViewCell
+        
+        let images = similarProducts[indexPath.row].images
+        
+        let imageString = images[0]
+        
+        DataModel.shared.fetchImage(stringURL: imageString, completionHandler: { image in
+            
+            cell.productImage.image = image
+        })
+        
+        cell.titleLabel.text = similarProducts[indexPath.row].title
+        
+        
+        return cell
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        
+        
+        DataModel.shared.listenForSimilarProducts(sellerUID: seller!, callingViewController: self)
+        
+    }
+    
+    func reload() {
+        similarCV.reloadData()
+    }
 
 }
