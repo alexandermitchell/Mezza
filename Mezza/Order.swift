@@ -43,8 +43,9 @@ class Order {
         self.sellerUID = value?["seller"] as? String ?? ""
         self.size = value?["size"] as? String ?? ""
         self.uid = snapshot.key
-        self.product = value?["product"] as? String ?? ""
-        
+        self.product = value?["productUID"] as? String ?? ""
+        let statusRawValue = value?["status"] as? String ?? ""
+        self.status = OrderStatus(rawValue: statusRawValue)!
     }
     
     
