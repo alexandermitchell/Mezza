@@ -39,6 +39,13 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         return DataModel.shared.inventoryArray.count
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let item = DataModel.shared.inventoryArray[indexPath.item]
+        
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "UserFeedCell", for: indexPath) as! InventoryCollectionViewCell
         
@@ -57,6 +64,17 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         return cell
     }
+    
+    
+    @IBAction func addInventory(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toProductUpload", sender: nil)
+        
+    }
+  
+    
+    
+    
     
     
     func reload() {
