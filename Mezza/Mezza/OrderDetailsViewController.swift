@@ -29,6 +29,7 @@ class OrderDetailsViewController: UIViewController {
     
     @IBAction func updateStatusButtonPressed(_ sender: UIButton) {
         updateOrderStatus(userType: userType!)
+        updateOrderStatusButton.isHidden = true
     }
     
     // MARK: Funcs ------------------------
@@ -40,8 +41,10 @@ class OrderDetailsViewController: UIViewController {
         
         if userType == "seller" {
             ordersRef.updateChildValues([AnyHashable("status") : "sent"])
+            self.orderStatusLabel.text = "sent"
         } else {
             ordersRef.updateChildValues([AnyHashable("status") : "cancelled"])
+            self.orderStatusLabel.text = "cancelled"
         }
     }
     
