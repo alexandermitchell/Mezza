@@ -27,15 +27,48 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         if nameLocation.text == "" {
             alert(message: "Please enter a location", title: "Invalid Location")
         }
-        
-        
+        else {
+            
         let userPath = DataModel.shared.loggedInUser
+            
+            //Updates name location and bio in Firebase
+            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            let values = ["name": nameField.text, "location": nameLocation.text, "bio": textField] as [String: Any]
+            ref.updateChildValues(values)
+            
+                
+            //Updates the image
+            guard let imageUploaded = profileImageView.image else {
+                return
+            }
+            
+            var data = Data()
+            data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
+            
+            let storageRef = FIRStorage.storage().reference()
+            let imageUID = NSUUID().uuidString
+            let imageRef = storageRef.child(imageUID)
+            
+            imageRef.put(data, metadata: nil).observe(.success, handler: { (snapshot) in
+                let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
+                
+                let avatarRef = ref.child("avatar")
+                avatarRef.setValue(imageURL)
+            })
+            
+            
+            
+            
+            
+            
+            dismiss(animated: true, completion: nil)
+        }
         
         
-        //Updates in Firebase 
-        let ref = FIRDatabase.database().reference(withPath: "users/uid")
-        let values = ["name": nameField.text, "location": nameLocation.text, "bio": textField] as [String: Any]
-        ref.updateChildValues(values)
+        
+        
+        
+        
         
         
         

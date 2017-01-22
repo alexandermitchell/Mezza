@@ -24,19 +24,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mge-Sy-Nte">
-                                <rect key="frame" x="38" y="126" width="300" height="37"/>
+                                <rect key="frame" x="38" y="126" width="300" height="37.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-Fu-qho">
-                                <rect key="frame" x="38" y="191" width="300" height="36"/>
+                                <rect key="frame" x="38" y="191.5" width="300" height="37"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zI-0A-UGd">
-                                <rect key="frame" x="137" y="310" width="100" height="47"/>
+                                <rect key="frame" x="136.5" y="309.5" width="101" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6zI-0A-UGd" secondAttribute="height" multiplier="106:51" id="WIw-5Y-jvp"/>
                                 </constraints>
@@ -187,17 +187,17 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="pps-V1-vZW" id="bMj-OL-p73"/>
-                        <segue destination="4s1-oT-rZt" kind="show" identifier="toInventory" id="v7F-Aw-Fi3"/>
+                        <segue destination="4s1-oT-rZt" kind="show" identifier="toProfile" id="v7F-Aw-Fi3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqC-P4-aAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.2" y="78.710644677661179"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Profile-->
         <scene sceneID="bLo-Bx-0Ix">
             <objects>
-                <viewControllerPlaceholder id="4s1-oT-rZt" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" id="4s1-oT-rZt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="StY-zv-2kC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2009" y="18"/>

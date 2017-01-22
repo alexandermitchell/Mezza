@@ -38,7 +38,7 @@ class OnBoardViewController3: UIViewController {
             let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let bioRef = ref.child("bio")
             bioRef.setValue(textField.text)
-            performSegue(withIdentifier: "toInventory", sender: nil)
+            performSegue(withIdentifier: "toProfile", sender: nil)
             
             
             

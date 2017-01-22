@@ -24,7 +24,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(r: 247, g: 0, b: 37)
+        view.backgroundColor = UIColor(r: 0, g: 113, b: 128)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(skipRegisterButton)
@@ -53,11 +53,12 @@ class LoginVC: UIViewController {
     // MARK: Register Button
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
+        button.backgroundColor = UIColor.white
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor(r: 0, g: 113, b: 128), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         
@@ -68,11 +69,12 @@ class LoginVC: UIViewController {
     // MARK: Skip Button
     lazy var skipRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 40, g: 54, b: 85)
+        button.backgroundColor = UIColor.white
         button.setTitle("Skip Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor(r: 0, g: 113, b: 128), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.layer.cornerRadius = 10
         
         button.addTarget(self, action: #selector(handleSkipLoginRegister), for: .touchUpInside)
         return button
@@ -190,7 +192,7 @@ class LoginVC: UIViewController {
             
             if self.vendorBuyerSegmentedControl.selectedSegmentIndex == 0 {
                 type = .seller
-                let sellerVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! MainTabBarController
+                let sellerVC = UIStoryboard.init(name: "OnBoardingVendor", bundle: nil).instantiateInitialViewController() as! OnBoardViewController1
                 
                 self.present(sellerVC, animated: true, completion: nil)
             }
@@ -272,6 +274,7 @@ class LoginVC: UIViewController {
         vbSC.tintColor = UIColor.white
         vbSC.selectedSegmentIndex = 1
         vbSC.addTarget(self, action: #selector(handleVendorBuyerRegister), for: .valueChanged)
+        vbSC.layer.cornerRadius = 10
         return vbSC
     }()
     
@@ -287,6 +290,7 @@ class LoginVC: UIViewController {
         sc.tintColor = UIColor.white
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
+        sc.layer.cornerRadius = 10
         return sc
     }()
     
@@ -300,6 +304,7 @@ class LoginVC: UIViewController {
             skipRegisterButton.isHidden = true
         } else {
             vendorBuyerSegmentedControl.isHidden = false
+             skipRegisterButton.isHidden = false
         }
         
         

@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+    // Sign Out Button
     @IBAction func signOutButton(_ sender: Any) {
         do {
             try FIRAuth.auth()?.signOut()
@@ -26,7 +27,8 @@ class ProfileViewController: UIViewController {
     }
     
     
-    
+    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileLocation: UILabel!
@@ -37,23 +39,37 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signOutButton.layer.cornerRadius = 5
+        editButton.layer.cornerRadius = 5
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
         updateSellerProfile()
     }
 
     func updateSellerProfile() {
+        
         let loggedInUser = DataModel.shared.loggedInUser
-
         
-        loggedInUser?.name = profileName.text!
-        loggedInUser?.location = profileLocation.text!
-        loggedInUser?.bio = profileDescription.text
-        
-        var seller: User?
+//        let UID = loggedInUser?.uid
 //        
-//        DataModel.shared.fetchImage(stringURL: (seller?.avatar)!) { (image) in
-//            self.profileImage.image = image
+//        guard let validUID = UID else { return }
+        
+//        DataModel.shared.fetchUser(UID: validUID) { user in
+            loggedInUser?.name = profileName.text!
+            loggedInUser?.location = profileLocation.text!
+            loggedInUser?.bio = profileDescription.text
 //        }
+        
+
+//        var seller: User?
+        
+        let images = loggedInUser?.avatar
+        
+        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+            
+            self.profileImage.image = image
+        }
     }
     
 
