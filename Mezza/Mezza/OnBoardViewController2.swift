@@ -79,7 +79,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
 //        var pictureUploaded = false
         
 
-        view.backgroundColor = UIColor.red
+//        view.backgroundColor = UIColor.red
         
 
         

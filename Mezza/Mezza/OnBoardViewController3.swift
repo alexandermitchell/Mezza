@@ -55,7 +55,7 @@ class OnBoardViewController3: UIViewController {
         super.viewDidLoad()
 
         
-        view.backgroundColor = UIColor.red
+//        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }
 

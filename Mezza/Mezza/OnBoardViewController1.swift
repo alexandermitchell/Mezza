@@ -23,17 +23,17 @@ class OnBoardViewController1: UIViewController {
         
                 if nameField.text == "" && locationField.text != "" {
         
-                    alert(message: "please enter a valid name", title: "invalid name")
+                    alert(message: "Please enter a valid name", title: "Invalid Name")
                 }
         
                 if locationField.text == "" && nameField.text == "'" {
         
-                    alert(message: "please enter a valid text", title: "invalid location")
+                    alert(message: "Please enter a valid text", title: "Invalid Location")
                 }
         
                 if locationField.text == "" && nameField.text == "" {
         
-                    alert(message: "please enter a valid name and location")
+                    alert(message: "Please enter a valid name and location")
                 }
         
         
@@ -79,7 +79,7 @@ class OnBoardViewController1: UIViewController {
         super.viewDidLoad()
 
         
-        view.backgroundColor = UIColor.red
+//        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }
 
