@@ -58,6 +58,9 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeButtonText()
+        if currentOrder?.status.rawValue != "pending" {
+            updateOrderStatusButton.isHidden = true
+        }
         orderStatusLabel.text = currentOrder?.status.rawValue
     }
 
