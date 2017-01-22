@@ -28,8 +28,9 @@ class OrderDetailsViewController: UIViewController {
     
     
     @IBAction func updateStatusButtonPressed(_ sender: UIButton) {
-        updateOrderStatus(userType: userType!)
-        updateOrderStatusButton.isHidden = true
+        showPopUp()
+//        updateOrderStatus(userType: userType!)
+//        updateOrderStatusButton.isHidden = true
     }
     
     // MARK: Funcs ------------------------
@@ -57,6 +58,26 @@ class OrderDetailsViewController: UIViewController {
         }
         
     }
+    
+    func showPopUp() {
+        // set up popup
+        
+        let popOverVC = UIStoryboard(name: "BuyerOrderFeed", bundle: nil).instantiateViewController(withIdentifier:"OrderStatusPopUp") as! OrderStatusPopUpViewController
+        //popOverVC.delegate = self
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

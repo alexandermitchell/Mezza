@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		007A70D2BDA5BFB53F0910D0 /* Pods_Mezza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF44A809AC545ADEED69E0C /* Pods_Mezza.framework */; };
 		040ED37F1E3542E700611BBD /* ItemDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040ED37E1E3542E700611BBD /* ItemDetailStoryboard.storyboard */; };
+		040ED3811E356B8F00611BBD /* OrderStatusPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */; };
 		04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */; };
 		041A9B6C1E2FF860001108C6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A9B6A1E2FF860001108C6 /* Login.storyboard */; };
 		041A9B6F1E2FF893001108C6 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A9B6E1E2FF893001108C6 /* LoginVC.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		040ED37E1E3542E700611BBD /* ItemDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStatusPopUpViewController.swift; sourceTree = "<group>"; };
 		04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemDetailsViewController.swift; sourceTree = "<group>"; };
 		041A9B6A1E2FF860001108C6 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		041A9B6E1E2FF893001108C6 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */,
 				04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */,
 				842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */,
+				040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				42F049101E29672800F45B96 /* Thread.swift in Sources */,
 				84A33E0D1E319C31007ACFF9 /* ProductUploadViewController.swift in Sources */,
 				04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */,
+				040ED3811E356B8F00611BBD /* OrderStatusPopUpViewController.swift in Sources */,
 				4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */,
 				04EB471B1E32F7F100C3B0F6 /* OrdersTableViewCell.swift in Sources */,
 				049142261E2EAA5E00C2DC4B /* HomeFeedViewController.swift in Sources */,
