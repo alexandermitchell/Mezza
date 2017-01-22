@@ -19,7 +19,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var textField: UITextView!
     
     @IBAction func cancelButton(_ sender: Any) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -32,88 +32,56 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         if nameLocation.text == "" {
             alert(message: "Please enter a location", title: "Invalid Location")
         }
-        else {
-            
-        let userPath = DataModel.shared.loggedInUser
-            
-            //Updates name location and bio in Firebase
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
-            let values = ["name": nameField.text, "location": nameLocation.text, "bio": textField] as [String: Any]
-            ref.updateChildValues(values)
-            
-                
-            //Updates the image
-            guard let imageUploaded = profileImageView.image else {
-                return
-            }
-            
-            var data = Data()
-            data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
-            
-            let storageRef = FIRStorage.storage().reference()
-            let imageUID = NSUUID().uuidString
-            let imageRef = storageRef.child(imageUID)
-            
-            imageRef.put(data, metadata: nil).observe(.success, handler: { (snapshot) in
-                let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
-                
-                let avatarRef = ref.child("avatar")
-                avatarRef.setValue(imageURL)
-            })
-            
-            
-            
-            
-            
-            
-            dismiss(animated: true, completion: nil)
-        }
-        
-        
-        
-        
-        
-        
-        
-        
         
         guard let imageUploaded = profileImageView.image else {
+            alert(message: "Please upload a photo")
             return
         }
-        
-        var imageData = Data()
-        imageData = UIImageJPEGRepresentation(imageUploaded, 0.1)!
+    
+        var data = Data()
+        data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
         
         let storageRef = FIRStorage.storage().reference()
         let imageUID = NSUUID().uuidString
-        let imageRef = storageRef.child(imageUID)
-        //
         
-        imageRef.put(imageData, metadata: nil).observe(.success) { (snapshot) in
+        let imageRef = storageRef.child(imageUID)
+        let user = DataModel.shared.loggedInUser
+        let ref = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+        
+        DataModel.shared.loggedInUser?.name = nameField.text!
+        DataModel.shared.loggedInUser?.location = nameLocation.text!
+        DataModel.shared.loggedInUser?.bio = textField.text
+        
+        let nameRef = ref.child("name")
+        nameRef.setValue(nameField.text)
+        
+        let locationRef = ref.child("location")
+        locationRef.setValue(nameLocation.text)
+        
+        let bioRef = ref.child("bio")
+        bioRef.setValue(textField.text)
+        
+        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
-
-            
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let avatarRef = ref.child("avatar")
             avatarRef.setValue(imageURL)
             
-        }
-
-        
+        DataModel.shared.loggedInUser?.avatar = imageURL!
+    
     }
-    
-    
-    
+        
+        dismiss(animated: true, completion: nil)
+}
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
-
+        
     }
-
+    
     func handleSelectProfileImage() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -140,7 +108,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     //Alert Function
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -149,6 +117,6 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         self.present(alertController, animated: true, completion: nil)
     }
     
-
+    
     
 }
