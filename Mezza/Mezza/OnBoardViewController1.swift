@@ -13,7 +13,6 @@ import FirebaseAuth
 class OnBoardViewController1: UIViewController {
     
     
-    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var locationField: UITextField!
@@ -77,7 +76,7 @@ class OnBoardViewController1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
 //        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
