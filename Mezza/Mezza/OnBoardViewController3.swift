@@ -32,10 +32,14 @@ class OnBoardViewController3: UIViewController {
         
         else {
            
-//            let userPath = DataModel.shared.loggedInUser
-//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            let user = DataModel.shared.loggedInUser
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
             
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            
+            
+            DataModel.shared.loggedInUser?.bio = textField.text
+            
             let bioRef = ref.child("bio")
             bioRef.setValue(textField.text)
             performSegue(withIdentifier: "toProfile", sender: nil)

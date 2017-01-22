@@ -184,7 +184,8 @@ class LoginVC: UIViewController {
                 return
             }
             
-            
+            let newUser = User(uid: validUser.uid, avatar: "", email: email, name: name, location: "", bio: "", purchases: [], type: type)
+            DataModel.shared.loggedInUser = newUser
             
             let ref = FIRDatabase.database().reference(fromURL: "https://mezza-f928a.firebaseio.com/")
             

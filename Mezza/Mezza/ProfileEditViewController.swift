@@ -18,6 +18,11 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var nameLocation: UITextField!
     @IBOutlet weak var textField: UITextView!
     
+    @IBAction func cancelButton(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func completeProfile(_ sender: Any) {
         
         if nameField.text == "" {

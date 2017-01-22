@@ -39,15 +39,22 @@ class OnBoardViewController1: UIViewController {
         
                 else {
         
-                    let userPath = DataModel.shared.loggedInUser
-//                    let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
-                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
+                    let user = DataModel.shared.loggedInUser
+                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+//                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
+                    
+                    DataModel.shared.loggedInUser?.name = nameField.text!
+                    DataModel.shared.loggedInUser?.location = locationField.text!
+                    
+                    
                     
                     let nameRef = ref.child("name")
                     nameRef.setValue(nameField.text)
                     
                     let locationRef = ref.child("location")
                     locationRef.setValue(locationField.text)
+                    
+                    
                   
                     performSegue(withIdentifier: "toOnBoardVC2", sender: nil)
                     

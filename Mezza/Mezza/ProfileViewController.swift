@@ -51,18 +51,9 @@ class ProfileViewController: UIViewController {
         
         let loggedInUser = DataModel.shared.loggedInUser
         
-//        let UID = loggedInUser?.uid
-//        
-//        guard let validUID = UID else { return }
-        
-//        DataModel.shared.fetchUser(UID: validUID) { user in
-            loggedInUser?.name = profileName.text!
-            loggedInUser?.location = profileLocation.text!
-            loggedInUser?.bio = profileDescription.text
-//        }
-        
-
-//        var seller: User?
+            profileName.text = loggedInUser?.name
+            profileLocation.text = loggedInUser?.location
+            profileDescription.text = loggedInUser?.bio
         
         let images = loggedInUser?.avatar
         
