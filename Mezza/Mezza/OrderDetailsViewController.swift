@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class OrderDetailsViewController: UIViewController {
     
     // MARK: Local Variables ---------------------------------------------------
     
     var currentOrder: Order?
-    
+    let userType = DataModel.shared.loggedInUser?.type.rawValue
     // MARK: IBOutlets ----------------------
     
     @IBOutlet weak var orderStatusLabel: UILabel!
@@ -25,9 +26,28 @@ class OrderDetailsViewController: UIViewController {
         performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
     }
     
+    
+    @IBAction func updateStatusButtonPressed(_ sender: UIButton) {
+        updateOrderStatus(userType: userType!)
+    }
+    
+    // MARK: Funcs ------------------------
+    
+    func updateOrderStatus(userType: String) {
+        let orderUID = currentOrder!.uid
+        let ordersRef = FIRDatabase.database().reference(withPath: "orders/\(orderUID)")
+        //ordersRef.removeValue()
+        
+        if userType == "seller" {
+            ordersRef.updateChildValues([AnyHashable("status") : "sent"])
+        } else {
+            ordersRef.updateChildValues([AnyHashable("status") : "cancelled"])
+        }
+    }
+    
     func changeButtonText() {
-        let userType = DataModel.shared.loggedInUser?.type
-        if userType?.rawValue == "buyer" {
+        
+        if userType == "buyer" {
             updateOrderStatusButton.setTitle("Cancel Order", for: .normal)
         } else {
             updateOrderStatusButton.setTitle("Mark As Shipped", for: .normal)
