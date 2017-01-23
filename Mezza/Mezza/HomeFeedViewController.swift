@@ -13,6 +13,9 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var homeFeedCV: UICollectionView!
     
     
+    
+    
+    
     // unwind segue -> back button on item detail page
     @IBAction func unwindToFeed(segue: UIStoryboardSegue) {
     
@@ -27,7 +30,7 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         DataModel.shared.listenForChangesHF(callingViewController: self)
-        
+
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -46,16 +49,29 @@ class HomeFeedViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let imageString = images[0]
         
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
         DataModel.shared.fetchImage(stringURL: imageString, completionHandler: { image in
             
             cell.itemImageView.image = image
+            cell.itemImageView.layer.borderColor = UIColor.lightGray.cgColor
+            cell.itemImageView.layer.borderWidth = 1
+            //cell.itemImageView.layer.masksToBounds = true
+            cell.titleLabel.text = productsArray[indexPath.row].title
+            
+            
+            
+            cell.infoWrapper.layer.borderWidth = 1
+            cell.infoWrapper.layer.borderColor = UIColor.lightGray.cgColor
+            cell.infoWrapper.layer.backgroundColor = UIColor(r: 232, g: 235, b: 240).cgColor
+            let UID = productsArray[indexPath.row].sellerUID
+            DataModel.shared.fetchUser(UID: UID) { user in
+                cell.artistLabel.text = user.name
+                dispatchGroup.leave()
+            }
         })
-        let UID = productsArray[indexPath.row].sellerUID
-        DataModel.shared.fetchUser(UID: UID) { user in
-            cell.artistLabel.text = user.name
-        }
         
-        cell.titleLabel.text = productsArray[indexPath.row].title
         
         return cell
         
