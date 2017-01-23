@@ -61,8 +61,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var titleField: UITextField!
     
-    
-    @IBOutlet weak var artistField: UITextField!
+
     
     
     @IBOutlet weak var mainImageView: UIImageView!
@@ -307,14 +306,16 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
 
         
-        
-        
-        
         loadTextViewPlaceHolder()
         
         
-        addSizeButton.layer.borderWidth = 5
-        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width / 2
+        addSizeButton.layer.borderWidth = 1
+        
+        descriptonField.layer.borderWidth = 1
+        
+        descriptonField.layer.borderColor = UIColor.blue.cgColor
+        
+//        addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width / 2
         addSizeButton.layer.borderColor = UIColor.blue.cgColor
         addSizeButton.clipsToBounds = true
         
@@ -421,6 +422,31 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
+    @IBAction func cancel(_ sender: Any) {
+        
+        
+        
+        
+        if let _ = selectedProduct {
+            
+            self.performSegue(withIdentifier: "toDetail", sender: nil)
+        }
+        
+        
+        else {
+            
+            self.performSegue(withIdentifier: "toInventory", sender: nil)
+            
+            
+        }
+
+        
+        
+    }
+    
+    
+    
+    
     
     @IBAction func save(_ sender: Any) {
         
@@ -428,7 +454,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
         
         let title = titleField.text
-        let artist = artistField.text
+   
         let description = descriptonField.text
         
         var imagesArray = [UIImage?]()
@@ -442,7 +468,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         let imagesArrayLastIndex = imagesArray.count - 1
         
         
-        if title == "" || artist == "" || description == "" {
+        if title == "" || description == "" {
             alert(message: "please fill out all the fields")
             return
         }
@@ -547,6 +573,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
                 updateImages(index: selectedImageIndex)
                 UIView.animate(withDuration: 1.0){
                     view.layer.borderColor = nil
+                    view.layer.borderWidth = 0
                 }
             
             }
@@ -560,7 +587,9 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
                 
                 UIView.animate(withDuration: 1.0){
                     view.layer.borderColor = nil
+                    view.layer.borderWidth = 0
                     self.imageViewArray?[self.selectedImageIndex].layer.borderColor = nil
+                     self.imageViewArray?[self.selectedImageIndex].layer.borderWidth = 0
                 }
             
             }
@@ -572,7 +601,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             print(selectedImageIndex)
             
             view.layer.borderColor = UIColor.red.cgColor
-            view.layer.borderWidth = 5
+            view.layer.borderWidth = 2
             
         }
 
