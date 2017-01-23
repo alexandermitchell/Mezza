@@ -12,6 +12,9 @@ import Firebase
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    weak var delegate: updateImage?
+    
     let loggedInUser = DataModel.shared.loggedInUser
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -24,6 +27,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     
+    //MARK: Complete Profile Button
     @IBAction func completeProfile(_ sender: Any) {
         
         if nameField.text == "" {
@@ -38,14 +42,14 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             alert(message: "Please upload a photo")
             return
         }
-    
+        
         var data = Data()
         data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
         
         let storageRef = FIRStorage.storage().reference()
         let imageUID = NSUUID().uuidString
         let imageRef = storageRef.child(imageUID)
-
+        
         
         let user = DataModel.shared.loggedInUser
         let ref = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
@@ -67,39 +71,20 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
             let avatarRef = ref.child("avatar")
             avatarRef.setValue(imageURL)
+            
+            DataModel.shared.loggedInUser?.avatar = imageURL!
+            self.delegate?.updateImage(imageURL: imageURL!)
+        }
         
-        DataModel.shared.loggedInUser?.avatar = imageURL!
-    }
+        
         
         dismiss(animated: true, completion: nil)
-}
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         nameField.text = DataModel.shared.loggedInUser?.name
         nameLocation.text = DataModel.shared.loggedInUser?.location
         textField.text = DataModel.shared.loggedInUser?.bio
-        
-        
-//        guard let imageUploaded = profileImageView.image else {
-//            return
-//        }
-//        
-//        var data = Data()
-//        data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
-//        
-//        
-//        let storageRef = FIRStorage.storage().reference()
-//        let imageUID = NSUUID().uuidString
-//        let imageRef = storageRef.child(imageUID)
-//        
-//        let ref = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
-//        
-//        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
-//            let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
-//            let avatarRef = ref.child("avatar")
-//            avatarRef.setValue(imageURL)
-//            
-//        }
         
     }
     
@@ -114,15 +99,15 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         
         let images = loggedInUser?.avatar
         if images != "" {
-        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
-            
-            self.profileImageView.image = image
+            DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+                
+                self.profileImageView.image = image
             }
         }
         
-        
     }
     
+    // MARK: Image Picker Functions
     func handleSelectProfileImage() {
         let picker = UIImagePickerController()
         picker.delegate = self

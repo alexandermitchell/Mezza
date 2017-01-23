@@ -67,7 +67,6 @@
                                         </state>
                                         <connections>
                                             <action selector="editButton:" destination="ynv-gd-aLq" eventType="touchUpInside" id="LMC-VV-DLj"/>
-                                            <segue destination="qi2-aB-xB1" kind="show" identifier="toEdit" id="s1y-yn-ufm"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add User Male_004080_50" translatesAutoresizingMaskIntoConstraints="NO" id="APh-MN-YzC">
@@ -114,6 +113,7 @@
                         <outlet property="profileLocation" destination="wnm-tV-cPY" id="MW1-hJ-TID"/>
                         <outlet property="profileName" destination="5Mc-ML-ZEA" id="U6J-EI-v6R"/>
                         <outlet property="signOutButton" destination="WXk-HJ-B1h" id="SFT-WD-xQv"/>
+                        <segue destination="qi2-aB-xB1" kind="show" identifier="toEdit" id="EzD-lQ-4SM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OI-El-lAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
