@@ -37,6 +37,12 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
    
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var clearView: UIView!
+    
+    @IBOutlet weak var buyBtnOutlet: UIButton!
+    
+    
+    
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
@@ -164,6 +170,33 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         itemSizesLabel.layer.borderColor = newColor
         itemSizesLabel.layer.borderWidth = 2
         
+        let exampleColor = UIColor(r: 0, g: 46, b: 53)
+        clearView.backgroundColor = exampleColor.withAlphaComponent(0.9)
+        
+        buyBtnOutlet.layer.cornerRadius = 25
+        
+        imageView1.layer.cornerRadius = imageView1.frame.size.width/2
+        imageView1.layer.masksToBounds = true
+        imageView1.clipsToBounds = true
+        
+        imageView2.layer.cornerRadius = imageView1.frame.size.width/2
+        imageView2.layer.masksToBounds = true
+        imageView2.clipsToBounds = true
+        
+        imageView3.layer.cornerRadius = imageView1.frame.size.width/2
+        imageView3.layer.masksToBounds = true
+        imageView3.clipsToBounds = true
+        
+        imageView4.layer.cornerRadius = imageView1.frame.size.width/2
+        imageView4.layer.masksToBounds = true
+        imageView4.clipsToBounds = true
+        
+        imageView5.layer.cornerRadius = imageView1.frame.size.width/2
+        imageView5.layer.masksToBounds = true
+        imageView5.clipsToBounds = true
+        
+        
+        
         createSizesArray()
         // fetch the current seller
         let sellerUID = selectedItem!.sellerUID
@@ -225,4 +258,22 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         
     }
     
+}
+
+extension UIImage {
+    var circleMask: UIImage {
+        let square = size.width < size.height ? CGSize(width: size.width, height: size.width) : CGSize(width: size.height, height: size.height)
+        let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.image = self
+        imageView.layer.cornerRadius = square.width/2
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 5
+        imageView.layer.masksToBounds = true
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result!
+    }
 }
