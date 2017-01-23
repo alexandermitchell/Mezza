@@ -248,6 +248,7 @@ class LoginVC: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.keyboardType = .emailAddress
         tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         return tf
     }()
     
