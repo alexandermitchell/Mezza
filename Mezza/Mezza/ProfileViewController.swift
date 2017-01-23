@@ -34,7 +34,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileLocation: UILabel!
     @IBOutlet weak var profileDescription: UITextView!
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        profileName.text = DataModel.shared.loggedInUser?.name
+        profileLocation.text = DataModel.shared.loggedInUser?.location
+        profileDescription.text = DataModel.shared.loggedInUser?.bio
+    }
     
 
     override func viewDidLoad() {

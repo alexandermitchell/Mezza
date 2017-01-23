@@ -43,14 +43,15 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         
         let storageRef = FIRStorage.storage().reference()
         let imageUID = NSUUID().uuidString
-        
         let imageRef = storageRef.child(imageUID)
+
+        
         let user = DataModel.shared.loggedInUser
-        let ref = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+        let ref = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
         
         DataModel.shared.loggedInUser?.name = nameField.text!
         DataModel.shared.loggedInUser?.location = nameLocation.text!
-        DataModel.shared.loggedInUser?.bio = textField.text
+        DataModel.shared.loggedInUser?.bio = textField.text!
         
         let nameRef = ref.child("name")
         nameRef.setValue(nameField.text)
@@ -77,6 +78,27 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         nameField.text = DataModel.shared.loggedInUser?.name
         nameLocation.text = DataModel.shared.loggedInUser?.location
         textField.text = DataModel.shared.loggedInUser?.bio
+        
+//        guard let imageUploaded = profileImageView.image else {
+//            return
+//        }
+//        
+//        var data = Data()
+//        data = UIImageJPEGRepresentation(imageUploaded, 0.1)!
+//        
+//        
+//        let storageRef = FIRStorage.storage().reference()
+//        let imageUID = NSUUID().uuidString
+//        let imageRef = storageRef.child(imageUID)
+//        
+//        let ref = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+//        
+//        imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
+//            let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
+//            let avatarRef = ref.child("avatar")
+//            avatarRef.setValue(imageURL)
+//            
+//        }
         
     }
     
