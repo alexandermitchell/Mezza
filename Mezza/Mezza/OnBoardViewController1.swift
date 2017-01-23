@@ -39,7 +39,7 @@ class OnBoardViewController1: UIViewController {
                 else {
         
                     let user = DataModel.shared.loggedInUser
-                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
 //                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
                     
                     DataModel.shared.loggedInUser?.name = nameField.text!

@@ -56,7 +56,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
             
             let user = DataModel.shared.loggedInUser
-            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
             
 //            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let avatarRef = ref.child("avatar")
