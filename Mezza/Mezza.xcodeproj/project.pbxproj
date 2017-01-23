@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		007A70D2BDA5BFB53F0910D0 /* Pods_Mezza.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF44A809AC545ADEED69E0C /* Pods_Mezza.framework */; };
-		040ED37F1E3542E700611BBD /* ItemDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040ED37E1E3542E700611BBD /* ItemDetailStoryboard.storyboard */; };
 		040ED3811E356B8F00611BBD /* OrderStatusPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */; };
 		04135B411E3014FF008B5BED /* FeedItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */; };
 		041A9B6C1E2FF860001108C6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A9B6A1E2FF860001108C6 /* Login.storyboard */; };
@@ -30,6 +29,7 @@
 		4287C4611E328D9C001EF191 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4601E328D9C001EF191 /* ProfileViewController.swift */; };
 		4287C4631E32A95C001EF191 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */; };
 		4287C4651E33DCBE001EF191 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C4641E33DCBE001EF191 /* MainTabBarController.swift */; };
+		4287C4671E365F86001EF191 /* ItemDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4287C4661E365F86001EF191 /* ItemDetailStoryboard.storyboard */; };
 		42F049101E29672800F45B96 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0490F1E29672800F45B96 /* Thread.swift */; };
 		842255341E3299BC00D6D7C9 /* EnterSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */; };
 		845E576A1E2EC80D00A06511 /* OnBoardingVendor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */; };
@@ -67,7 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		040ED37E1E3542E700611BBD /* ItemDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStatusPopUpViewController.swift; sourceTree = "<group>"; };
 		04135B401E3014FF008B5BED /* FeedItemDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemDetailsViewController.swift; sourceTree = "<group>"; };
 		041A9B6A1E2FF860001108C6 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		4287C4601E328D9C001EF191 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		4287C4641E33DCBE001EF191 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		4287C4661E365F86001EF191 /* ItemDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		42F0490F1E29672800F45B96 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterSizeViewController.swift; sourceTree = "<group>"; };
 		845E57691E2EC80D00A06511 /* OnBoardingVendor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnBoardingVendor.storyboard; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				041A9B6A1E2FF860001108C6 /* Login.storyboard */,
 				420F60921E300A9D00D67E58 /* UserFeedStoryboard.storyboard */,
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
-				040ED37E1E3542E700611BBD /* ItemDetailStoryboard.storyboard */,
+				4287C4661E365F86001EF191 /* ItemDetailStoryboard.storyboard */,
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
 				4287C4551E31595C001EF191 /* UploadInventory.storyboard */,
 				4287C4581E324DCA001EF191 /* BuyerOrderFeed.storyboard */,
@@ -376,7 +376,7 @@
 				049142231E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard in Resources */,
 				4287C4591E324DCA001EF191 /* BuyerOrderFeed.storyboard in Resources */,
 				D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */,
-				040ED37F1E3542E700611BBD /* ItemDetailStoryboard.storyboard in Resources */,
+				4287C4671E365F86001EF191 /* ItemDetailStoryboard.storyboard in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
 				4287C45F1E328C48001EF191 /* Profile.storyboard in Resources */,
 				4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */,
