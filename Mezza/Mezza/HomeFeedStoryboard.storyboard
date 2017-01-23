@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nyh-Dc-ggG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -103,6 +103,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93826625020389243" green="0.95850546656364133" blue="0.9745003172588832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeTab" id="Wqm-Vw-AKI"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="homeFeedCV" destination="KBJ-0b-o7g" id="u1P-eP-eGX"/>
                         <segue destination="ZyK-ud-ThB" kind="show" identifier="HomeDetailsSegue" id="qpp-sD-iLK"/>
@@ -169,4 +171,7 @@
             <point key="canvasLocation" x="2836" y="-1764.4677661169417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeTab" width="25" height="25"/>
+    </resources>
 </document>

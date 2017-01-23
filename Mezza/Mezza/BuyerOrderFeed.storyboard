@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Orders Main View Controller-->
+        <!--Orders-->
         <scene sceneID="htt-qu-Y0B">
             <objects>
                 <viewController id="yev-PT-9Qo" customClass="OrdersMainViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,6 +83,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Orders" image="OrderTab" id="ceU-c5-Tj8"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ordersSegmentedControl" destination="2be-fB-GRN" id="QwH-HM-BLV"/>
                         <outlet property="ordersTableView" destination="vc1-VQ-g7J" id="HtC-L3-Wqm"/>
@@ -90,7 +92,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIj-qk-M91" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarItem title="Orders" image="OrderTab" id="iQ5-y2-e9m"/>
             </objects>
             <point key="canvasLocation" x="-428" y="-98.50074962518741"/>
         </scene>
