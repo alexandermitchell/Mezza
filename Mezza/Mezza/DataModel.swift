@@ -37,6 +37,7 @@ class DataModel {
                 DispatchQueue.main.async {
                     completionHandler(image)
                 }
+                
                 }.resume()
         }
     }

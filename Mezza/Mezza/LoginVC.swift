@@ -24,7 +24,7 @@ class LoginVC: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-        view.backgroundColor = UIColor(r: 247, g: 0, b: 37)
+        view.backgroundColor = UIColor(r: 0, g: 46, b: 53)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(skipRegisterButton)
@@ -248,6 +248,7 @@ class LoginVC: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.keyboardType = .emailAddress
         tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
         return tf
     }()
     

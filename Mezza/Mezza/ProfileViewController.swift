@@ -9,13 +9,32 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+
+//    ProfileEditViewController.delegate = self
+
+protocol updateImage: class {
+    func updateImage (imageURL: String)
+    
+}
+
+
+class ProfileViewController: UIViewController, updateImage {
     
     // Edit Button has a Segua
     @IBAction func editButton(_ sender: Any) {
         
+        performSegue(withIdentifier: "toEdit", sender: nil)
+        
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEdit" {
+            let editVC = segue.destination as! ProfileEditViewController
+            editVC.delegate = self
+            
+        }
+    }
     // Sign Out Button
     @IBAction func signOutButton(_ sender: Any) {
         do {
@@ -38,12 +57,21 @@ class ProfileViewController: UIViewController {
         profileName.text = DataModel.shared.loggedInUser?.name
         profileLocation.text = DataModel.shared.loggedInUser?.location
         profileDescription.text = DataModel.shared.loggedInUser?.bio
+    
+        setProfile()
+    }
+    
+    func updateImage(imageURL: String) {
         
-        
+        DataModel.shared.fetchImage(stringURL: (imageURL)) { (image) in
+            
+            self.profileImage.image = image
+            
+        }
         
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signOutButton.layer.cornerRadius = 5
@@ -51,10 +79,12 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         
-        updateSellerProfile()
+  
+        
+        setProfile()
     }
 
-    func updateSellerProfile() {
+    func setProfile() {
         
         let loggedInUser = DataModel.shared.loggedInUser
         
@@ -63,10 +93,12 @@ class ProfileViewController: UIViewController {
             profileDescription.text = loggedInUser?.bio
         
         let images = loggedInUser?.avatar
-        
-        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+        if images != "" {
+        DataModel.shared.fetchImage(stringURL: (images!)) { (image) in
             
             self.profileImage.image = image
+            
+            }
         }
     }
     
