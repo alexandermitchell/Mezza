@@ -25,9 +25,9 @@ class Order {
     var size: String
     var status = OrderStatus.pending
     var product: String
-    var price: Double
+    var price: String
     
-    init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String, price: Double) {
+    init(uid: String, buyerUID: String, sellerUID: String, size: String, product: String, price: String) {
         self.uid = uid
         self.buyerUID = buyerUID
         self.sellerUID = sellerUID
@@ -39,7 +39,7 @@ class Order {
     init(snapshot: FIRDataSnapshot) {
         let value = snapshot.value as? [String : Any]
         self.buyerUID = value?["buyer"] as? String ?? ""
-        self.price = value?["price"] as? Double ?? 0.0
+        self.price = value?["price"] as? String ?? ""
         self.sellerUID = value?["seller"] as? String ?? ""
         self.size = value?["size"] as? String ?? ""
         self.uid = snapshot.key

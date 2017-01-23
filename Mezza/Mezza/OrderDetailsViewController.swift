@@ -18,6 +18,7 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     // MARK: Local Variables ---------------------------------------------------
     
     var currentOrder: Order?
+    var currentProduct: Product?
     let userType = DataModel.shared.loggedInUser?.type.rawValue
     
     // MARK: IBOutlets ----------------------
@@ -25,6 +26,18 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     @IBOutlet weak var orderStatusLabel: UILabel!
     
     @IBOutlet weak var updateOrderStatusButton: UIButton!
+    
+    @IBOutlet weak var orderImageView: UIImageView!
+    
+    @IBOutlet weak var buyerSellerNameLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var buyerSellerLabel: UILabel!
+    
+    
+    
+    
     // MARK: IBActions -----------------------
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -79,7 +92,26 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        priceLabel.text = "$\(currentOrder!.price)"
+        if userType == "buyer" {
+            buyerSellerLabel.text = "Seller:"
+            let sellerUID = currentOrder?.sellerUID
+            DataModel.shared.fetchUser(UID: sellerUID!, completionHandler: { user in
+                self.buyerSellerNameLabel.text = user.name
+            })
+        } else {
+            buyerSellerLabel.text = "Buyer:"
+            let buyerUID = currentOrder?.buyerUID
+            DataModel.shared.fetchUser(UID: buyerUID!, completionHandler: { user in
+                self.buyerSellerNameLabel.text = user.name
+            })
+        }
+        DataModel.shared.fetchProduct(UID: (currentOrder?.product)!) { product in
+            let imageURL = product.images[0]
+            DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
+                self.orderImageView.image = image
+            })
+        }
         changeButtonText()
         if currentOrder?.status.rawValue != "pending" {
             updateOrderStatusButton.isHidden = true
