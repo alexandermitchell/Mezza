@@ -73,6 +73,12 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
 }
     
+    override func viewDidAppear(_ animated: Bool) {
+        nameField.text = DataModel.shared.loggedInUser?.name
+        nameLocation.text = DataModel.shared.loggedInUser?.location
+        textField.text = DataModel.shared.loggedInUser?.bio
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
