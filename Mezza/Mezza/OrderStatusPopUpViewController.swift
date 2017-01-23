@@ -14,7 +14,7 @@ class OrderStatusPopUpViewController: UIViewController {
     
     weak var delegate: OrderStatusPopUpDelegate?
     var userType = DataModel.shared.loggedInUser?.type.rawValue
-    
+    var currentOrder: Order?
     
     // MARK: IBOutlets -------------------
     
@@ -23,7 +23,13 @@ class OrderStatusPopUpViewController: UIViewController {
     // MARK: IBActions -------------------
     
     @IBAction func yesButtonClicked(_ sender: UIButton) {
-        
+        if userType == "buyer" {
+       currentOrder?.status = .cancelled
+        } else {
+            currentOrder?.status = .sent
+        }
+        delegate?.updateOrderStatus(currentOrder: currentOrder!)
+        updateOrderStatus(userType: userType!)
         self.view.removeFromSuperview()
     }
     
@@ -32,6 +38,18 @@ class OrderStatusPopUpViewController: UIViewController {
         self.view.removeFromSuperview()
     }
     
+    func updateOrderStatus(userType: String) {
+        let orderUID = currentOrder!.uid
+        let ordersRef = FIRDatabase.database().reference(withPath: "orders/\(orderUID)")
+        
+        if userType == "seller" {
+            ordersRef.updateChildValues([AnyHashable("status") : "sent"])
+            //self.orderStatusLabel.text = "sent"
+        } else {
+            ordersRef.updateChildValues([AnyHashable("status") : "cancelled"])
+            //self.orderStatusLabel.text = "cancelled"
+        }
+    }
     
 
     override func viewDidLoad() {

@@ -19,6 +19,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     var selectedOrder: Order?
     // MARK: IBOutlets -----------------
     
+    
     @IBOutlet weak var ordersTableView: UITableView!
     
     @IBOutlet weak var ordersSegmentedControl: UISegmentedControl!
@@ -40,7 +41,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if order.status.rawValue == "pending" {
                     
-                tempPendingArray.append(order)
+                    tempPendingArray.append(order)
                 } else {
                     tempPastArray.append(order)
                 }
@@ -69,7 +70,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
             self.pastOrdersArray = tempPastArray
             completionHandler()
         })
-
+        
     }
     
     
@@ -93,17 +94,36 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrdersTableViewCell
         if ordersSegmentedControl.selectedSegmentIndex == 0 {
             cell.orderStatusLabel.text = pendingOrdersArray[indexPath.row].status.rawValue
-            cell.itemNameLabel.text = pendingOrdersArray[indexPath.row].product
+            let productUID = pendingOrdersArray[indexPath.row].product
+            
+            DataModel.shared.fetchProduct(UID: productUID, completionHandler: { product in
+                cell.itemNameLabel.text = product.title
+                let imageURL = product.images[0]
+                DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
+                    cell.orderImageView.image = image
+                })
+                
+            })
+            
         } else {
             cell.orderStatusLabel.text = pastOrdersArray[indexPath.row].status.rawValue
-            cell.itemNameLabel.text = pastOrdersArray[indexPath.row].product
+            let productUID = pastOrdersArray[indexPath.row].product
+            
+            DataModel.shared.fetchProduct(UID: productUID, completionHandler: { product in
+                cell.itemNameLabel.text = product.title
+                let imageURL = product.images[0]
+                DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
+                    cell.orderImageView.image = image
+                })
+                
+            })
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ordersSegmentedControl.selectedSegmentIndex == 0 {
-        selectedOrder = pendingOrdersArray[indexPath.row]
+            selectedOrder = pendingOrdersArray[indexPath.row]
         } else {
             selectedOrder = pastOrdersArray[indexPath.row]
         }
@@ -111,7 +131,7 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func segmentedControlReloadTableView() {
-       ordersTableView.reloadData()
+        ordersTableView.reloadData()
     }
     
     
