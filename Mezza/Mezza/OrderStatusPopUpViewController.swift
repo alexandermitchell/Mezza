@@ -9,6 +9,9 @@
 import UIKit
 
 class OrderStatusPopUpViewController: UIViewController {
+    
+    
+    weak var delegate: OrderStatusPopUpDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

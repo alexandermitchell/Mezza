@@ -9,7 +9,11 @@
 import UIKit
 import Firebase
 
-class OrderDetailsViewController: UIViewController {
+protocol OrderStatusPopUpDelegate: class {
+
+}
+
+class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     
     // MARK: Local Variables ---------------------------------------------------
     
@@ -38,7 +42,7 @@ class OrderDetailsViewController: UIViewController {
     func updateOrderStatus(userType: String) {
         let orderUID = currentOrder!.uid
         let ordersRef = FIRDatabase.database().reference(withPath: "orders/\(orderUID)")
-        //ordersRef.removeValue()
+       
         
         if userType == "seller" {
             ordersRef.updateChildValues([AnyHashable("status") : "sent"])
@@ -63,7 +67,7 @@ class OrderDetailsViewController: UIViewController {
         // set up popup
         
         let popOverVC = UIStoryboard(name: "BuyerOrderFeed", bundle: nil).instantiateViewController(withIdentifier:"OrderStatusPopUp") as! OrderStatusPopUpViewController
-        //popOverVC.delegate = self
+        popOverVC.delegate = self
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)

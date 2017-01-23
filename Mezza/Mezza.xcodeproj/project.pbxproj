@@ -183,10 +183,10 @@
 				4287C4601E328D9C001EF191 /* ProfileViewController.swift */,
 				4287C4621E32A95C001EF191 /* ProfileEditViewController.swift */,
 				04EB47161E32A20A00C3B0F6 /* OrderDetailsViewController.swift */,
+				040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */,
 				04EB47181E32F65300C3B0F6 /* OrdersMainViewController.swift */,
 				04EB471A1E32F7F100C3B0F6 /* OrdersTableViewCell.swift */,
 				842255331E3299BC00D6D7C9 /* EnterSizeViewController.swift */,
-				040ED3801E356B8F00611BBD /* OrderStatusPopUpViewController.swift */,
 			);
 			name = Logic;
 			sourceTree = "<group>";
