@@ -81,12 +81,6 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         textField.text = DataModel.shared.loggedInUser?.bio
         
         
-        let images = loggedInUser?.avatar
-        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
-            
-            self.profileImageView.image = image
-        }
-        
 //        guard let imageUploaded = profileImageView.image else {
 //            return
 //        }
@@ -118,6 +112,13 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
+        
+        let images = loggedInUser?.avatar
+        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+            
+            self.profileImageView.image = image
+        }
+        
         
     }
     
