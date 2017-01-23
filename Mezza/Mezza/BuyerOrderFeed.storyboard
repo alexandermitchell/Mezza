@@ -165,6 +165,9 @@
                                         <state key="normal" title="YES">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="yesButtonClicked:" destination="X8n-uB-sTC" eventType="touchUpInside" id="9CL-mq-HXQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-60-Wf5">
                                         <rect key="frame" x="137" y="232" width="52" height="30"/>
@@ -173,6 +176,9 @@
                                         <state key="normal" title="NO">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="noButtonClicked:" destination="X8n-uB-sTC" eventType="touchUpInside" id="4oa-Av-2cb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,6 +187,13 @@
                                     <constraint firstAttribute="height" constant="296" id="ejh-u6-I1K"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-vr-oJw">
+                                <rect key="frame" x="88" y="287" width="198" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,10 +201,13 @@
                             <constraint firstItem="UgC-Xg-Thd" firstAttribute="centerX" secondItem="yP5-tC-x3a" secondAttribute="centerX" id="yeO-8Q-083"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popUpTextView" destination="K9d-vr-oJw" id="JjQ-is-zfp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CG4-y3-Cvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-417" y="-898"/>
+            <point key="canvasLocation" x="-418.39999999999998" y="-898.2008995502249"/>
         </scene>
     </scenes>
 </document>

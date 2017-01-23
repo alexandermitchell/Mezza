@@ -42,16 +42,16 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     func updateOrderStatus(userType: String) {
         let orderUID = currentOrder!.uid
         let ordersRef = FIRDatabase.database().reference(withPath: "orders/\(orderUID)")
-       
         
         if userType == "seller" {
             ordersRef.updateChildValues([AnyHashable("status") : "sent"])
-            self.orderStatusLabel.text = "sent"
+            //self.orderStatusLabel.text = "sent"
         } else {
             ordersRef.updateChildValues([AnyHashable("status") : "cancelled"])
-            self.orderStatusLabel.text = "cancelled"
+            //self.orderStatusLabel.text = "cancelled"
         }
     }
+    
     
     func changeButtonText() {
         
@@ -65,7 +65,6 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     
     func showPopUp() {
         // set up popup
-        
         let popOverVC = UIStoryboard(name: "BuyerOrderFeed", bundle: nil).instantiateViewController(withIdentifier:"OrderStatusPopUp") as! OrderStatusPopUpViewController
         popOverVC.delegate = self
         self.addChildViewController(popOverVC)

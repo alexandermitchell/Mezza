@@ -7,17 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class OrderStatusPopUpViewController: UIViewController {
     
     
     weak var delegate: OrderStatusPopUpDelegate?
+    var userType = DataModel.shared.loggedInUser?.type.rawValue
+    
+    
+    // MARK: IBOutlets -------------------
+    
+    @IBOutlet weak var popUpTextView: UITextView!
+    
+    // MARK: IBActions -------------------
+    
+    @IBAction func yesButtonClicked(_ sender: UIButton) {
+        
+        self.view.removeFromSuperview()
+    }
+    
+    @IBAction func noButtonClicked(_ sender: UIButton) {
+        
+        self.view.removeFromSuperview()
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8)
 
-        // Do any additional setup after loading the view.
+        if userType == "buyer" {
+           popUpTextView.text = "Are You Sure You Want To Cancel Your Order? This Action Cannot Be Undone."
+        } else {
+            popUpTextView.text = "Are You Sure You Want Mark This Item As Shipped? This Action Cannot Be Undone."
+        }
     }
 
     override func didReceiveMemoryWarning() {
