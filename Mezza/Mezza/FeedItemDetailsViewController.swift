@@ -35,11 +35,16 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     @IBOutlet weak var itemDescriptionTextView: UITextView!
    
+    @IBOutlet weak var editButton: UIButton!
     
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToMain", sender: self)
+    }
+    @IBAction func editButtonClicked(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "editItemSegue", sender: self)
     }
     
     // PopUp Protocol Func -------------------------------------------------
@@ -150,7 +155,9 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // itemSizesLabel.layer.borderColor = 5
+        if DataModel.shared.loggedInUser?.type.rawValue == "buyer" {
+            editButton.isHidden = true
+        }
         
         // designing the size dropdown
         let newColor = UIColor.lightGray.cgColor
@@ -209,6 +216,13 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             checkoutVC.checkoutItemPrice = selectedPrice
             
         }
+
+            if (segue.identifier == "editItemSegue") {
+                let detailsViewController = segue.destination as! ProductUploadViewController
+                detailsViewController.selectedProduct = selectedItem
+            }
+        
+        
     }
     
 }

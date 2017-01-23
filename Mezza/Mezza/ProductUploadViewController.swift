@@ -200,7 +200,6 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         sizeArray[index] = editedSize
         sizePriceQuantTableView.reloadData()
         
-        
     }
     
     @IBAction func enterSize(_ sender: Any) {
@@ -309,6 +308,10 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         
 
+        
+        
+        
+        
         loadTextViewPlaceHolder()
         
         
@@ -316,9 +319,6 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         addSizeButton.layer.cornerRadius = addSizeButton.bounds.size.width / 2
         addSizeButton.layer.borderColor = UIColor.blue.cgColor
         addSizeButton.clipsToBounds = true
-        
-        
-        
         
         imageViewArray = [mainImageView, imageView1, imageView2, imageView3, imageView4]
         
@@ -331,6 +331,14 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
 
         if let product = selectedProduct {
+            
+            titleField.text = product.title
+            descriptonField.text = product.description
+            sizeArray = product.sizes
+            sizePriceQuantTableView.reloadData()
+            
+            
+        
             openImageViewIndex = product.images.count
             for i in 1...openImageViewIndex {
 //                imageViewArray[i-1] = product.images
@@ -338,15 +346,12 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
                 DataModel.shared.fetchImage(stringURL: photoURL) { image in
                     self.imageViewArray?[i].image = image
                 }
-              
-                            //            imageViewArray?[openImageViewIndex].addGestureRecognizer(tap)
-                
-                
             }
             
             updateImageTouch()
         }
         
+    
         
      
         
@@ -382,18 +387,19 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             
             imageViewArray?[i].isUserInteractionEnabled = false
 
-            
-
-
-            
         }
         
-        for i in 0...(openImageViewIndex - 1) {
-            
-            imageViewArray?[i].isUserInteractionEnabled = true
+        if openImageViewIndex == 0 {
+            return
         }
         
-        
+        else {
+            
+            for i in 0...(openImageViewIndex - 1) {
+                imageViewArray?[i].isUserInteractionEnabled = true
+            }
+            
+        }
         
         
     }
@@ -424,9 +430,12 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         if imagesArray.count == 0 {
-            alert(message: "please add")
+            alert(message: "please add images")
         }
         
+        if sizeArray.count == 0 {
+            alert(message: "please add sizes, prices, quantity")
+        }
         
         
         
@@ -482,6 +491,9 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
                 secondImageView.image = nil
                 secondImageView.layer.borderColor = nil
                 updateImages(index: selectedImageIndex)
+                UIView.animate(withDuration: 1.0){
+                    view.layer.borderColor = nil
+                }
             
             }
             
