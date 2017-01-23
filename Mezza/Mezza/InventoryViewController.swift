@@ -11,7 +11,7 @@ import UIKit
 class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
-    var inventoryProduct: Product?
+    var selectedProduct: Product?
     
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,29 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toProductDetail" {
+            
+            let newVC = segue.destination as! FeedItemDetailsViewController
+            newVC.selectedItem = selectedProduct
+        }
+    }
+    
+    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let itemVC = UIStoryboard.init(name: "UserFeedStoryboard", bundle: nil).instantiateInitialViewController() as! InventoryViewController
+//        let itemVC = UIStoryboard.init(name: "HomeFeedStoryboard", bundle: nil).instantiateInitialViewController() as! FeedItemDetailsViewController
         
-        let inventoryArray = DataModel.shared.inventoryArray
-        inventoryProduct = inventoryArray[indexPath.row]
+//        let inventoryArray = DataModel.shared.inventoryArray
+//        inventoryProduct = inventoryArray[indexPath.row]
         
-        self.present(itemVC, animated: true, completion: nil)
+        selectedProduct = DataModel.shared.inventoryArray[indexPath.row]
+        
+        
+        performSegue(withIdentifier: "toProductDetail", sender: nil)
+        
+        
     }
   
     
@@ -40,11 +56,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let item = DataModel.shared.inventoryArray[indexPath.item]
-        
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        let item = DataModel.shared.inventoryArray[indexPath.item]
+//        
+//        
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "UserFeedCell", for: indexPath) as! InventoryCollectionViewCell

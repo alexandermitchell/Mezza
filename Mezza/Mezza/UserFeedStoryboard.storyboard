@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yxW-9T-qgN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yxW-9T-qgN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,6 +36,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24B-99-tJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="697" y="-684"/>
+        </scene>
+        <!--ItemDetailStoryboard-->
+        <scene sceneID="tSN-Kp-rWs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemDetailStoryboard" id="Vle-40-OR0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6T3-eN-JhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-853" y="796"/>
         </scene>
         <!--Item-->
         <scene sceneID="PeV-Yw-gJT">
@@ -114,6 +122,7 @@
                     <connections>
                         <outlet property="myCollectionView" destination="dpk-f8-xf5" id="17F-72-aKN"/>
                         <segue destination="fHb-mB-g9x" kind="show" identifier="toProductUpload" id="53b-dd-lhk"/>
+                        <segue destination="Vle-40-OR0" kind="show" identifier="toProductDetail" id="LZC-xS-QQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hht-BI-M4H" userLabel="First Responder" sceneMemberID="firstResponder"/>

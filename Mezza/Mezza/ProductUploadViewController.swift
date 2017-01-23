@@ -80,9 +80,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var descriptonField: UITextView!
   
     
-    
     @IBOutlet weak var sizePriceQuantTableView: UITableView!
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,9 +109,9 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         else {
-            if selectedProduct != nil {
-                sizeArray = (selectedProduct?.sizes)!
-            }
+//            if selectedProduct != nil {
+//                sizeArray = (selectedProduct?.sizes)!
+//            }
             
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "sizeCell") as! SizeCellTableViewCell
@@ -344,7 +342,12 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             sizePriceQuantTableView.reloadData()
             
             
-            openImageViewIndex = product.images.count
+            for i in 0...(product.images.count - 1) {
+                if product.images[i] != "" {
+                    openImageViewIndex = i
+                }
+            }
+            
             
             var lastImageIndex = 0
             
@@ -483,6 +486,12 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
                 
                 DataModel.shared.editProduct(uid: product.uid, title: title!, description: description!, images: imagesURL, sellerUID: product.sellerUID, sizes: self.sizeArray)
                 
+                
+                self.selectedProduct?.images = imagesURL
+                self.selectedProduct?.title = title!
+                self.selectedProduct?.sizes = self.sizeArray
+                self.selectedProduct?.description = description!
+                
                 self.performSegue(withIdentifier: "toDetail", sender: nil)
                 
             }
@@ -503,18 +512,27 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             
         }
         
-        
-    
-        
-        
-        
-        
-        
-        
+
         
     }
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDetail" {
+            
+            let newVC = segue.destination as! FeedItemDetailsViewController
+            newVC.selectedItem = selectedProduct
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     func handleTap(_ sender: UITapGestureRecognizer) {
         
