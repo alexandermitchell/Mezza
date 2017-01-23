@@ -12,6 +12,7 @@ import Firebase
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    let loggedInUser = DataModel.shared.loggedInUser
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
@@ -79,6 +80,13 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         nameLocation.text = DataModel.shared.loggedInUser?.location
         textField.text = DataModel.shared.loggedInUser?.bio
         
+        
+        let images = loggedInUser?.avatar
+        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+            
+            self.profileImageView.image = image
+        }
+        
 //        guard let imageUploaded = profileImageView.image else {
 //            return
 //        }
@@ -107,6 +115,9 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
         
     }
     

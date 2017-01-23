@@ -71,7 +71,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add User Male_004080_50" translatesAutoresizingMaskIntoConstraints="NO" id="APh-MN-YzC">
-                                        <rect key="frame" x="124" y="113" width="150" height="150"/>
+                                        <rect key="frame" x="112" y="113" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
