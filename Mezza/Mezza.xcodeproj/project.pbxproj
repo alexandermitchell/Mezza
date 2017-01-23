@@ -55,7 +55,6 @@
 		D0AB4B091E2EA974002FCB8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */; };
 		D0AB4B0B1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */; };
 		D0AB4B0E1E2EC4CF002FCB8C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB4B0D1E2EC4CF002FCB8C /* DataModel.swift */; };
-		D0F248E91E36607100E4E071 /* ItemDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F248E81E36607100E4E071 /* ItemDetailStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +122,6 @@
 		D0AB4B081E2EA974002FCB8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0AB4B0A1E2EBCAF002FCB8C /* HomeFeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0AB4B0D1E2EC4CF002FCB8C /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		D0F248E81E36607100E4E071 /* ItemDetailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemDetailStoryboard.storyboard; sourceTree = "<group>"; };
 		FDF44A809AC545ADEED69E0C /* Pods_Mezza.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mezza.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,7 +155,6 @@
 				049142221E2EA99700C2DC4B /* HomeFeedStoryboard.storyboard */,
 				D051A71A1E3111D800A139C9 /* ProductCheckout.storyboard */,
 				84F52B801E3660E700989916 /* ItemDetailStoryboard.storyboard */,
-				D0F248E81E36607100E4E071 /* ItemDetailStoryboard.storyboard */,
 				4287C4551E31595C001EF191 /* UploadInventory.storyboard */,
 				4287C4581E324DCA001EF191 /* BuyerOrderFeed.storyboard */,
 				4287C45E1E328C48001EF191 /* Profile.storyboard */,
@@ -384,7 +381,6 @@
 				D0258B0F1E325FDD008E8C5C /* Info.plist in Resources */,
 				84F52B811E3660E700989916 /* ItemDetailStoryboard.storyboard in Resources */,
 				04CA33BD1E365F6A00C01323 /* ItemDetailStoryboard.storyboard in Resources */,
-				D0F248E91E36607100E4E071 /* ItemDetailStoryboard.storyboard in Resources */,
 				D0AB4ACA1E295149002FCB8C /* Main.storyboard in Resources */,
 				4287C45F1E328C48001EF191 /* Profile.storyboard in Resources */,
 				4287C4561E31595C001EF191 /* UploadInventory.storyboard in Resources */,
