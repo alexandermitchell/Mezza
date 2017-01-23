@@ -20,6 +20,11 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     
+    
+    // unwind segue -> back button on item detail page
+    @IBAction func unwindToInventory(segue: UIStoryboardSegue) {
+        
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

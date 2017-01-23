@@ -28,11 +28,8 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     // MARK: IBActions -----------------------
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        if userType == "buyer" {
         performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
-        } else {
-            performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
-        }
+        
     }
     
     
@@ -82,28 +79,28 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         changeButtonText()
         if currentOrder?.status.rawValue != "pending" {
             updateOrderStatusButton.isHidden = true
         }
         orderStatusLabel.text = currentOrder?.status.rawValue
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -40,7 +40,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     // MARK: IBActions -----------------------------------------------------
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindToMain", sender: self)
+        if DataModel.shared.loggedInUser?.type.rawValue == "buyer" {
+            performSegue(withIdentifier: "unwindToMain", sender: self)
+    } else {
+    performSegue(withIdentifier: "unwindToInventory", sender: self)
+    }
     }
     @IBAction func editButtonClicked(_ sender: UIButton) {
         

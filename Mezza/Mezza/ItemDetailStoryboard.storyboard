@@ -156,6 +156,7 @@
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToMain" unwindAction="unwindToFeedWithSegue:" id="war-Wg-BR5"/>
                         <segue destination="aQj-DI-VBh" kind="showDetail" identifier="goToCheckout" action="showViewController:sender:" id="5Ep-UI-hwV"/>
                         <segue destination="0of-YR-nd1" kind="show" identifier="editItemSegue" id="Mpm-Xa-J6y"/>
+                        <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToInventory" unwindAction="unwindToInventoryWithSegue:" id="dsC-3m-Qm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-UY-jkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
