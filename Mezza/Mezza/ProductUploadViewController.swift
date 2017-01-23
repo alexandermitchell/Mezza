@@ -339,8 +339,20 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
             
             
         
+            sizeArray = product.sizes
+            
+            sizePriceQuantTableView.reloadData()
+            
+            
             openImageViewIndex = product.images.count
-            for i in 1...openImageViewIndex {
+            
+            var lastImageIndex = 0
+            
+            if openImageViewIndex != 0 {
+                lastImageIndex = openImageViewIndex - 1
+            }
+            
+            for i in 0...lastImageIndex {
 //                imageViewArray[i-1] = product.images
                 let photoURL = product.images[i]
                 DataModel.shared.fetchImage(stringURL: photoURL) { image in
@@ -409,6 +421,8 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func save(_ sender: Any) {
         
+        print(editingMode)
+        
         
         let title = titleField.text
         let artist = artistField.text
@@ -427,14 +441,17 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         
         if title == "" || artist == "" || description == "" {
             alert(message: "please fill out all the fields")
+            return
         }
         
         if imagesArray.count == 0 {
             alert(message: "please add images")
+            return
         }
         
         if sizeArray.count == 0 {
             alert(message: "please add sizes, prices, quantity")
+            return
         }
         
         
@@ -459,11 +476,30 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
         dispatchGroup.notify(queue: .main){
             
             print("done")
-//            DataModel.shared.createProduct(title: title!, description: description!, images: imagesURL, sellerUID: (DataModel.shared.loggedInUser?.uid)!, sizes: self.sizeArray)
-        
+
             
             
-            DataModel.shared.createProduct(title: title!, description: description!, images: imagesURL, sellerUID: "selleruid", sizes: self.sizeArray)
+            if let product = self.selectedProduct {
+                
+                DataModel.shared.editProduct(uid: product.uid, title: title!, description: description!, images: imagesURL, sellerUID: product.sellerUID, sizes: self.sizeArray)
+                
+                self.performSegue(withIdentifier: "toDetail", sender: nil)
+                
+            }
+            
+            
+            if self.editingMode == false {
+                
+                
+                DataModel.shared.createProduct(title: title!, description: description!, images: imagesURL, sellerUID: (DataModel.shared.loggedInUser?.uid)!, sizes: self.sizeArray)
+                
+                
+                self.performSegue(withIdentifier: "toInventory", sender: nil)
+                
+                
+            }
+
+            
             
         }
         

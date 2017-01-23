@@ -42,7 +42,7 @@ class OnBoardViewController3: UIViewController {
             
             let bioRef = ref.child("bio")
             bioRef.setValue(textField.text)
-            performSegue(withIdentifier: "toProfile", sender: nil)
+            performSegue(withIdentifier: "toInventory", sender: nil)
             
             
             
