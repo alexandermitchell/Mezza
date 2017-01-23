@@ -105,11 +105,18 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
                 
             })
             
-            
-            
         } else {
             cell.orderStatusLabel.text = pastOrdersArray[indexPath.row].status.rawValue
-            cell.itemNameLabel.text = pastOrdersArray[indexPath.row].product
+            let productUID = pastOrdersArray[indexPath.row].product
+            
+            DataModel.shared.fetchProduct(UID: productUID, completionHandler: { product in
+                cell.itemNameLabel.text = product.title
+                let imageURL = product.images[0]
+                DataModel.shared.fetchImage(stringURL: imageURL, completionHandler: { image in
+                    cell.orderImageView.image = image
+                })
+                
+            })
         }
         return cell
     }
