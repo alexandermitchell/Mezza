@@ -93,7 +93,14 @@ class OrdersMainViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrdersTableViewCell
         if ordersSegmentedControl.selectedSegmentIndex == 0 {
             cell.orderStatusLabel.text = pendingOrdersArray[indexPath.row].status.rawValue
-            cell.itemNameLabel.text = pendingOrdersArray[indexPath.row].product
+            let productUID = pendingOrdersArray[indexPath.row].product
+
+            DataModel.shared.fetchProduct(UID: productUID, completionHandler: { product in
+                cell.itemNameLabel.text = product.title
+            })
+            
+            
+            
         } else {
             cell.orderStatusLabel.text = pastOrdersArray[indexPath.row].status.rawValue
             cell.itemNameLabel.text = pastOrdersArray[indexPath.row].product

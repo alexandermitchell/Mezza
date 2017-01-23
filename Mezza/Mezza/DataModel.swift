@@ -41,6 +41,15 @@ class DataModel {
         }
     }
     
+    func fetchProduct(UID: String, completionHandler: @escaping (Product) -> ()){
+        let ref = FIRDatabase.database().reference()
+        ref.child("products").child(UID).observeSingleEvent(of: .value, with: { (snapshot) in
+            let newProduct = Product(snapshot: snapshot)
+            completionHandler(newProduct)
+        })
+        
+    }
+    
     // MARK: Firebase Create Functions
     
     func createOrder(buyerUID: String, price: String, productUID: String, seller: String, size: String, status: String, timestamp: String) {
