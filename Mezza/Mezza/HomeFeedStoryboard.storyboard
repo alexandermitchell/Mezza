@@ -103,8 +103,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93826625020389243" green="0.95850546656364133" blue="0.9745003172588832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="HomeTab" selectedImage="HomeTab" id="bI3-ga-T0A"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="homeFeedCV" destination="KBJ-0b-o7g" id="u1P-eP-eGX"/>
                         <segue destination="ZyK-ud-ThB" kind="show" identifier="HomeDetailsSegue" id="qpp-sD-iLK"/>
@@ -171,7 +169,4 @@
             <point key="canvasLocation" x="2836" y="-1764.4677661169417"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="HomeTab" width="25" height="25"/>
-    </resources>
 </document>
