@@ -23,55 +23,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mge-Sy-Nte">
-                                <rect key="frame" x="38" y="126" width="300" height="37"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mge-Sy-Nte">
+                                <rect key="frame" x="61" y="126" width="277" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-Fu-qho">
-                                <rect key="frame" x="38" y="191" width="300" height="36"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-Fu-qho">
+                                <rect key="frame" x="61" y="192" width="277" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zI-0A-UGd">
-                                <rect key="frame" x="137" y="310" width="100" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6zI-0A-UGd" secondAttribute="height" multiplier="106:51" id="WIw-5Y-jvp"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zI-0A-UGd">
+                                <rect key="frame" x="156" y="318.5" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="NEXT"/>
                                 <connections>
                                     <action selector="goNext:" destination="Hyo-NP-BlA" eventType="touchUpInside" id="nAD-0x-oN5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a name and location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcF-kR-aQ6">
-                                <rect key="frame" x="38" y="43" width="300" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FcF-kR-aQ6" secondAttribute="height" multiplier="299:55" id="JMY-ed-MYH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter a name and location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcF-kR-aQ6">
+                                <rect key="frame" x="61" y="43" width="254.5" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6zI-0A-UGd" firstAttribute="centerY" secondItem="xrg-Qz-a3N" secondAttribute="centerY" id="2d1-r5-nFl"/>
-                            <constraint firstItem="Mge-Sy-Nte" firstAttribute="width" secondItem="FcF-kR-aQ6" secondAttribute="width" id="4lp-d2-SKG"/>
-                            <constraint firstItem="FcF-kR-aQ6" firstAttribute="top" secondItem="E3H-4V-EY4" secondAttribute="bottom" constant="23" id="6RD-kY-bYx"/>
-                            <constraint firstItem="FcF-kR-aQ6" firstAttribute="centerX" secondItem="xrg-Qz-a3N" secondAttribute="centerX" id="CmX-cp-Cvk"/>
-                            <constraint firstItem="Mge-Sy-Nte" firstAttribute="top" secondItem="FcF-kR-aQ6" secondAttribute="bottom" constant="28" id="FAn-3o-0lg"/>
-                            <constraint firstItem="Lqj-Fu-qho" firstAttribute="height" secondItem="Mge-Sy-Nte" secondAttribute="height" id="HG7-fX-Adl"/>
-                            <constraint firstItem="Lqj-Fu-qho" firstAttribute="top" secondItem="Mge-Sy-Nte" secondAttribute="bottom" constant="28" id="PgO-qR-hUv"/>
-                            <constraint firstItem="Mge-Sy-Nte" firstAttribute="height" secondItem="FcF-kR-aQ6" secondAttribute="height" multiplier="0.66" id="Tv2-mw-Gpl"/>
-                            <constraint firstItem="FcF-kR-aQ6" firstAttribute="width" secondItem="xrg-Qz-a3N" secondAttribute="width" multiplier="0.8" id="arU-4q-Zah"/>
-                            <constraint firstItem="6zI-0A-UGd" firstAttribute="centerX" secondItem="xrg-Qz-a3N" secondAttribute="centerX" id="fUD-FK-5nB"/>
-                            <constraint firstItem="6zI-0A-UGd" firstAttribute="height" secondItem="Lqj-Fu-qho" secondAttribute="height" multiplier="1.33" id="jTh-Yw-Cc2"/>
-                            <constraint firstItem="Mge-Sy-Nte" firstAttribute="centerX" secondItem="xrg-Qz-a3N" secondAttribute="centerX" id="nXv-qK-vKJ"/>
-                            <constraint firstItem="Lqj-Fu-qho" firstAttribute="width" secondItem="Mge-Sy-Nte" secondAttribute="width" id="sIb-Mz-SVS"/>
-                            <constraint firstItem="Lqj-Fu-qho" firstAttribute="centerX" secondItem="xrg-Qz-a3N" secondAttribute="centerX" id="vnH-z1-Efj"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.0" green="0.44313725490196076" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="locationField" destination="Lqj-Fu-qho" id="qwB-Bf-HFc"/>
@@ -83,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3Y-cP-RPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1076" y="79"/>
+            <point key="canvasLocation" x="-1076" y="78.710644677661179"/>
         </scene>
         <!--On Board View Controller2-->
         <scene sceneID="iKa-Cu-2dP">
@@ -187,17 +170,17 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="pps-V1-vZW" id="bMj-OL-p73"/>
-                        <segue destination="4s1-oT-rZt" kind="show" identifier="toInventory" id="v7F-Aw-Fi3"/>
+                        <segue destination="4s1-oT-rZt" kind="show" identifier="toProfile" id="v7F-Aw-Fi3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqC-P4-aAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.2" y="78.710644677661179"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Profile-->
         <scene sceneID="bLo-Bx-0Ix">
             <objects>
-                <viewControllerPlaceholder id="4s1-oT-rZt" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" id="4s1-oT-rZt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="StY-zv-2kC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2009" y="18"/>

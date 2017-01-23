@@ -13,7 +13,6 @@ import FirebaseAuth
 class OnBoardViewController1: UIViewController {
     
     
-    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var locationField: UITextField!
@@ -23,31 +22,38 @@ class OnBoardViewController1: UIViewController {
         
                 if nameField.text == "" && locationField.text != "" {
         
-                    alert(message: "please enter a valid name", title: "invalid name")
+                    alert(message: "Please enter a valid name", title: "Invalid Name")
                 }
         
                 if locationField.text == "" && nameField.text == "'" {
         
-                    alert(message: "please enter a valid text", title: "invalid location")
+                    alert(message: "Please enter a valid text", title: "Invalid Location")
                 }
         
                 if locationField.text == "" && nameField.text == "" {
         
-                    alert(message: "please enter a valid name and location")
+                    alert(message: "Please enter a valid name and location")
                 }
         
         
                 else {
         
-                    let userPath = DataModel.shared.loggedInUser
-//                    let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
-                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
+                    let user = DataModel.shared.loggedInUser
+                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+//                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
+                    
+                    DataModel.shared.loggedInUser?.name = nameField.text!
+                    DataModel.shared.loggedInUser?.location = locationField.text!
+                    
+                    
                     
                     let nameRef = ref.child("name")
                     nameRef.setValue(nameField.text)
                     
                     let locationRef = ref.child("location")
                     locationRef.setValue(locationField.text)
+                    
+                    
                   
                     performSegue(withIdentifier: "toOnBoardVC2", sender: nil)
                     
@@ -70,9 +76,9 @@ class OnBoardViewController1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        view.backgroundColor = UIColor.red
+        
+//        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }
 

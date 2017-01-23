@@ -11,10 +11,12 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    // Edit Button has a Segua
     @IBAction func editButton(_ sender: Any) {
         
     }
     
+    // Sign Out Button
     @IBAction func signOutButton(_ sender: Any) {
         do {
             try FIRAuth.auth()?.signOut()
@@ -25,37 +27,42 @@ class ProfileViewController: UIViewController {
     }
     
     
-    
+    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileLocation: UILabel!
     @IBOutlet weak var profileDescription: UITextView!
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        profileName.text = DataModel.shared.loggedInUser?.name
+        profileLocation.text = DataModel.shared.loggedInUser?.location
+        profileDescription.text = DataModel.shared.loggedInUser?.bio
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signOutButton.layer.cornerRadius = 5
+        editButton.layer.cornerRadius = 5
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
         updateSellerProfile()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func updateSellerProfile() {
+        
         let loggedInUser = DataModel.shared.loggedInUser
-
         
-        loggedInUser?.name = profileName.text!
-        loggedInUser?.location = profileLocation.text!
-        loggedInUser?.bio = profileDescription.text
+            profileName.text = loggedInUser?.name
+            profileLocation.text = loggedInUser?.location
+            profileDescription.text = loggedInUser?.bio
         
-        var seller: User?
+        let images = loggedInUser?.avatar
         
-        DataModel.shared.fetchImage(stringURL: (seller?.avatar)!) { (image) in
+        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+            
             self.profileImage.image = image
         }
     }

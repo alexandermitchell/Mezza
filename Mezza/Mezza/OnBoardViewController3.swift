@@ -32,13 +32,17 @@ class OnBoardViewController3: UIViewController {
         
         else {
            
-//            let userPath = DataModel.shared.loggedInUser
-//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            let user = DataModel.shared.loggedInUser
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
             
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+            
+            
+            DataModel.shared.loggedInUser?.bio = textField.text
+            
             let bioRef = ref.child("bio")
             bioRef.setValue(textField.text)
-            performSegue(withIdentifier: "toInventory", sender: nil)
+            performSegue(withIdentifier: "toProfile", sender: nil)
             
             
             
@@ -51,7 +55,7 @@ class OnBoardViewController3: UIViewController {
         super.viewDidLoad()
 
         
-        view.backgroundColor = UIColor.red
+//        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }
 

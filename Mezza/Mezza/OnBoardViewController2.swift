@@ -55,13 +55,15 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         imageRef.put(data, metadata: nil).observe(.success) { (snapshot) in
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
             
-//            let userPath = DataModel.shared.loggedInUser
-//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            let user = DataModel.shared.loggedInUser
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
             
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let avatarRef = ref.child("avatar")
             avatarRef.setValue(imageURL)
             
+            
+            DataModel.shared.loggedInUser?.avatar = imageURL!
         }
         
         
@@ -77,7 +79,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
 //        var pictureUploaded = false
         
 
-        view.backgroundColor = UIColor.red
+//        view.backgroundColor = UIColor.red
         
 
         
