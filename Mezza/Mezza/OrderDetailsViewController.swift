@@ -28,7 +28,11 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     // MARK: IBActions -----------------------
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
+        if userType == "buyer" {
         performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
+        } else {
+            performSegue(withIdentifier: "unwindToOrderFeed", sender: self)
+        }
     }
     
     
