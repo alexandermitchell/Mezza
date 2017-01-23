@@ -38,6 +38,9 @@ class ProfileViewController: UIViewController {
         profileName.text = DataModel.shared.loggedInUser?.name
         profileLocation.text = DataModel.shared.loggedInUser?.location
         profileDescription.text = DataModel.shared.loggedInUser?.bio
+        
+        
+        
     }
     
 

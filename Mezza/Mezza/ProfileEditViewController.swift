@@ -46,7 +46,7 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         let imageUID = NSUUID().uuidString
         let imageRef = storageRef.child(imageUID)
 
-        
+
         let user = DataModel.shared.loggedInUser
         let ref = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
         
