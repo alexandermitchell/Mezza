@@ -120,14 +120,6 @@
                                     <outlet property="delegate" destination="0wu-eN-Xus" id="j4m-6f-AwE"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-z6-Y0G">
-                                <rect key="frame" x="330" y="395" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Plus Math_004080_32"/>
-                                <connections>
-                                    <action selector="enterSize:" destination="0wu-eN-Xus" eventType="touchUpInside" id="FvB-qO-BHh"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="size                       $              quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-lz-8dv">
                                 <rect key="frame" x="21" y="407" width="332" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,6 +133,14 @@
                                 <state key="normal" title="save"/>
                                 <connections>
                                     <action selector="save:" destination="0wu-eN-Xus" eventType="touchUpInside" id="QgH-jh-v5m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-z6-Y0G">
+                                <rect key="frame" x="54" y="546" width="38" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Plus Math_004080_32"/>
+                                <connections>
+                                    <action selector="enterSize:" destination="0wu-eN-Xus" eventType="touchUpInside" id="FvB-qO-BHh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,11 +157,29 @@
                         <outlet property="mainImageView" destination="7qT-Or-zLo" id="476-Fs-CPk"/>
                         <outlet property="sizePriceQuantTableView" destination="noc-sl-w3s" id="Y5H-Rm-fzb"/>
                         <outlet property="titleField" destination="o7T-2A-fjS" id="ZxC-3f-4n1"/>
+                        <segue destination="OkC-ZU-UcP" kind="show" identifier="toInventory" id="LwY-pV-Nou"/>
+                        <segue destination="mJv-lq-mr9" kind="show" identifier="toDetail" id="3VA-B6-bSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyw-2j-uam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="294.60269865067471"/>
+        </scene>
+        <!--UserFeedStoryboard-->
+        <scene sceneID="Xge-ZZ-lPO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserFeedStoryboard" id="OkC-ZU-UcP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYD-Ai-hks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="-236"/>
+        </scene>
+        <!--ItemDetailStoryboard-->
+        <scene sceneID="JE8-46-Beq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemDetailStoryboard" id="mJv-lq-mr9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUe-id-6X7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="967" y="-19"/>
         </scene>
         <!--Enter Size View Controller-->
         <scene sceneID="AK6-OH-zEx">
@@ -181,13 +199,6 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnd-da-HwA">
                                         <rect key="frame" x="8" y="28" width="62" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24h-Sn-FSc">
-                                        <rect key="frame" x="89" y="28" width="62" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -231,6 +242,20 @@
                                             <action selector="cancel:" destination="Ynx-j3-Ehy" eventType="touchUpInside" id="yE8-KR-oYm"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtV-K3-fRf">
+                                        <rect key="frame" x="28" y="92" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="height" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24h-Sn-FSc">
+                                        <rect key="frame" x="89" y="28" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

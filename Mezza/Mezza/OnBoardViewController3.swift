@@ -32,13 +32,16 @@ class OnBoardViewController3: UIViewController {
         
         else {
            
-//            let userPath = DataModel.shared.loggedInUser
-//            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
+            let userPath = DataModel.shared.loggedInUser
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(userPath)")
             
-            let ref = FIRDatabase.database().reference(withPath: "users/uid")
+//            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let bioRef = ref.child("bio")
             bioRef.setValue(textField.text)
             performSegue(withIdentifier: "toInventory", sender: nil)
+            
+            
+            
             
             
             

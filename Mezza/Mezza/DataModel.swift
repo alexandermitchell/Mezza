@@ -63,6 +63,54 @@ class DataModel {
     }
     
     
+    
+    
+    func editProduct(uid: String, title: String, description: String, images: [String], sellerUID: String, sizes: [Product.Size]) {
+        
+        
+        
+        let ref = FIRDatabase.database().reference(withPath: "products\(uid)")
+        
+        ref.removeValue()
+        
+        
+        var imageDict = [String: String]()
+        for (key, value)  in images.enumerated() {
+            imageDict[String(key)] = value
+        }
+        
+        
+        let dict = [
+            "uid" : uid,
+            "description" : description,
+            "sellerUID" : sellerUID,
+            "title" : title,
+            "images": imageDict,
+            "sizes": 0
+            ] as [String : Any]
+        
+        ref.setValue(dict)
+        
+        let sizesRef = ref.child("sizes")
+        
+        for size in sizes {
+            let sizeRef = sizesRef.child(size.name)
+            let sizeDict = [
+                "price" : size.price,
+                "quantity": size.quantity
+                ] as [String : Any]
+            
+            sizeRef.setValue(sizeDict)
+        }
+
+        
+
+        
+        
+        
+    }
+    
+    
     func createProduct(title: String, description: String, images: [String], sellerUID: String, sizes: [Product.Size]) {
         
 
@@ -73,36 +121,39 @@ class DataModel {
         }
         
         
-        var sizeDictManual = [String: Any]()
+
         
+//        var sizeDictManual = [String: Any]()
+//        
+//        
+//        for size in sizes {
+//            let key = size.name
+//            let miniDict = [
+//                "price" : size.price,
+//                "quantity": size.quantity
+//                ] as [String: Any]
+//            sizeDictManual[key] = miniDict
+//        }
         
-        for size in sizes {
-            let key = size.name
-            let miniDict = [
-                "price" : size.price,
-                "quantity": size.quantity
-                ] as [String: Any]
-            sizeDictManual[key] = miniDict
-        }
+
+        
+        let productsRef = FIRDatabase.database().reference(withPath: "products")
+        
+        let productRef = productsRef.childByAutoId()
+        
         
         
         let dict = [
+            "uid" : productRef.key,
             "description" : description,
             "sellerUID" : sellerUID,
             "title" : title,
             "images": imageDict,
             "sizes": 0
             ] as [String : Any]
-    
         
-        let productsRef = FIRDatabase.database().reference(withPath: "products")
-        
-        let productRef = productsRef.childByAutoId()
         productRef.setValue(dict)
         
-        print(productRef.key)
-        
-     
         let sizesRef = productRef.child("sizes")
         
         for size in sizes {
@@ -114,13 +165,6 @@ class DataModel {
             
             sizeRef.setValue(sizeDict)
         }
-        
-        
-        
-
-        
-        
-        
         
         
         
