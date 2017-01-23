@@ -125,11 +125,20 @@
                     <connections>
                         <outlet property="myCollectionView" destination="dpk-f8-xf5" id="17F-72-aKN"/>
                         <segue destination="fHb-mB-g9x" kind="show" identifier="toProductUpload" id="53b-dd-lhk"/>
+                        <segue destination="Ylq-fC-NGX" kind="show" identifier="toProductDetail" id="3L5-1k-DqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hht-BI-M4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-705" y="86"/>
+        </scene>
+        <!--ItemDetailStoryboard-->
+        <scene sceneID="xjT-TC-m6b">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemDetailStoryboard" id="Ylq-fC-NGX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pGL-Sn-nnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-471" y="533"/>
         </scene>
         <!--UploadInventory-->
         <scene sceneID="ssG-Uz-cuw">
@@ -137,7 +146,7 @@
                 <viewControllerPlaceholder storyboardName="UploadInventory" id="fHb-mB-g9x" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKU-li-z6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512" y="548"/>
+            <point key="canvasLocation" x="-972" y="533"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jxI-Lv-kye">
