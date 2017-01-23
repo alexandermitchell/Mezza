@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="359" y="-215"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="PeV-Yw-gJT">
             <objects>
                 <viewController id="Ggq-9K-TFl" customClass="InventoryViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +121,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="I7i-o6-u5W"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeTab" id="I7i-o6-u5W"/>
                     <connections>
                         <outlet property="myCollectionView" destination="dpk-f8-xf5" id="17F-72-aKN"/>
                         <segue destination="fHb-mB-g9x" kind="show" identifier="toProductUpload" id="53b-dd-lhk"/>
@@ -263,5 +263,6 @@
     </scenes>
     <resources>
         <image name="Add User Male_004080_50" width="50" height="50"/>
+        <image name="HomeTab" width="25" height="25"/>
     </resources>
 </document>

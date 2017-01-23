@@ -17,7 +17,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="590"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="IIc-GG-nLG">
             <objects>
                 <viewController id="ynv-gd-aLq" customClass="ProfileViewController" customModule="Mezza" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,6 +107,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTab" id="gIC-9U-ZLd"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButton" destination="KLv-9p-U8d" id="IYv-ce-YeO"/>
                         <outlet property="profileDescription" destination="lt0-5n-mFl" id="Dvd-Bz-6zB"/>
@@ -202,6 +204,7 @@
     </scenes>
     <resources>
         <image name="Add User Male_004080_50" width="50" height="50"/>
+        <image name="ProfileTab" width="25" height="25"/>
         <image name="Settings_ffffff_32" width="32" height="32"/>
     </resources>
 </document>
