@@ -67,9 +67,8 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
             let avatarRef = ref.child("avatar")
             avatarRef.setValue(imageURL)
-            
+        
         DataModel.shared.loggedInUser?.avatar = imageURL!
-    
     }
         
         dismiss(animated: true, completion: nil)
@@ -114,9 +113,11 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         profileImageView.clipsToBounds = true
         
         let images = loggedInUser?.avatar
+        if images != "" {
         DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
             
             self.profileImageView.image = image
+            }
         }
         
         

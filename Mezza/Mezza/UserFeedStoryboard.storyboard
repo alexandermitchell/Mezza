@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yxW-9T-qgN">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yxW-9T-qgN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,6 +21,7 @@
                     <connections>
                         <segue destination="Ggq-9K-TFl" kind="relationship" relationship="viewControllers" id="wYF-X3-GDe"/>
                         <segue destination="84u-0v-21e" kind="relationship" relationship="viewControllers" id="yKS-GF-bq0"/>
+                        <segue destination="QDr-eZ-OTH" kind="relationship" relationship="viewControllers" id="e3v-yv-lPg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SE6-QS-ql4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -31,11 +32,21 @@
         <scene sceneID="kin-zd-GvC">
             <objects>
                 <viewControllerPlaceholder storyboardName="BuyerOrderFeed" id="84u-0v-21e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8rd-IT-L7g"/>
+                    <tabBarItem key="tabBarItem" title="Orders" id="8rd-IT-L7g"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24B-99-tJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="-684"/>
+            <point key="canvasLocation" x="-151" y="-147"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="kEf-tc-krz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="QDr-eZ-OTH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="bwz-f8-NSz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFZ-ki-hmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="-215"/>
         </scene>
         <!--Item-->
         <scene sceneID="PeV-Yw-gJT">
@@ -118,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hht-BI-M4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="125.4872563718141"/>
+            <point key="canvasLocation" x="-705" y="86"/>
         </scene>
         <!--UploadInventory-->
         <scene sceneID="ssG-Uz-cuw">
@@ -126,7 +137,7 @@
                 <viewControllerPlaceholder storyboardName="UploadInventory" id="fHb-mB-g9x" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKU-li-z6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="836"/>
+            <point key="canvasLocation" x="-512" y="548"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jxI-Lv-kye">
@@ -247,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caa-zx-wz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1439" y="125"/>
         </scene>
     </scenes>
     <resources>

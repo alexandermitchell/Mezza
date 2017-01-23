@@ -48,10 +48,10 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         
-        updateSellerProfile()
+        setProfile()
     }
 
-    func updateSellerProfile() {
+    func setProfile() {
         
         let loggedInUser = DataModel.shared.loggedInUser
         
@@ -60,10 +60,12 @@ class ProfileViewController: UIViewController {
             profileDescription.text = loggedInUser?.bio
         
         let images = loggedInUser?.avatar
-        
-        DataModel.shared.fetchImage(stringURL: (images)!) { (image) in
+        if images != "" {
+        DataModel.shared.fetchImage(stringURL: (images!)) { (image) in
             
             self.profileImage.image = image
+            
+            }
         }
     }
     
