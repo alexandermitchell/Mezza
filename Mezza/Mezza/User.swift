@@ -27,7 +27,7 @@ class User {
     var purchases = [String]() // orderUID
     var type: userType
     
-    init(uid: String, avatar: String, email: String, name: String, location: String, bio: String, purchases: [String], type: userType) {
+    init(uid: String, avatar: String, email: String, name: String, location: String, bio: String, purchases: [String], type: userType = .unregistered) {
         
         self.uid = uid
         self.avatar = avatar

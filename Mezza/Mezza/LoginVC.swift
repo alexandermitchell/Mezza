@@ -75,7 +75,9 @@ class LoginVC: UIViewController {
         button.setTitleColor(UIColor(r: 0, g: 113, b: 128), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 10
+        let nonUser = User(uid: "", avatar: "", email: "", name: "", location: "", bio: "", purchases: [""], type: .unregistered)
         
+        DataModel.shared.loggedInUser = nonUser
         button.addTarget(self, action: #selector(handleSkipLoginRegister), for: .touchUpInside)
         return button
     }()
