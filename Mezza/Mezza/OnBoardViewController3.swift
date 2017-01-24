@@ -65,7 +65,7 @@ class OnBoardViewController3: UIViewController {
         goNext.clipsToBounds = true
         
         textField.text = "Please tell us about you and your artistism"
-        textField.textColor = UIColor.white
+        textField.textColor = UIColor.black
         
     }
 
