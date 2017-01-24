@@ -35,16 +35,29 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     @IBOutlet weak var itemDescriptionTextView: UITextView!
    
-   
-    
     @IBOutlet weak var clearView: UIView!
     
     @IBOutlet weak var buyBtnOutlet: UIButton!
     
+    @IBOutlet weak var itemInfoPanelView: UIView!
     
+    @IBOutlet weak var tabButton: UIButton!
+    
+    @IBOutlet weak var tabButton2: UIButton!
     
     // MARK: IBActions -----------------------------------------------------
     
+    @IBAction func tabButtonPressed(_ sender: UIButton) {
+        clearView.isHidden = true
+        tabButton.isHidden = true
+        tabButton2.isHidden = false
+    }
+    
+    @IBAction func tabButton2Pressed(_ sender: UIButton) {
+        clearView.isHidden = false
+        tabButton2.isHidden = true
+        tabButton.isHidden = false
+    }
     @IBAction func backButtonClicked(_ sender: UIButton) {
         if DataModel.shared.loggedInUser?.type.rawValue == "seller" {
             performSegue(withIdentifier: "unwindToInventory", sender: self)
@@ -161,6 +174,10 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // style tabButton
+        tabButton.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
+        tabButton2.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
+        tabButton2.isHidden = true
         
         // changing the button according to userType
         if userType == "unregistered" {
