@@ -75,6 +75,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     var selectedSize: String?
     var selectedPrice: String?
     var userType = DataModel.shared.loggedInUser?.type.rawValue
+    var mainImage = UIImage()
     
     // PopUp Protocol Func -------------------------------------------------
     
@@ -91,15 +92,6 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             }
         }
     }
-    
-    // MARK: Local variables ------------------------------------------------
-    
-    var selectedItem: Product?
-    var currentSeller: User?
-    var sizesArray = [String]()
-    var selectedSize: String?
-    var selectedPrice: String?
-    var mainImage = UIImage()
     
     
     
@@ -185,6 +177,8 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        productTitleLabel.isHidden = true
         // style tabButton
         tabButton.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
         tabButton2.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
