@@ -57,6 +57,15 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         performSegue(withIdentifier: "editItemSegue", sender: self)
     }
     
+    // MARK: Local variables ------------------------------------------------
+    
+    var selectedItem: Product?
+    var currentSeller: User?
+    var sizesArray = [String]()
+    var selectedSize: String?
+    var selectedPrice: String?
+    var userType = DataModel.shared.loggedInUser?.type.rawValue
+    
     // PopUp Protocol Func -------------------------------------------------
     
     func sizeSelected(size: String) {
@@ -72,16 +81,6 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             }
         }
     }
-    
-    // MARK: Local variables ------------------------------------------------
-    
-    var selectedItem: Product?
-    var currentSeller: User?
-    var sizesArray = [String]()
-    var selectedSize: String?
-    var selectedPrice: String?
-    
-    
     
     func showSizePickerPopUp() {
         // set up popup
@@ -165,6 +164,12 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // changing the button according to userType
+        if userType == "unregistered" {
+            buyBtnOutlet.setTitle("Please Register To Buy", for: .normal)
+        }
+        
         if DataModel.shared.loggedInUser?.type.rawValue == "buyer" {
             editButton.isHidden = true
         }
@@ -239,8 +244,11 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     }
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
-        
+        if userType == "unregistered" {
+            performSegue(withIdentifier: "toProfileSegue", sender: nil)
+        } else {
         performSegue(withIdentifier: "goToCheckout", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

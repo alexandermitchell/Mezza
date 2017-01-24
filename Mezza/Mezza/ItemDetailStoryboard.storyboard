@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="34y-w5-H49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="34y-w5-H49">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -166,6 +166,7 @@
                         <segue destination="aQj-DI-VBh" kind="showDetail" identifier="goToCheckout" action="showViewController:sender:" id="5Ep-UI-hwV"/>
                         <segue destination="0of-YR-nd1" kind="show" identifier="editItemSegue" id="Mpm-Xa-J6y"/>
                         <segue destination="hBY-qF-mgc" kind="unwind" identifier="unwindToInventory" unwindAction="unwindToInventoryWithSegue:" id="dsC-3m-Qm5"/>
+                        <segue destination="e7M-yy-pYh" kind="show" identifier="toProfileSegue" id="3Ep-dv-oBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbn-UY-jkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,6 +189,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3em-Q1-SeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3558" y="-1764"/>
+        </scene>
+        <!--editProfile-->
+        <scene sceneID="bid-X1-KDN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="editProfile" id="e7M-yy-pYh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCQ-o3-cQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3368" y="-1367"/>
         </scene>
     </scenes>
 </document>
