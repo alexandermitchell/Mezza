@@ -35,16 +35,29 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     @IBOutlet weak var itemDescriptionTextView: UITextView!
    
-    @IBOutlet weak var editButton: UIButton!
-    
     @IBOutlet weak var clearView: UIView!
     
     @IBOutlet weak var buyBtnOutlet: UIButton!
     
+    @IBOutlet weak var itemInfoPanelView: UIView!
     
+    @IBOutlet weak var tabButton: UIButton!
+    
+    @IBOutlet weak var tabButton2: UIButton!
     
     // MARK: IBActions -----------------------------------------------------
     
+    @IBAction func tabButtonPressed(_ sender: UIButton) {
+        clearView.isHidden = true
+        tabButton.isHidden = true
+        tabButton2.isHidden = false
+    }
+    
+    @IBAction func tabButton2Pressed(_ sender: UIButton) {
+        clearView.isHidden = false
+        tabButton2.isHidden = true
+        tabButton.isHidden = false
+    }
     @IBAction func backButtonClicked(_ sender: UIButton) {
         if DataModel.shared.loggedInUser?.type.rawValue == "seller" {
             performSegue(withIdentifier: "unwindToInventory", sender: self)
@@ -52,10 +65,16 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             performSegue(withIdentifier: "unwindToMain", sender: self)
     }
     }
-    @IBAction func editButtonClicked(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "editItemSegue", sender: self)
-    }
+  
+    
+    // MARK: Local variables ------------------------------------------------
+    
+    var selectedItem: Product?
+    var currentSeller: User?
+    var sizesArray = [String]()
+    var selectedSize: String?
+    var selectedPrice: String?
+    var userType = DataModel.shared.loggedInUser?.type.rawValue
     
     // PopUp Protocol Func -------------------------------------------------
     
@@ -166,8 +185,17 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if DataModel.shared.loggedInUser?.type.rawValue == "buyer" {
-            editButton.isHidden = true
+        // style tabButton
+        tabButton.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
+        tabButton2.layer.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8).cgColor
+        tabButton2.isHidden = true
+        
+        // changing the button according to userType
+        if userType == "unregistered" {
+            buyBtnOutlet.setTitle("Please Register To Buy", for: .normal)
+        }
+        if userType == "seller" {
+            buyBtnOutlet.setTitle("Edit Item", for: .normal)
         }
         
         // designing the size dropdown
@@ -243,7 +271,15 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "goToCheckout", sender: nil)
+        switch userType! {
+            case "seller":
+                performSegue(withIdentifier: "editItemSegue", sender: nil)
+            case "buyer":
+                performSegue(withIdentifier: "goToCheckout", sender: nil)
+        default:
+            performSegue(withIdentifier: "toProfileSegue", sender: self)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

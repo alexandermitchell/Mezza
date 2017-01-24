@@ -122,9 +122,7 @@ class DataModel {
     
     
     func createProduct(title: String, description: String, images: [String], sellerUID: String, sizes: [Product.Size]) {
-        
-
-        
+    
         var imageDict = [String: String]()
         for (key, value)  in images.enumerated() {
             imageDict[String(key)] = value
