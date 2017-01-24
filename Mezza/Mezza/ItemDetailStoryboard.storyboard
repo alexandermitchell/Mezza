@@ -136,14 +136,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mA0-VU-dQv">
-                                <rect key="frame" x="321" y="28" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="editButtonClicked:" destination="34y-w5-H49" eventType="touchUpInside" id="ACP-pl-Io5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -151,7 +143,6 @@
                         <outlet property="artistNameLabel" destination="HtR-QF-ETy" id="mPw-64-lsF"/>
                         <outlet property="buyBtnOutlet" destination="cOO-0j-SmP" id="T5P-6t-iXE"/>
                         <outlet property="clearView" destination="iTD-t4-1h0" id="tQF-le-VbL"/>
-                        <outlet property="editButton" destination="mA0-VU-dQv" id="1M4-Ih-HF3"/>
                         <outlet property="imageView1" destination="JJk-L1-7Um" id="RPO-eG-or1"/>
                         <outlet property="imageView2" destination="Y5M-DN-ftM" id="ck2-rC-i7b"/>
                         <outlet property="imageView3" destination="SnZ-22-Zf9" id="oXL-9Z-SnM"/>

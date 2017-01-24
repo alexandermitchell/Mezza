@@ -35,7 +35,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     
     @IBOutlet weak var itemDescriptionTextView: UITextView!
    
-    @IBOutlet weak var editButton: UIButton!
+   
     
     @IBOutlet weak var clearView: UIView!
     
@@ -52,10 +52,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             performSegue(withIdentifier: "unwindToMain", sender: self)
     }
     }
-    @IBAction func editButtonClicked(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "editItemSegue", sender: self)
-    }
+  
     
     // MARK: Local variables ------------------------------------------------
     
@@ -169,9 +166,8 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         if userType == "unregistered" {
             buyBtnOutlet.setTitle("Please Register To Buy", for: .normal)
         }
-        
-        if DataModel.shared.loggedInUser?.type.rawValue == "buyer" {
-            editButton.isHidden = true
+        if userType == "seller" {
+            buyBtnOutlet.setTitle("Edit Item", for: .normal)
         }
         
         // designing the size dropdown
@@ -244,11 +240,16 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     }
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
-        if userType == "unregistered" {
-            performSegue(withIdentifier: "toProfileSegue", sender: nil)
-        } else {
-        performSegue(withIdentifier: "goToCheckout", sender: nil)
+        
+        switch userType! {
+            case "seller":
+                performSegue(withIdentifier: "editItemSegue", sender: nil)
+            case "buyer":
+                performSegue(withIdentifier: "goToCheckout", sender: nil)
+        default:
+            performSegue(withIdentifier: "toProfileSegue", sender: self)
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
