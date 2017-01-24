@@ -19,6 +19,7 @@ class OnBoardViewController3: UIViewController {
     }
     
     
+    @IBOutlet weak var goNext: UIButton!
     
     @IBOutlet weak var textField: UITextView!
     
@@ -60,11 +61,12 @@ class OnBoardViewController3: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
+        
         textField.text = "Please tell us about you and your artistism"
         textField.textColor = UIColor.lightGray
         
-//        view.backgroundColor = UIColor.red
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

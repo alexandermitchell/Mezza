@@ -21,6 +21,7 @@ class OnBoardViewController1: UIViewController {
     
     @IBAction func goNext(_ sender: Any) {
         
+        
                 if nameField.text == "" && locationField.text != "" {
 
                     alert(message: "Please enter a valid name", title: "Invalid Name")
@@ -83,9 +84,9 @@ class OnBoardViewController1: UIViewController {
             nameField.text = user!.name
         }
         
-//        goNext.layer.cornerRadius = goNext.frame.size.width / 2
-//        goNext.clipsToBounds = true
-        
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
+    
 //        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }

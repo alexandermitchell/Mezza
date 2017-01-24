@@ -26,6 +26,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var goNext: UIButton!
     
     @IBOutlet weak var uploadPhotoLabel: UILabel!
     
@@ -75,6 +76,10 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
+//        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+//        profileImageView.clipsToBounds = true
 //
 //        var pictureUploaded = false
         
