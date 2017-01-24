@@ -80,6 +80,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
     var sizesArray = [String]()
     var selectedSize: String?
     var selectedPrice: String?
+    var mainImage = UIImage()
     
     
     
@@ -206,6 +207,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
         let sellerUID = selectedItem!.sellerUID
         DataModel.shared.fetchUser(UID: sellerUID) { seller in
             self.artistNameLabel.text = seller.name
+            self.currentSeller = seller
         }
         
         
@@ -235,6 +237,7 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             // set rest of page info
             self.productTitleLabel.text = self.selectedItem?.title
             self.itemDescriptionTextView.text = self.selectedItem?.description
+            self.mainImage = imagesArray[0]
         }
     }
     
@@ -251,6 +254,10 @@ class FeedItemDetailsViewController: UIViewController, PopUpDelegate {
             checkoutVC.checkoutItem = selectedItem
             checkoutVC.checkoutItemSize = selectedSize
             checkoutVC.checkoutItemPrice = selectedPrice
+            checkoutVC.checkoutImage = mainImage
+            checkoutVC.seller = currentSeller
+            
+            
             
         }
 

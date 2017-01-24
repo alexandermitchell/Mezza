@@ -92,6 +92,7 @@ class OrderDetailsViewController: UIViewController, OrderStatusPopUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         priceLabel.text = "$\(currentOrder!.price)"
         if userType == "buyer" {
             buyerSellerLabel.text = "Seller:"

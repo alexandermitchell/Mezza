@@ -75,6 +75,8 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
 //
 //        var pictureUploaded = false
         

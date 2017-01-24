@@ -77,6 +77,8 @@ class OnBoardViewController1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         
 //        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.

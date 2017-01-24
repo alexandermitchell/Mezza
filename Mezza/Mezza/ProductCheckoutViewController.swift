@@ -24,6 +24,14 @@ class ProductCheckoutViewController: UIViewController {
     
     @IBOutlet weak var orderBtn: UIButton!
     
+    @IBOutlet weak var tintView: UIView!
+    
+    
+    @IBOutlet weak var frontImageView: UIImageView!
+    
+    
+    
+    
     
     // MARK: Local Variables --------------------------------------------------
     
@@ -32,6 +40,8 @@ class ProductCheckoutViewController: UIViewController {
     var checkoutItemSize: String?
     var checkoutItemPrice: String?
     var currentDate = Date()
+    var checkoutImage = UIImage()
+    
     
     
     // MARK: IBActions -----------------------------------------------------
@@ -53,18 +63,25 @@ class ProductCheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let exampleColor = UIColor(r: 0, g: 46, b: 53)
+        tintView.backgroundColor = exampleColor.withAlphaComponent(0.9)
+        
+        orderBtn.layer.cornerRadius = 25
+        
         DataModel.shared.cartItem = checkoutItem
         
         // MARK: Fetch User and Product Image
         
-        DataModel.shared.fetchUser(UID: checkoutItem!.sellerUID) { (user) in
-            self.seller = user
-            self.artistLabel.text = user.name
-        }
+//        DataModel.shared.fetchUser(UID: checkoutItem!.sellerUID) { (user) in
+//            self.seller = user
+//            self.artistLabel.text = user.name
+//        }
+//
+//        DataModel.shared.fetchImage(stringURL: checkoutItem!.images[0]) { (image) in
+//            self.imageOutlet.image = image
+//            self.frontImageView.image = image
+//        }
         
-        DataModel.shared.fetchImage(stringURL: checkoutItem!.images[0]) { (image) in
-            self.imageOutlet.image = image
-        }
         
         // MARK: Outlet text and style
         
@@ -72,6 +89,10 @@ class ProductCheckoutViewController: UIViewController {
         self.priceLabel.text = checkoutItemPrice
         self.sizeLabel.text = checkoutItemSize
         self.orderBtn.layer.cornerRadius = 10
+        self.orderBtn.setTitle("Pay \(checkoutItemPrice!)", for: .normal)
+        self.artistLabel.text = seller?.name
+        self.frontImageView.image = checkoutImage
+        self.imageOutlet.image = checkoutImage
         
     }
     

@@ -304,6 +304,7 @@ class ProductUploadViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
 
         
         loadTextViewPlaceHolder()
