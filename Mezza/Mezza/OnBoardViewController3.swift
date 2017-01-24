@@ -50,10 +50,18 @@ class OnBoardViewController3: UIViewController {
         
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        textField.text = ""
+        textField.textColor = UIColor.blue
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textField.text = "Please tell us about you and your artistism"
+        textField.textColor = UIColor.lightGray
         
 //        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
