@@ -17,14 +17,16 @@ class OnBoardViewController1: UIViewController {
     
     @IBOutlet weak var locationField: UITextField!
     
+    @IBOutlet weak var goNext: UIButton!
     
     @IBAction func goNext(_ sender: Any) {
         
-                if nameField.text == "" && locationField.text != "" {
         
+                if nameField.text == "" && locationField.text != "" {
+
                     alert(message: "Please enter a valid name", title: "Invalid Name")
                 }
-        
+
                 if locationField.text == "" && nameField.text == "'" {
         
                     alert(message: "Please enter a valid text", title: "Invalid Location")
@@ -39,10 +41,10 @@ class OnBoardViewController1: UIViewController {
                 else {
         
                     let user = DataModel.shared.loggedInUser
-                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+                    let ref  = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
 //                    let ref = FIRDatabase.database().reference(withPath: "users/uid")
                     
-                    DataModel.shared.loggedInUser?.name = nameField.text!
+//                    DataModel.shared.loggedInUser?.name = nameField.text!
                     DataModel.shared.loggedInUser?.location = locationField.text!
                     
                     
@@ -78,8 +80,14 @@ class OnBoardViewController1: UIViewController {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+        let user = DataModel.shared.loggedInUser
+        if user!.name != "" {
+            nameField.text = user!.name
+        }
         
-        
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
+    
 //        view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
     }

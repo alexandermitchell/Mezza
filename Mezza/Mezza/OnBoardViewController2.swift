@@ -26,6 +26,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
     
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var goNext: UIButton!
     
     @IBOutlet weak var uploadPhotoLabel: UILabel!
     
@@ -56,7 +57,7 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
             let imageURL = snapshot.metadata?.downloadURL()?.absoluteString
             
             let user = DataModel.shared.loggedInUser
-            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
             
 //            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             let avatarRef = ref.child("avatar")
@@ -77,6 +78,10 @@ class OnBoardViewController2: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
+//        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+//        profileImageView.clipsToBounds = true
 //
 //        var pictureUploaded = false
         

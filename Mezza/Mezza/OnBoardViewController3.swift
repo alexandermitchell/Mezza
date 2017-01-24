@@ -19,6 +19,7 @@ class OnBoardViewController3: UIViewController {
     }
     
     
+    @IBOutlet weak var goNext: UIButton!
     
     @IBOutlet weak var textField: UITextView!
     
@@ -33,7 +34,7 @@ class OnBoardViewController3: UIViewController {
         else {
            
             let user = DataModel.shared.loggedInUser
-            let ref  = FIRDatabase.database().reference(withPath: "users/\(user?.uid)")
+            let ref  = FIRDatabase.database().reference(withPath: "users/\(user!.uid)")
             
 //            let ref = FIRDatabase.database().reference(withPath: "users/uid")
             
@@ -50,15 +51,24 @@ class OnBoardViewController3: UIViewController {
         
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        textField.text = ""
+        textField.textColor = UIColor.blue
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
 
+        goNext.layer.cornerRadius = goNext.frame.size.width / 2
+        goNext.clipsToBounds = true
         
-//        view.backgroundColor = UIColor.red
-        // Do any additional setup after loading the view.
+        textField.text = "Please tell us about you and your artistism"
+        textField.textColor = UIColor.black
+        
     }
 
     override func didReceiveMemoryWarning() {

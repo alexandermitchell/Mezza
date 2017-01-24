@@ -24,12 +24,15 @@ class LoginVC: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-        view.backgroundColor = UIColor(r: 0, g: 46, b: 53)
+        view.backgroundColor = UIColor(r: 255, g: 255, b: 255)
+
+        
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(skipRegisterButton)
         view.addSubview(loginRegisterSegmentedControl)
         view.addSubview(vendorBuyerSegmentedControl)
+        view.addSubview(loginImageView)
         
         
         setupInputsContainter()
@@ -37,6 +40,7 @@ class LoginVC: UIViewController {
         setupSkipRegisterButton()
         setupLoginRegisterSegmentedControl()
         setupVendorBuyerSegmentedControl()
+        setupLoginImageView()
         
     }
     
@@ -53,10 +57,10 @@ class LoginVC: UIViewController {
     // MARK: Register Button
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.white
+        button.backgroundColor = UIColor(r: 0, g: 46, b: 53)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor(r: 0, g: 113, b: 128), for: .normal)
+        button.setTitleColor(UIColor(r: 255, g: 255, b: 255), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 10
         
@@ -69,10 +73,10 @@ class LoginVC: UIViewController {
     // MARK: Skip Button
     lazy var skipRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.white
+        button.backgroundColor = UIColor(r: 0, g: 46, b: 53)
         button.setTitle("Skip Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor(r: 0, g: 113, b: 128), for: .normal)
+        button.setTitleColor(UIColor(r: 255, g: 255, b: 255), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.layer.cornerRadius = 10
         let nonUser = User(uid: "", avatar: "", email: "", name: "", location: "", bio: "", purchases: [""], type: .unregistered)
@@ -224,6 +228,15 @@ class LoginVC: UIViewController {
         })
     }
     
+    lazy var loginImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "icon")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
     
     //MARK: Name Text Field
     let nameTextField: UITextField = {
@@ -275,7 +288,7 @@ class LoginVC: UIViewController {
     lazy var vendorBuyerSegmentedControl: UISegmentedControl = {
         let vbSC = UISegmentedControl(items: ["Seller", "Buyer"])
         vbSC.translatesAutoresizingMaskIntoConstraints = false
-        vbSC.tintColor = UIColor.white
+        vbSC.tintColor = UIColor(r: 0, g: 113, b: 128)
         vbSC.selectedSegmentIndex = 1
         vbSC.addTarget(self, action: #selector(handleVendorBuyerRegister), for: .valueChanged)
         vbSC.layer.cornerRadius = 10
@@ -291,12 +304,23 @@ class LoginVC: UIViewController {
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.white
+        sc.tintColor = UIColor(r: 0, g: 113, b: 128)
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         sc.layer.cornerRadius = 10
         return sc
     }()
+    
+    
+    func setupLoginImageView() {
+        
+        loginImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -12).isActive = true
+        loginImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        loginImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    
+    }
+    
     
     // Changes the buttom from login to register depending on what is selected.
     func handleLoginRegisterChange() {
@@ -305,10 +329,13 @@ class LoginVC: UIViewController {
         
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             vendorBuyerSegmentedControl.isHidden = true
+            nameSeperatorView.isHidden = true
+            
             skipRegisterButton.isHidden = true
         } else {
             vendorBuyerSegmentedControl.isHidden = false
              skipRegisterButton.isHidden = false
+            nameSeperatorView.isHidden = false
         }
         
         
